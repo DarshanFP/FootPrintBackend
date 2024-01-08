@@ -1,6 +1,6 @@
 const Reviewer = require("../modals/Reviewer");
 const bcrypt = require("bcrypt");
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 
 const reviewerlogin = async (req, res) => {
   try {
@@ -30,7 +30,9 @@ const reviewerlogin = async (req, res) => {
         id: userData.id,
       },
     };
-    const authToken = await jwt.sign(data, process.env.JWT_SECRET);
+    const authToken = await jwt.sign(data, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
     return res.json({
       success: true,
