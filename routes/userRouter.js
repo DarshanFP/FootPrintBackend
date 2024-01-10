@@ -7,6 +7,14 @@ const applicantlogin=require('../controller/applicantLogin')
 const allReviewerOfProvince=require('../controller/allReviewerOfProvince')
 const approverSignup=require('../controller/approverSignup')
 const approverlogin=require('../controller/approverLogin')
+const reviewerVarify=require('../controller/reviewerVarify')
+const reviewerUnvarify=require('../controller/reviewerUnvarify')
+const applicantVarify=require('../controller/applicantVarify')
+const applicantUnvarify=require('../controller/applicantUnvarify')
+const allreviewer=require('../controller/allReviewer')
+const allapplicant=require('../controller/allApplicant')
+const {protectReviewer}= require('../middleware/authReviewer')
+const {protectApprover}=require('../middleware/authApprover')
 
 router.post('/reviewersignup',reviewerSignup)
 
@@ -22,6 +30,17 @@ router.get('/allreviewer/:province',allReviewerOfProvince);
 
 router.post('/approverlogin',approverlogin)
 
+router.put('/reviewervarify',protectApprover,reviewerVarify)
+
+router.put('/applicantvarify',protectReviewer,applicantVarify)
+
+router.delete('/reviewerunvarify',protectApprover,reviewerUnvarify)
+
+router.delete('/applicantunvarify',protectReviewer,applicantUnvarify)
+
+router.get('/allreviewer',protectApprover,allreviewer)
+
+router.get('/allapplicant',protectReviewer,allapplicant)
 
 
 module.exports=router
