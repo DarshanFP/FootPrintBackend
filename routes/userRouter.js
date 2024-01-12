@@ -15,6 +15,10 @@ const allreviewer=require('../controller/allReviewer')
 const allapplicant=require('../controller/allApplicant')
 const {protectReviewer}= require('../middleware/authReviewer')
 const {protectApprover}=require('../middleware/authApprover')
+const {protectApplicant}=require('../middleware/authApplicant');
+const getApplicant=require('../controller/getApplicant')
+const getReviewer=require('../controller/getReviewer')
+const getApprover=require('../controller/getApprover')
 
 router.post('/reviewersignup',reviewerSignup)
 
@@ -42,5 +46,14 @@ router.get('/allreviewer',protectApprover,allreviewer)
 
 router.get('/allapplicant',protectReviewer,allapplicant)
 
+router.get('/getapplicant',protectApplicant,getApplicant);
+
+router.get('/getreviewer',protectReviewer,getReviewer)
+
+router.get('/getapprover',protectApprover,getApprover)
+
 
 module.exports=router
+
+
+
