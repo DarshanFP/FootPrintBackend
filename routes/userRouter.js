@@ -20,6 +20,7 @@ const getApplicant=require('../controller/getApplicant')
 const getReviewer=require('../controller/getReviewer')
 const getApprover=require('../controller/getApprover')
 
+
 router.post('/reviewersignup',reviewerSignup)
 
 router.post('/reviewerlogin',reviewerlogin)
@@ -51,6 +52,8 @@ router.get('/getapplicant',protectApplicant,getApplicant);
 router.get('/getreviewer',protectReviewer,getReviewer)
 
 router.get('/getapprover',protectApprover,getApprover)
+
+
 
 
 module.exports=router
