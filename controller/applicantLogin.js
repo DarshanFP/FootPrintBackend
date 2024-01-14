@@ -30,7 +30,9 @@ const applicantlogin = async (req, res) => {
         id: userData.id,
       },
     };
-    const authToken = await jwt.sign(data, process.env.JWT_SECRET);
+    const authToken = await jwt.sign(data, process.env.JWT_SECRET,{
+      expiresIn: "1h",
+    });
 
     return res.json({
       success: true,

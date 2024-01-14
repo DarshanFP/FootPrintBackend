@@ -16,9 +16,12 @@ const allapplicant=require('../controller/allApplicant')
 const {protectReviewer}= require('../middleware/authReviewer')
 const {protectApprover}=require('../middleware/authApprover')
 const {protectApplicant}=require('../middleware/authApplicant');
+const reviewerChangePassword=require('../controller/reviewerChangePassword')
 const getApplicant=require('../controller/getApplicant')
 const getReviewer=require('../controller/getReviewer')
 const getApprover=require('../controller/getApprover')
+const approverChangePassword=require('../controller/approverChangePassword')
+const applicantChangePassword=require('../controller/applicantChangepassword')
 
 
 router.post('/reviewersignup',reviewerSignup)
@@ -52,6 +55,12 @@ router.get('/getapplicant',protectApplicant,getApplicant);
 router.get('/getreviewer',protectReviewer,getReviewer)
 
 router.get('/getapprover',protectApprover,getApprover)
+
+router.put('/changepasswordreviewer',protectReviewer,reviewerChangePassword)
+
+router.put('/changepasswordapprover',protectApprover,approverChangePassword)
+
+router.put('/changepasswordapplicant',protectApplicant,applicantChangePassword)
 
 
 

@@ -7,11 +7,6 @@ const createHOI = async (req, res) => {
     } catch (error) {
       return res.status(400).json({ success: false, message: error.message });
     }
-//    console.log(req.user)
-
-
-
-
 
     let projectCode = 0;
     const currentDate = new Date();
@@ -47,9 +42,7 @@ const createHOI = async (req, res) => {
       request_letter_img,
       treatment_record_img,
       benificary_agree,
-      project_coordinator_agree,
-    amount_approved_project_coordinator
-
+      provincial_in_charge_agree,
     } = req.body;
     const projectExists = await HOI.findOne({ aadhar_no });
     if (projectExists) {
@@ -61,13 +54,13 @@ const createHOI = async (req, res) => {
       projectCode = `HI${currentYear}0`;
     } else {
       projectCode = `HI${currentYear}${
-        parseInt(allHOI[allHOI.length - 1].project_code.slice(-1))+1
+        parseInt(allHOI[allHOI.length - 1].project_code.slice(-1)) + 1
       }`;
     }
     await HOI.create({
       project_code: projectCode,
-      applicant:req.user,
-      reviewer:req.user.reviewer,
+      applicant: req.user,
+      reviewer: req.user.reviewer,
       illness_nature,
       photograph_benificary,
       name,
@@ -98,13 +91,9 @@ const createHOI = async (req, res) => {
       request_letter_img,
       treatment_record_img,
       benificary_agree,
-      project_coordinator_agree,
-      amount_approved_project_coordinator,
-
+      provincial_in_charge_agree
     });
-    res.json({success:true});
-
-
+    res.json({ success: true });
   } catch (error) {
     console.log(error);
     res.json({ success: false });

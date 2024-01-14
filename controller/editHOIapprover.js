@@ -4,13 +4,15 @@ const editHOIapprover = async (req, res) => {
   try {
     const {
       projectID,
-      comment_box_provincial_superior,
-      provincial_superior_agree,
+      comment_box_provincial_coordinator,
+      project_coordinator_agree,
+      amount_approved_project_coordinator
     } = req.body;
     if (
       !projectID ||
-      !comment_box_provincial_superior||
-      provincial_superior_agree === undefined
+      !comment_box_provincial_coordinator||
+      !amount_approved_project_coordinator||
+      project_coordinator_agree === undefined
     ) {
       return res.json({ success: false, msg: "send all fields" });
     }
@@ -18,9 +20,10 @@ const editHOIapprover = async (req, res) => {
     const editedHOI = await HOI.findByIdAndUpdate(
       projectID,
       {
-        comment_box_provisional_superior: comment_box_provincial_superior,
+        comment_box_provisional_coordinator: comment_box_provincial_coordinator,
 
-        provincial_superior_agree: provincial_superior_agree,
+        project_coordinator_agree: project_coordinator_agree,
+        amount_approved_project_coordinator:amount_approved_project_coordinator
       },
       { new: true }
     );
