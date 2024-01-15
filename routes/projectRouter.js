@@ -6,11 +6,25 @@ const {protectReviewer}= require('../middleware/authReviewer')
 const {protectApprover}=require('../middleware/authApprover')
 const editHOIreviewer=require('../controller/editHOIreviewer');
 const editHOIapprover = require('../controller/editHOIapprover');
+const createEOI=require('../controller/createEOI');
+const editEOIreviewer=require('../controller/editEOIreviewer');
+const editEOIapprover=require('../controller/editEOIapprover')
+
+
 
 router.post('/createHOI',protectApplicant,createHOI);
 
-router.put('/editreviewer',protectReviewer,editHOIreviewer)
+router.post('/createEOI',protectApplicant,createEOI)
 
-router.put('/editapprover',protectApprover,editHOIapprover)
+router.put('/editreviewerHOI',protectReviewer,editHOIreviewer)
+
+router.put('/editapproverHOI',protectApprover,editHOIapprover)
+
+router.put('/editreviewerEOI',protectReviewer,editEOIreviewer)
+
+
+router.put('/editapproverEOI',protectApprover,editEOIapprover)
+
+
 
 module.exports=router
