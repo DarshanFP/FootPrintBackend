@@ -59,6 +59,8 @@ router.put("/changepasswordreviewer", protectReviewer, reviewerChangePassword);
 
 router.put("/changepasswordapprover", protectApprover, approverChangePassword);
 
+
+
 router.put(
   "/changepasswordapplicant",
   protectApplicant,

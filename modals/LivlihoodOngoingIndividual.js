@@ -1,0 +1,169 @@
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const LivlihoodOngoingIndividual=new Schema({
+    project_code: { type: String, required: true, unique: true },
+    self_employment_nature:{
+        type:String,
+        required:true
+    },
+    applicant: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Applicant",
+        required: true,
+      },
+      reviewer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Reviewer",
+        required: true,
+      },
+      photograph_benificary: {
+        type: String,
+        required: true,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      mobile: {
+        type: Number,
+        required: true,
+      },
+      email: {
+        type: String,
+        required: true,
+      },
+    
+      address: {
+        type: String,
+        required: true,
+      },
+      aadhar_no: {
+        type: Number,
+        required: true,
+      },
+      gender: {
+        type: String,
+        required: true,
+        enum: ["male", "female"],
+      },
+      DOB: {
+        type: String,
+        required: true,
+      },
+      married:{
+        type:Boolean,
+        default:false
+      },
+      spouse_name:{
+        type:String,
+        default:null
+      },
+      no_of_children:{
+        type:Number,
+        default:0
+      },
+      children_education:{
+        type:String,
+        default:null
+      },
+      religion: {
+        type: String,
+        required: true,
+      },
+      caste: {
+        type: String,
+        required: true,
+      },
+      present_family_situation:{
+            type:String,
+            required:true
+      },
+      Project_amount_already_received:{
+        type:Number,
+        required:true
+      },
+      impact_created_in_the_ife_of_the_beneficiary:{
+        type:String,
+        required:true
+      },
+      Average_revenue_generated_previous_year:{
+        type:Number,
+        required:true
+      },
+      how_the_income_invested:{
+        type:String,
+        required:true
+      },
+      strengths_of_business_activity_in_the_previous_year:{
+        type:String,
+        required:true
+      },
+      weaknesses_of_business_activity_in_the_previous_year:{
+        type:String,
+        required:true
+      },
+      about_risks:{
+        type:String,
+        required:true
+      },
+      plans_of_the_business_expansion:{
+        type:String,
+        required:true
+      },
+      aadhar_img: {
+        type: String,
+        required: true,
+      },
+      request_letter_img: {
+        type: String,
+        required: true,
+      },
+      quotations_regarding_the_purchase_img:{
+        type: String,
+        required: true,
+      },
+     other_supporting_documents:{
+        type: String,
+        required: true,
+     },
+
+
+
+
+
+      benificary_agree: {
+        type: Boolean,
+        dafault: false,
+        date: Date,
+      },
+      project_coordinator_agree: {
+        type: Boolean,
+        default: false,
+        date: Date,
+      },
+      provincial_in_charge_agree: {
+        type: Boolean,
+        default: false,
+        date: Date,
+      },
+      provincial_superior_agree: {
+        type: Boolean,
+        default: false,
+        date: Date,
+      },
+      comment_box_provisional_superior: {
+        type: String,
+        default: null,
+        date: Date,
+      },
+      comment_box_provisional_coordinator: {
+        type: String,
+        default: null,
+        date: Date,
+      },
+
+
+
+    })
+module.exports=mongoose.model("LOI",LivlihoodOngoingIndividual)
