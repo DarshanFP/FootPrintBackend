@@ -1,4 +1,13 @@
 const Joi = require('joi');
+
+const Budget_costSchema = Joi.object({
+  budget: Joi.number().required(),
+  cost: Joi.number().required(),
+
+});
+
+
+
 const LivlihoodOngoingIndividualValidate=Joi.object({
     self_employment_nature: Joi.string().required(),
     photograph_benificary: Joi.string().required(),
@@ -36,11 +45,16 @@ const LivlihoodOngoingIndividualValidate=Joi.object({
     weaknesses_of_business_activity_in_the_previous_year: Joi.string().required(),
     about_risks: Joi.string().required(),
     plans_of_the_business_expansion: Joi.string().required(),
+
+    budget_cost_table:Joi.array().items(Budget_costSchema),
+    total_amount_cost:Joi.number().required(),
+    beneficiaries_contribution:Joi.number().required(),
+    amount_requested:Joi.number().required(),
+
     aadhar_img: Joi.string().required(),
     request_letter_img: Joi.string().required(),
     quotations_regarding_the_purchase_img: Joi.string().required(),
     other_supporting_documents: Joi.string().required(),
-
     benificary_agree: Joi.boolean().default(false),
     project_coordinator_agree: Joi.boolean().default(false),
     provincial_in_charge_agree: Joi.boolean().default(false),

@@ -36,6 +36,11 @@ const createLOI = async (req, res) => {
       weaknesses_of_business_activity_in_the_previous_year,
       about_risks,
       plans_of_the_business_expansion,
+      budget_cost_table,
+      total_amount_cost,
+      beneficiaries_contribution,
+      amount_requested,
+
       aadhar_img,
       request_letter_img,
       quotations_regarding_the_purchase_img,
@@ -89,6 +94,13 @@ const createLOI = async (req, res) => {
       about_risks,
       plans_of_the_business_expansion,
       aadhar_img,
+      budget_cost_table,
+      total_amount_cost,
+      beneficiaries_contribution,
+      amount_requested,
+
+
+
       request_letter_img,
       quotations_regarding_the_purchase_img,
       other_supporting_documents,

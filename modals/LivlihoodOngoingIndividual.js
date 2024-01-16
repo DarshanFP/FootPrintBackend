@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const Budget_cost = new Schema({
+  budget: { type: Number, required: true },
+   cost: { type: Number, required: true },
+});
+
 const LivlihoodOngoingIndividual=new Schema({
     project_code: { type: String, required: true, unique: true },
     self_employment_nature:{
@@ -111,6 +116,23 @@ const LivlihoodOngoingIndividual=new Schema({
         type:String,
         required:true
       },
+
+      budget_cost_table:[Budget_cost],
+
+      total_amount_cost:{
+        type:Number,
+        required:true
+      },
+      beneficiaries_contribution:{
+        type:Number,
+        required:true
+      },
+      amount_requested:{
+        type:Number,
+        required:true
+      },
+
+
       aadhar_img: {
         type: String,
         required: true,
