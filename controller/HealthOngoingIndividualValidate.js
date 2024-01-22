@@ -48,12 +48,13 @@ const EarningMembersSchema = Joi.object({
     aadhar_img: Joi.string().required(),
     request_letter_img: Joi.string().required(),
     treatment_record_img: Joi.string().required(),
+    other_supporting_docs_img: Joi.string(),
     benificary_agree: Joi.boolean().required(),
     project_coordinator_agree: Joi.boolean().default(false),
     provincial_in_charge_agree: Joi.boolean().default(false),
     provincial_superior_agree: Joi.boolean().default(false),
-    comment_box_provincial_superior: Joi.boolean().default(false),
-    comment_box_provincial_coordinator: Joi.boolean().default(false),
+    comment_box_provincial_superior: Joi.string(),
+    comment_box_provincial_coordinator: Joi.string(),
     amount_approved_project_coordinator: Joi.number().default(0),
   });
   module.exports=HealthOngoingIndividualValidate;

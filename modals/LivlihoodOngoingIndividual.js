@@ -57,8 +57,8 @@ const LivlihoodOngoingIndividual=new Schema({
         required: true,
       },
       married:{
-        type:Boolean,
-        default:false
+        type:String,
+        default:null
       },
       spouse_name:{
         type:String,

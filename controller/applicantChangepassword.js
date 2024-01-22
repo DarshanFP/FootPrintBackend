@@ -2,6 +2,7 @@ const Applicant = require("../modals/Applicant");
 const bcrypt = require("bcrypt");
 
 const applicantChangePassword = async (req, res) => {
+    console.log(req , res);
     try {
         const { newpassword } = req.body;
         if (!newpassword) {
