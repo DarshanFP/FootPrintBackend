@@ -1,10 +1,12 @@
 const HOI = require("../modals/HealthOngoingIndividual");
 const HealthOngoingIndividualValidate = require("../controller/HealthOngoingIndividualValidate");
 const createHOI = async (req, res) => {
+  console.log("Create HOI");
   try {
     try {
       await HealthOngoingIndividualValidate.validateAsync(req.body);
     } catch (error) {
+      console.log(error);
       return res.status(400).json({ success: false, message: error.message });
     }
 
@@ -19,7 +21,7 @@ const createHOI = async (req, res) => {
       address,
       aadhar_no,
       gender,
-      email,
+      email, 
       DOB,
       mobile,
       father,
@@ -43,6 +45,7 @@ const createHOI = async (req, res) => {
       treatment_record_img,
       benificary_agree,
       provincial_in_charge_agree,
+      other_supporting_docs_img,
     } = req.body;
     const projectExists = await HOI.findOne({ aadhar_no });
     if (projectExists) {
@@ -90,8 +93,9 @@ const createHOI = async (req, res) => {
       aadhar_img,
       request_letter_img,
       treatment_record_img,
+      other_supporting_docs_img,
       benificary_agree,
-      provincial_in_charge_agree
+      provincial_in_charge_agree,
     });
     res.json({ success: true });
   } catch (error) {

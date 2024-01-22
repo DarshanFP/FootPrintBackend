@@ -132,6 +132,10 @@ const HealthOngoingIndividual = new Schema({
     type: String,
     required: true,
   },
+  other_suppoorting_docs_img: {
+    type: String,
+    required: false,
+  },
   benificary_agree: {
     type: Boolean,
     dafault: false,

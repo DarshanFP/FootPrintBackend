@@ -22,45 +22,44 @@ const getReviewer = require("../controller/getReviewer");
 const getApprover = require("../controller/getApprover");
 const approverChangePassword = require("../controller/approverChangePassword");
 const applicantChangePassword = require("../controller/applicantChangepassword");
-
+// done
 router.post("/reviewersignup", reviewerSignup);
-
+// done
 router.post("/reviewerlogin", reviewerlogin);
-
+// done
 router.post("/applicantsignup", applicantSignup);
-
+// done
 router.post("/applicantlogin", applicantlogin);
-
+// done
 router.post("/approversignup", approverSignup);
-
+// done
 router.get("/allreviewer/:province", allReviewerOfProvince);
-
+//done
 router.post("/approverlogin", approverlogin);
-
+// done
 router.put("/reviewervarify", protectApprover, reviewerVarify);
-
+// done
 router.put("/applicantvarify", protectReviewer, applicantVarify);
-
+//done
 router.delete("/reviewerunvarify", protectApprover, reviewerUnvarify);
-
+// done
 router.delete("/applicantunvarify", protectReviewer, applicantUnvarify);
-
+// done
 router.get("/allreviewer", protectApprover, allreviewer);
-
+// done
 router.get("/allapplicant", protectReviewer, allapplicant);
-
+// done
 router.get("/getapplicant", protectApplicant, getApplicant);
-
+//done
 router.get("/getreviewer", protectReviewer, getReviewer);
-
+//done
 router.get("/getapprover", protectApprover, getApprover);
-
+// done
 router.put("/changepasswordreviewer", protectReviewer, reviewerChangePassword);
-
+// done
 router.put("/changepasswordapprover", protectApprover, approverChangePassword);
 
-
-
+// done
 router.put(
   "/changepasswordapplicant",
   protectApplicant,

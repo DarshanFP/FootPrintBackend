@@ -30,7 +30,7 @@ const LivlihoodOngoingIndividualValidate=Joi.object({
       }),
     gender: Joi.string().valid("male", "female").required(),
     DOB: Joi.string().required(),
-    married: Joi.boolean().default(false),
+    married: Joi.string(),
     spouse_name: Joi.string().allow(null),
     no_of_children: Joi.number().default(0),
     children_education: Joi.string().allow(null),
