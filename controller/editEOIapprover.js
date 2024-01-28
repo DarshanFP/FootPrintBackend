@@ -4,13 +4,13 @@ const editEOIapprover = async (req, res) => {
   try {
     const {
       projectID,
-      comment_box_provincial_coordinator,
+      comment_box_project_coordinator,
       project_coordinator_agree,
       amount_approved_project_coordinator
     } = req.body;
     if (
       !projectID ||
-      !comment_box_provincial_coordinator||
+      !comment_box_project_coordinator||
       !amount_approved_project_coordinator||
       project_coordinator_agree === undefined
     ) {
@@ -20,9 +20,8 @@ const editEOIapprover = async (req, res) => {
     const editedEOI = await EOI.findByIdAndUpdate(
       projectID,
       {
-        comment_box_provisional_coordinator: comment_box_provincial_coordinator,
-
-        project_coordinator_agree: project_coordinator_agree,
+        comment_box_project_coordinator: comment_box_project_coordinator,
+        project_coordinator_agree: {...project_coordinator_agree , date: Date.now},
         amount_approved_project_coordinator:amount_approved_project_coordinator
       },
       { new: true }

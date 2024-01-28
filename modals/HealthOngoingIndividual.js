@@ -6,7 +6,6 @@ const Earning_members = new Schema({
   nature_of_work: { type: String, required: true },
   monthly_income: { type: String, required: true },
 });
-
 const HealthOngoingIndividual = new Schema({
   project_code: { type: String, required: true, unique: true },
   illness_nature: { type: String, required: true },
@@ -132,39 +131,48 @@ const HealthOngoingIndividual = new Schema({
     type: String,
     required: true,
   },
-  other_suppoorting_docs_img: {
+  other_supporting_docs_img: {
     type: String,
-    required: false,
+    required: true,
   },
   benificary_agree: {
-    type: Boolean,
-    dafault: false,
-    date: Date,
+    agree: { type: Boolean, dafault: false },
+    date: {
+      type: Date,
+      default: Date.now,
+    },
   },
+  // agree_syntax_changed
   project_coordinator_agree: {
-    type: Boolean,
-    default: false,
-    date: Date,
+    agree: { type: Boolean, default: false },
+    date: {
+      type: Date,
+      default: Date.now,
+    },
   },
-  provincial_in_charge_agree: {
-    type: Boolean,
-    default: false,
-    date: Date,
+  // agree_sytanx_changed 
+  project_in_charge_agree: {
+    agree: { type: Boolean, default: false },
+    date: {
+      type: Date,
+      default: Date.now,
+    },
   },
+  //agree_syntax_changed
   provincial_superior_agree: {
-    type: Boolean,
-    default: false,
-    date: Date,
+    agree: { type: Boolean, default: false },
+    date: {
+      type: Date,
+      default: Date.now,
+    },
   },
-  comment_box_provisional_superior: {
+  comment_box_provincial_superior: {
     type: String,
     default: null,
-    date: Date,
   },
-  comment_box_provisional_coordinator: {
+  comment_box_project_coordinator: {
     type: String,
     default: null,
-    date: Date,
   },
   amount_approved_project_coordinator: {
     type: Number,

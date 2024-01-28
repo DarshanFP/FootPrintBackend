@@ -44,10 +44,14 @@ const createHOI = async (req, res) => {
       request_letter_img,
       treatment_record_img,
       benificary_agree,
-      provincial_in_charge_agree,
+      project_in_charge_agree,
       other_supporting_docs_img,
     } = req.body;
     const projectExists = await HOI.findOne({ aadhar_no });
+    
+    benificary_agree = {...benificary_agree , date: Date.now};
+    project_in_charge_agree = {...project_in_agree , date: Date.now};
+
     if (projectExists) {
       return res.json({ success: false, msg: "This aadhar number exists" });
     }
@@ -95,7 +99,7 @@ const createHOI = async (req, res) => {
       treatment_record_img,
       other_supporting_docs_img,
       benificary_agree,
-      provincial_in_charge_agree,
+      project_in_charge_agree,
     });
     res.json({ success: true });
   } catch (error) {

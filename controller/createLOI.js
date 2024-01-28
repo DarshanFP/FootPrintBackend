@@ -49,7 +49,7 @@ const createLOI = async (req, res) => {
 
       benificary_agree,
 
-      provincial_in_charge_agree,
+      project_in_charge_agree,
     } = req.body;
 
     const projectExists = await LOI.findOne({ aadhar_no });
@@ -108,7 +108,7 @@ const createLOI = async (req, res) => {
 
       benificary_agree,
 
-      provincial_in_charge_agree,
+      project_in_charge_agree,
     })
 
     res.json({ success: true });

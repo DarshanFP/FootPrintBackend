@@ -75,6 +75,10 @@ const EducationOngoingIndividual = new Schema({
     type: Number,
     required: true,
   },
+  monthly_income_of_mother: {
+    type: Number,
+    required: true,
+  },
   occupation_of_mother: {
     type: String,
     required: true,
@@ -110,6 +114,10 @@ const EducationOngoingIndividual = new Schema({
       "Others",
     ],
   },
+  health_status_of_father_others: {
+    type: String,
+    default: null,
+  },
   health_status_of_mother: {
     type: String,
     required: true,
@@ -121,10 +129,18 @@ const EducationOngoingIndividual = new Schema({
       "Others",
     ],
   },
+  health_status_of_mother_others: {
+    type: String,
+    default: null,
+  },
   residential_status: {
     type: String,
     required: true,
-    enum: ["house owner", "land owner", "rented house", "others"],
+    enum: ["houseOwner", "landOwner", "rentedHouse", "others"],
+  },
+  residential_status_others: {
+    type: String,
+    default: null,
   },
   family_situation_of_the_beneficiary: {
     type: String,
@@ -147,7 +163,7 @@ const EducationOngoingIndividual = new Schema({
     required: true,
   },
   other_support_received_from_other_sources: {
-    type: Number,
+    type: String,
     required: true,
   },
   total_amount: {
@@ -202,39 +218,77 @@ const EducationOngoingIndividual = new Schema({
     type: String,
     required: true,
   },
+  // agree syntax changed
   benificary_agree: {
-    type: Boolean,
-    dafault: false,
-    date: Date,
+    agree: { type: Boolean, dafault: false },
+    date: {
+      type: Date,
+      default: Date.now,
+    },
   },
+  // agree_syntax_changed
   project_coordinator_agree: {
-    type: Boolean,
-    default: false,
-    date: Date,
+    agree: { type: Boolean, default: false },
+    date: {
+      type: Date,
+      default: Date.now,
+    },
   },
-  provincial_in_charge_agree: {
-    type: Boolean,
-    default: false,
-    date: Date,
+  // agree_sytanx_changed
+  project_in_charge_agree: {
+    agree: { type: Boolean, default: false },
+    date: {
+      type: Date,
+      default: Date.now,
+    },
   },
+  //agree_syntax_changed
   provincial_superior_agree: {
-    type: Boolean,
-    default: false,
-    date: Date,
+    agree: { type: Boolean, default: false },
+    date: {
+      type: Date,
+      default: Date.now,
+    },
   },
-  comment_box_provisional_superior: {
+  comment_box_provincial_superior: {
     type: String,
     default: null,
-    date: Date,
   },
-  comment_box_provisional_coordinator: {
+  comment_box_project_coordinator: {
     type: String,
     default: null,
-    date: Date,
   },
   amount_approved_project_coordinator: {
     type: Number,
     default: 0,
+  },
+  present_study: {
+    type: String,
+    required: true,
+  },
+  details_of_budget: {
+    type: String,
+    required: true,
+  },
+  total_cost_of_study: {
+    type: Number,
+    required: true,
+  },
+  scholarship_expected: {
+    type: Number,
+    required: true,
+  },
+  beneficiaries_contribution: {
+    type: Number,
+    required: true,
+  },
+  total_scholarship_contribution: {
+    type: Number,
+    required: true,
+  },
+  balance_amount_requested: {
+    type: Number,
+    required: true,
   },
 });
 module.exports = mongoose.model("EOI", EducationOngoingIndividual);

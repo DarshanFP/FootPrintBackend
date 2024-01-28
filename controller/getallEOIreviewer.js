@@ -6,7 +6,7 @@ try {
     const reviewer=req.user;
     const EOIreviewer=await EOI.find({ reviewer:reviewer}).populate('applicant')
     if(EOIreviewer.length===0){
-        return res.json({success:false, msg:'No project for this applicant'})
+        return res.json({success:false, msg:'No project for this applicant' })
     }
 
     return res.json({success:true, data:EOIreviewer})
