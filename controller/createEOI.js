@@ -5,12 +5,16 @@ const createEOI = async (req, res) => {
     try {
       await EducationOngoingIndividualValidate.validateAsync(req.body);
     } catch (error) {
+      console.log(error);
       return res.status(400).json({ success: false, message: error.message });
     }
     let projectCode = 0;
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
     const {
+      health_status_of_father_others,
+      health_status_of_mother_others,
+      residential_status_others,
       photograph_benificary,
       name,
       mobile,
@@ -26,6 +30,7 @@ const createEOI = async (req, res) => {
       caste,
       occupation_of_father,
       monthly_income_of_father,
+      monthly_income_of_mother,
       occupation_of_mother,
       motherIs,
       fatherIs,
@@ -54,9 +59,19 @@ const createEOI = async (req, res) => {
       death_certificate_img,
       mark_list_of_previous_year,
       benificary_agree,
-      provincial_in_charge_agree,
+      project_in_charge_agree,
+      present_study,
+      details_of_budget,
+      total_cost_of_study,
+      scholarship_expected,
+      beneficiaries_contribution,
+      total_scholarship_contribution,
+      balance_amount_requested,
     } = req.body;
 
+    benificary_agree = {...benificary_agree , date: Date.now};
+    project_in_charge_agree = {...project_in_agree , date: Date.now};
+    
     const projectExists = await EOI.findOne({ aadhar_no });
     if (projectExists) {
       return res.json({ success: false, msg: "This aadhar number exists" });
@@ -72,6 +87,7 @@ const createEOI = async (req, res) => {
       }`;
     }
 
+    // creation fo the data fields
     await EOI.create({
       project_code: projectCode,
       applicant: req.user,
@@ -91,14 +107,18 @@ const createEOI = async (req, res) => {
       caste,
       occupation_of_father,
       monthly_income_of_father,
+      monthly_income_of_mother,
       occupation_of_mother,
       motherIs,
       fatherIs,
       grandmother_support,
       grandfather_support,
       health_status_of_father,
+      health_status_of_father_others,
       health_status_of_mother,
+      health_status_of_mother_others,
       residential_status,
+      residential_status_others,
       family_situation_of_the_beneficiary,
       extra_curricular_activities_participated,
       nature_of_personality_growth_visible,
@@ -119,7 +139,14 @@ const createEOI = async (req, res) => {
       death_certificate_img,
       mark_list_of_previous_year,
       benificary_agree,
-      provincial_in_charge_agree,
+      project_in_charge_agree,
+      present_study,
+      details_of_budget,
+      total_cost_of_study,
+      scholarship_expected,
+      beneficiaries_contribution,
+      total_scholarship_contribution,
+      balance_amount_requested,
     });
     res.json({ success: true });
   } catch (error) {

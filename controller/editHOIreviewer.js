@@ -18,8 +18,8 @@ const editHOIreviewer = async (req, res) => {
     const editedHOI = await HOI.findByIdAndUpdate(
       projectID,
       {
-        comment_box_provisional_superior: comment_box_provincial_superior,
-        provincial_superior_agree: provincial_superior_agree,
+        comment_box_provincial_superior: comment_box_provincial_superior,
+        provincial_superior_agree: {...provincial_superior_agree , date: Date.now},
       },
       { new: true }
     );

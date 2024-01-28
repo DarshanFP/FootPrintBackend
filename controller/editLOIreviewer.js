@@ -18,7 +18,7 @@ const editLOIreviewer = async (req, res) => {
     const editedLOI = await LOI.findByIdAndUpdate(
       projectID,
       {
-        comment_box_provisional_superior: comment_box_provincial_superior,
+        comment_box_provincial_superior: comment_box_provincial_superior,
         provincial_superior_agree: provincial_superior_agree,
       },
       { new: true }

@@ -10,7 +10,6 @@ try {
     }
 
     return res.json({success:true, data:HOIapplicant})
-
 } catch (error) {
     console.log(error);
     res.json({ success: false });
