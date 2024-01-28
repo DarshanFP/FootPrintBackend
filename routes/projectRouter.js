@@ -21,11 +21,18 @@ const getallLOIreviewer=require('../controller/getallLOIreviewer')
 const getallHOIapprover=require('../controller/getallHOIapprover')
 const getallEOIapprover=require('../controller/getallEOIapprover')
 const getallLOIapprover=require('../controller/getallLOIapprover')
+const createSI=require('../controller/createSI')
+const editedSIapprover=require('../controller/editSIapprover')
+const editedSIreviewer=require('../controller/editSIreviewer')
+const getallSIapplicant=require('../controller/getallSIapplicant')
+const getallSIreviewer=require('../controller/getallSIreviewer')
+const getallSIapprover=require('../controller/getallSIapprover')
 
 // done 
 router.post('/createHOI',protectApplicant,createHOI);
 router.post('/createEOI',protectApplicant,createEOI)
 router.post('/createLOI',protectApplicant,createLOI)
+router.post('/createSI',protectApplicant,createSI)
 
 
 router.put('/editreviewerHOI',protectReviewer,editHOIreviewer)
@@ -47,6 +54,11 @@ router.get('/getallLOIreviewer',protectReviewer,getallLOIreviewer)
 router.get('/getallHOIapprover',protectApprover,getallHOIapprover)
 router.get('/getallEOIapprover',protectApprover,getallEOIapprover)
 router.get('/getallLOIapprover',protectApprover,getallLOIapprover)
+router.put('/editapproverSI',protectApprover,editedSIapprover)
+router.put('/editreviewerSI',protectReviewer,editedSIreviewer)
+router.get('/getallSIapplicant',protectApplicant,getallSIapplicant)
+router.get('/getallSIreviewer',protectReviewer,getallSIreviewer)
+router.get('/getallSIapprover',protectApprover,getallSIapprover)
 
 
 
