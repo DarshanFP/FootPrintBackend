@@ -27,13 +27,15 @@ const editedSIreviewer=require('../controller/editSIreviewer')
 const getallSIapplicant=require('../controller/getallSIapplicant')
 const getallSIreviewer=require('../controller/getallSIreviewer')
 const getallSIapprover=require('../controller/getallSIapprover')
-
+const createEI=require('../controller/createEI')
+const editEIapprover=require('../controller/editEIapprover')
+const editEIreviewer=require('../controller/editEIreviewer')
 // done 
 router.post('/createHOI',protectApplicant,createHOI);
 router.post('/createEOI',protectApplicant,createEOI)
 router.post('/createLOI',protectApplicant,createLOI)
 router.post('/createSI',protectApplicant,createSI)
-
+router.post('/createEI',protectApplicant,createEI)
 
 router.put('/editreviewerHOI',protectReviewer,editHOIreviewer)
 router.put('/editapproverHOI',protectApprover,editHOIapprover)
@@ -59,6 +61,8 @@ router.put('/editreviewerSI',protectReviewer,editedSIreviewer)
 router.get('/getallSIapplicant',protectApplicant,getallSIapplicant)
 router.get('/getallSIreviewer',protectReviewer,getallSIreviewer)
 router.get('/getallSIapprover',protectApprover,getallSIapprover)
+router.put('/editapproverEI',protectApplicant,editEIapprover)
+router.put('/editreviewerEI',protectReviewer,editEIreviewer)
 
 
 

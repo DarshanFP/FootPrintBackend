@@ -80,9 +80,9 @@ const createEOI = async (req, res) => {
     const allEOI = await EOI.find({}, "project_code");
 
     if (allEOI.length === 0) {
-      projectCode = `EI${currentYear}0`;
+      projectCode = `EOI${currentYear}0`;
     } else {
-      projectCode = `EI${currentYear}${
+      projectCode = `EOI${currentYear}${
         parseInt(allEOI[allEOI.length - 1].project_code.slice(-1)) + 1
       }`;
     }
