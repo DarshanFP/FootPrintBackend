@@ -27,9 +27,13 @@ const editedSIreviewer=require('../controller/editSIreviewer')
 const getallSIapplicant=require('../controller/getallSIapplicant')
 const getallSIreviewer=require('../controller/getallSIreviewer')
 const getallSIapprover=require('../controller/getallSIapprover')
+const getallEIapprover=require('../controller/getallEIapprover')
 const createEI=require('../controller/createEI')
 const editEIapprover=require('../controller/editEIapprover')
 const editEIreviewer=require('../controller/editEIreviewer')
+const getallEIreviewer=require('../controller/getallEIreviewer')
+const getallEIapplicant=require('../controller/getallEIapplicant')
+
 // done 
 router.post('/createHOI',protectApplicant,createHOI);
 router.post('/createEOI',protectApplicant,createEOI)
@@ -64,6 +68,7 @@ router.get('/getallSIapprover',protectApprover,getallSIapprover)
 router.put('/editapproverEI',protectApplicant,editEIapprover)
 router.put('/editreviewerEI',protectReviewer,editEIreviewer)
 
-
-
+router.get('/getallEIapprover',protectApprover,getallEIapprover)
+router.get('/getallEIreviewer',protectReviewer,getallEIreviewer)
+router.get('/getallEIapplicant',protectApplicant,getallEIapplicant)
 module.exports=router
