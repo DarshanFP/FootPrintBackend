@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+
 const reviewerSignup = require("../controller/reviewerSignup");
 const reviewerlogin = require("../controller/reviewerLogin");
 const applicantSignup = require("../controller/applicantSignup");
@@ -37,6 +38,7 @@ router.get("/allreviewer/:province", allReviewerOfProvince);
 //done
 router.post("/approverlogin", approverlogin);
 // done
+// req.body{}
 router.put("/reviewervarify", protectApprover, reviewerVarify);
 // done
 router.put("/applicantvarify", protectReviewer, applicantVarify);

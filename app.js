@@ -2,12 +2,16 @@ const express = require('express');
 const connectDB = require('./db/connect')
 const userRouter=require('./routes/userRouter')
 const projectRouter=require('./routes/projectRouter')
+
 const app = express();
 const port = process.env.PORT|| 5000
+
 require('dotenv').config();
 
 
-
+// cross origin authentication 
+// localhost/3000 --- localhost5000 - api error 
+// use cross origin 
 const cors = require('cors');
 app.use(cors())
 

@@ -69,8 +69,8 @@ const createEOI = async (req, res) => {
       balance_amount_requested,
     } = req.body;
 
-    benificary_agree = {...benificary_agree , date: Date.now};
-    project_in_charge_agree = {...project_in_agree , date: Date.now};
+    benificary_agree = {...benificary_agree , date: currentDate};
+    project_in_charge_agree = {...project_in_agree , date: currentDate};
     
     const projectExists = await EOI.findOne({ aadhar_no });
     if (projectExists) {
