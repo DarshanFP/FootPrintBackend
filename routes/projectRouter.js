@@ -152,4 +152,18 @@ router.get("/getallDPLGapplicant", protectApplicant, getallDPLGapplicant);
 router.get("/getallDPLGreviewer", protectReviewer, getallDPLGreviewer);
 router.get("/getallDPLGapprover", protectApprover, getallDPLGapprover);
 
-module.exports = router;
+router.get('/getallEIapprover',protectApprover,getallEIapprover)
+router.get('/getallEIreviewer',protectReviewer,getallEIreviewer)
+router.get('/getallEIapplicant',protectApplicant,getallEIapplicant)
+router.put('/editapproverDPLG',protectApprover,editDPLGapprover)
+router.put('/editreviewerDPLG',protectReviewer,editDPLGreviewer)
+router.get('/getallDPLGapplicant',protectApplicant,getallDPLGapplicant)
+router.get('/getallDPLGreviewer',protectReviewer,getallDPLGreviewer)
+router.get('/getallDPLGapprover',protectApprover,getallDPLGapprover)
+
+router.put('/editapproverEG',protectApprover,editEGapprover)
+router.put('/editreviewerEG',protectApprover,editEGreviewer)
+router.get('/getallEGapplicant',protectApplicant,getallEGapplicant)
+router.get('/getallEGapprover',protectApplicant,getallEGapprover)
+router.get('/getallEGreviewer',protectReviewer,getallEGreviewer)
+module.exports=router
