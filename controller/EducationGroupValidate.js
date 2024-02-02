@@ -42,7 +42,9 @@ const EducationGroupValidate = Joi.object({
   beneficiariesSupported: Joi.number().required(),
   outcomeImpact: Joi.string().required(),
   goal: Joi.string().required(),
-  objectives: Joi.string().required(),
+  objectives: Joi.array().items(
+    Joi.string().required(),
+  ),
   contacts: Joi.array().items(ContactSchema),
   peopleDetails: Joi.array().items(PeopleSchema),
   targetGroupInformation: Joi.array().items(targetGroupInformationSchema),

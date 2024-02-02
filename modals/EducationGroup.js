@@ -1,13 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const ContactSchema = new Schema({
-  role: { type: String, required: true },
-  name: { type: String, required: true },
-  cellNumber: { type: String, required: true },
-  email: { type: String, required: true },
-});
-
 const PeopleSchema = new Schema({
   class: { type: Number, required: true },
   totalFemale: { type: Number, required: true },
@@ -56,8 +49,7 @@ const EducationGroupSchema = new Schema({
   beneficiariesSupported: { type: Number, required: true },
   outcomeImpact: { type: String, required: true },
   goal: { type: String, required: true },
-  objectives: { type: String, required: true },
-  contacts: [ContactSchema],
+  objectives: [{ type: String, required: true }],
   peopleDetails: [PeopleSchema],
   targetGroupInformation: [targetGroupInformationSchema],
   targetGroupStudies: [targetGroupStudiesSchema],
@@ -65,13 +57,18 @@ const EducationGroupSchema = new Schema({
   monitoringMethods: { type: String, required: true },
   evaluationProcess: { type: String, required: true },
   conclusion: { type: String, required: true },
-  project_coordinator_agree: {
+  project_coordinator_agree: [{
+    ref: mongoose.Schema.Types.ObjectId,
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
       default: Date.now,
     },
-  },
+    comment: {
+      type: String , 
+      default: null, 
+    }
+  }],
   // agree_sytanx_changed
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },
@@ -91,10 +88,7 @@ const EducationGroupSchema = new Schema({
     type: String,
     default: null,
   },
-  comment_box_project_coordinator: {
-    type: String,
-    default: null,
-  },
+  
 });
 
 module.exports = mongoose.model("EG", EducationGroupSchema);
