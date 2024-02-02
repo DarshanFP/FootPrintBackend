@@ -1,3 +1,7 @@
+const express = require("express");
+const router = express.Router();
+
+
 const createHOI = require("../controller/createHOI");
 const { protectApplicant } = require("../middleware/authApplicant");
 const { protectReviewer } = require("../middleware/authReviewer");
@@ -49,9 +53,9 @@ const getAllEGSApplicant = require("../controller/educational_group_support_sche
 const getAllEGSApprover = require("../controller/educational_group_support_schema/api/getAllEGSApprover");
 const getAllEGSReviewer = require("../controller/educational_group_support_schema/api/getAllEGSReviewer");
 const createNPDP = require("../controller/next_phase_of_development/api/createNPDP");
-const editWHFCApplicant = require('../controller/welfare_home_for_child/api/editWHFCApplicant');
-const editWHFCReviewer = require('../controller/welfare_home_for_child/api/editWHFCReviewer');
-const editWHFCApprover = require('../controller/welfare_home_for_child/api/editWHFCApprover');
+const editWHFCApplicant = require("../controller/welfare_home_for_child/api/editWHFCApplicant");
+const editWHFCReviewer = require("../controller/welfare_home_for_child/api/editWHFCReviewer");
+const editWHFCApprover = require("../controller/welfare_home_for_child/api/editWHFCApprover");
 const editNPDPApplicant = require("../controller/next_phase_of_development/api/editNPDPApplicant");
 const editNPDPApprover = require("../controller/next_phase_of_development/api/editNPDPApprover");
 const editNPDPReviewer = require("../controller/next_phase_of_development/api/editNPDPReviewer");
@@ -65,13 +69,18 @@ const editHIVReviewer = require("../controller/hiv_affected_outreach/api/editHIV
 const getAllHIVApplicant = require("../controller/hiv_affected_outreach/api/getAllHIVApplicant");
 const getAllHIVApprover = require("../controller/hiv_affected_outreach/api/getAllHIVApprover");
 const getAllHIVReviewer = require("../controller/hiv_affected_outreach/api/getAllHIVReviewer");
+const editEGapprover = require("../controller/editEGapprover");
+const editEGreviewer = require("../controller/editEGreviewer");
+const getallEGapplicant = require("../controller/getallEGapplicant");
+const getallEGapprover = require("../controller/getallEGapprover");
+const getallEGreviewer = require("../controller/getallEGreviewer");
+const createEG = require("../controller/createEG");
 
+router.post("/createEG", protectApplicant, createEG);
 router.post("/createSI", protectApplicant, createSI);
 router.post("/createEI", protectApplicant, createEI);
 router.post("/createDPLG", protectApplicant, createDPLG);
-
-
-// done
+//done
 router.post("/createHOI", protectApplicant, createHOI);
 router.post("/createEOI", protectApplicant, createEOI);
 router.post("/createLOI", protectApplicant, createLOI);
@@ -81,36 +90,35 @@ router.post("/createWHFC", protectApplicant, createWHFC);
 router.get("/getAllWHFCApplicant", protectApplicant, getAllWHFCApplicant);
 router.get("/getAllWHFCReviewer", protectReviewer, getAllWHFCReviewer);
 router.get("/getAllWHFCApprover", protectApprover, getAllWHFCApprover);
-router.put('/editWHFCApplicant' , protectApplicant, editWHFCApplicant)
-router.put('/editWHFCReviewer' , protectReviewer, editWHFCReviewer);     
-router.put('/editWHFCApprover' , protectApprover, editWHFCApprover);     
-
+router.put("/editWHFCApplicant", protectApplicant, editWHFCApplicant);
+router.put("/editWHFCReviewer", protectReviewer, editWHFCReviewer);
+router.put("/editWHFCApprover", protectApprover, editWHFCApprover);
 
 // EGS
-router.post("/createEGS", protectApplicant , createEGS);
+router.post("/createEGS", protectApplicant, createEGS);
 router.get("/editEGSApplicant", protectApplicant, editEGSApplicant);
-router.get("/editEGSApprover", protectApprover , editEGSApprover);
-router.get("/editEGSReviewer", protectReviewer , editEGSReviewer);
+router.get("/editEGSApprover", protectApprover, editEGSApprover);
+router.get("/editEGSReviewer", protectReviewer, editEGSReviewer);
 router.put("/getAllEGSApplicant", protectApplicant, getAllEGSApplicant);
-router.put("/getAllEGSApprover", protectApprover , getAllEGSApprover);
+router.put("/getAllEGSApprover", protectApprover, getAllEGSApprover);
 router.put("/getAllEGSReviewer", protectReviewer, getAllEGSReviewer);
 
 //NPDP
-router.post("/createEGS", protectApplicant , createNPDP);
+router.post("/createEGS", protectApplicant, createNPDP);
 router.get("/editNPDPApplicant", protectApplicant, editNPDPApplicant);
-router.get("/editNPDPApprover", protectApprover , editNPDPApprover);
-router.get("/editNPDPReviewer", protectReviewer , editNPDPReviewer);
-router.put("/getAllNPDPApprover", protectApprover , getAllNPDPApprover);
+router.get("/editNPDPApprover", protectApprover, editNPDPApprover);
+router.get("/editNPDPReviewer", protectReviewer, editNPDPReviewer);
+router.put("/getAllNPDPApprover", protectApprover, getAllNPDPApprover);
 router.put("/getAllNPDPApplicant", protectApplicant, getAllNPDPApplicant);
 router.put("/getAllNPDPReviewer", protectReviewer, getAllNPDPReviewer);
 
 //HIV
-router.post("/createHIV", protectApplicant , createHIV);
+router.post("/createHIV", protectApplicant, createHIV);
 router.get("/editHIVApplicant", protectApplicant, editHIVApplicant);
-router.get("/editHIVApprover", protectApprover , editHIVApprover);
-router.get("/editHIVReviewer", protectReviewer , editHIVReviewer);
+router.get("/editHIVApprover", protectApprover, editHIVApprover);
+router.get("/editHIVReviewer", protectReviewer, editHIVReviewer);
 router.put("/getAllHIVApplicant", protectApplicant, getAllHIVApplicant);
-router.put("/getAllHIVApprover", protectApprover , getAllHIVApprover);
+router.put("/getAllHIVApprover", protectApprover, getAllHIVApprover);
 router.put("/getAllHIVReviewer", protectReviewer, getAllHIVReviewer);
 
 // done
@@ -152,18 +160,18 @@ router.get("/getallDPLGapplicant", protectApplicant, getallDPLGapplicant);
 router.get("/getallDPLGreviewer", protectReviewer, getallDPLGreviewer);
 router.get("/getallDPLGapprover", protectApprover, getallDPLGapprover);
 
-router.get('/getallEIapprover',protectApprover,getallEIapprover)
-router.get('/getallEIreviewer',protectReviewer,getallEIreviewer)
-router.get('/getallEIapplicant',protectApplicant,getallEIapplicant)
-router.put('/editapproverDPLG',protectApprover,editDPLGapprover)
-router.put('/editreviewerDPLG',protectReviewer,editDPLGreviewer)
-router.get('/getallDPLGapplicant',protectApplicant,getallDPLGapplicant)
-router.get('/getallDPLGreviewer',protectReviewer,getallDPLGreviewer)
-router.get('/getallDPLGapprover',protectApprover,getallDPLGapprover)
+router.get("/getallEIapprover", protectApprover, getallEIapprover);
+router.get("/getallEIreviewer", protectReviewer, getallEIreviewer);
+router.get("/getallEIapplicant", protectApplicant, getallEIapplicant);
+router.put("/editapproverDPLG", protectApprover, editDPLGapprover);
+router.put("/editreviewerDPLG", protectReviewer, editDPLGreviewer);
+router.get("/getallDPLGapplicant", protectApplicant, getallDPLGapplicant);
+router.get("/getallDPLGreviewer", protectReviewer, getallDPLGreviewer);
+router.get("/getallDPLGapprover", protectApprover, getallDPLGapprover);
 
-router.put('/editapproverEG',protectApprover,editEGapprover)
-router.put('/editreviewerEG',protectApprover,editEGreviewer)
-router.get('/getallEGapplicant',protectApplicant,getallEGapplicant)
-router.get('/getallEGapprover',protectApplicant,getallEGapprover)
-router.get('/getallEGreviewer',protectReviewer,getallEGreviewer)
-module.exports=router
+router.put("/editapproverEG", protectApprover, editEGapprover);
+router.put("/editreviewerEG", protectApprover, editEGreviewer);
+router.get("/getallEGapplicant", protectApplicant, getallEGapplicant);
+router.get("/getallEGapprover", protectApplicant, getallEGapprover);
+router.get("/getallEGreviewer", protectReviewer, getallEGreviewer);
+module.exports = router;
