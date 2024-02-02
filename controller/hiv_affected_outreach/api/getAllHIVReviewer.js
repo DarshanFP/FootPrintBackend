@@ -1,16 +1,17 @@
-const welfareHomeChildrenModel = require("../../../modals/WelfareHomeChildren");
 
 // this time find all where applicant is the applicant
 
-const getAllWHFCReviewer = async (req, res) => {
+const HIVAffectedOutreach = require("../../../modals/HIVAffectedOutreach");
+
+const getAllHIVReviewer = async (req, res) => {
   try {
     // validitiy of user will be checked from the token itself
     // you have to querry by project_in_charge.ref
 
-    const reviewerId = req.user;
+    const reviewerId = req.user_id;
 
     // find by applicant
-    const allWHFCProject = await welfareHomeChildrenModel
+    const allHIVProject = await HIVAffectedOutreach
       .find({
         "mailing_details.provincial_superior.ref": reviewerId,
       })
@@ -19,7 +20,7 @@ const getAllWHFCReviewer = async (req, res) => {
         select: "name email mobile",
       });
 
-    if (!allWHFCProject) {
+    if (!allHIVProject) {
       return res.status(400).json({
         status: false,
         message: `Unable to fetch any projects for the reviewer`,
@@ -39,4 +40,4 @@ const getAllWHFCReviewer = async (req, res) => {
   }
 };
 
-module.exports = getAllWHFCReviewer;
+module.exports = getAllHIVReviewer;

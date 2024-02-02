@@ -110,7 +110,7 @@ const educationalGroupSupportSchema = new mongoose.Schema(
           default: 0,
         },
       },
-      ammount_approved: { type: Number, default: 0 },
+      amount_approved: { type: Number, default: 0 },
     },
   },
   { timestamps: true }

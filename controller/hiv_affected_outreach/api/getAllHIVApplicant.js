@@ -1,23 +1,20 @@
-const welfareHomeChildrenModel = require("../../../modals/WelfareHomeChildren");
-const welfareHomeChildrenValidation = require("../validation/welfareHomeChildrenValidation");
-
 // this time find all where applicant is the applicant
 
-const getAllWHFCApplicant = async (req, res) => {
+const getAllHIVApplicant = async (req, res) => {
   try {
     // validitiy of user will be checked from the token itself
     // you have to querry by project_in_charge.ref
 
-    const applicantId = req.user;
+    const applicantId = req.user._id;
 
     // find by applicant
-    const allWHFCProject = await welfareHomeChildrenModel.find({
+    const allHIVProject = await welfareHomeChildrenModel.find({
       "mailing_details.project_in_charge.ref": applicantId,
     });
     //   .populate(mailing_details.project_in_charge.ref);
     // I am not sure if populating is required , if it will be I'll put it there
 
-    if (!allWHFCProject) {
+    if (!allHIVProject) {
       return res.status(400).json({
         status: false,
         message: `Unable to fetch any projects for the applicant`,
@@ -37,4 +34,4 @@ const getAllWHFCApplicant = async (req, res) => {
   }
 };
 
-module.exports = getAllWHFCApplicant;
+module.exports = getAllHIVApplicant;

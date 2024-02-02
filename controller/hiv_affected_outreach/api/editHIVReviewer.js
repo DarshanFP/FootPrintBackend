@@ -1,6 +1,6 @@
-const welfareHomeChildrenModel = require("../../../modals/WelfareHomeChildren");
+const HIVAffectedOutreach = require("../../../modals/HIVAffectedOutreach");
 
-const editWHFCReviewer = async (req, res) => {
+const editHIVReviewer = async (req, res) => {
   try {
     const reviewerId = req.user();
     //fields we require from the request body
@@ -13,7 +13,7 @@ const editWHFCReviewer = async (req, res) => {
       });
     }
 
-    const updatedData = await welfareHomeChildrenModel.findOneAndUpdate(
+    const updatedData = await HIVAffectedOutreach.findOneAndUpdate(
       project_number,
       {
         $set: {
@@ -48,4 +48,4 @@ const editWHFCReviewer = async (req, res) => {
   }
 };
 
-module.exports = editWHFCReviewer ; 
+module.exports = editHIVReviewer ; 

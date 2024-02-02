@@ -2,7 +2,7 @@
 
 const NextPhaseOfDevelopmentProposal = require("../../../modals/NextPhaseOfDevelopmentProposal");
 
-const getAllWHFCReviwer = async (req, res) => {
+const getAllNPDPReviewer = async (req, res) => {
   try {
     // validitiy of user will be checked from the token itself
     // you have to querry by project_in_charge.ref
@@ -39,4 +39,4 @@ const getAllWHFCReviwer = async (req, res) => {
   }
 };
 
-module.exports = getAllNPDPReviwer;
+module.exports = getAllNPDPReviewer;

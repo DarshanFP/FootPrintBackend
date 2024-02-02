@@ -1,13 +1,14 @@
 // what we need to do this time around is only use the selected fields
 
-const welfareHomeChildrenModel = require("../../../modals/WelfareHomeChildren");
-const welfareHomeChildrenValidation = require("../validation/welfareHomeChildrenValidation");
+const HIVAffectedOutreach = require("../../../modals/HIVAffectedOutreach");
+const hivAffectedChildrenValidation = require("../validation/HIVAffectedChildrenValidation");
+
 // no need for the main JOI validation combine with previous data then JOI validate
 
-const editWHFCApplicant = async (req, res) => {
+const editHIVApplicant = async (req, res) => {
   try {
     try {
-      await welfareHomeChildrenValidation.validateAsync(req.body);
+      await hivAffectedChildrenValidation.validateAsync(req.body);
     } catch (error) {
       return res.status(400).json({
         success: false,
@@ -20,7 +21,6 @@ const editWHFCApplicant = async (req, res) => {
       currentYear = currentDate.getFullYear();
 
     const {
-      present_project_year,
       project_number,
       project_title, // required from the user
       general_information, // all the fields shall be required from user side
@@ -41,7 +41,7 @@ const editWHFCApplicant = async (req, res) => {
     // at some later dates we need to fetch both approvers from the database and add them manually for the purpose
     // the two are Sister Nirmala and Samuel Imbach
     // we shall send a request to the both approvers
-    const update = await welfareHomeChildrenModel.findOneAndUpdate(
+    const update = await HIVAffectedOutreach.findOneAndUpdate(
       project_number,
       {
         mailing_list,
@@ -84,4 +84,4 @@ const editWHFCApplicant = async (req, res) => {
   }
 };
 
-module.exports = editWHFCApplicant ; 
+module.exports = editHIVApplicant ; 

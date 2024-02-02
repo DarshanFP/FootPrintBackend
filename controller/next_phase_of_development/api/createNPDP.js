@@ -71,7 +71,7 @@ const createNPDP = async (req, res) => {
       key_data_of_project,
       mailing_list : {
         project_in_charge : {
-          ref : applicant,
+          ref : applicant._id,
           agree: true, 
           date : currentDate
         },

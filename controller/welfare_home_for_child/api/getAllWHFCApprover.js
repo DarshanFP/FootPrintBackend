@@ -1,5 +1,4 @@
 const welfareHomeChildrenModel = require("../../../modals/WelfareHomeChildren");
-const welfareHomeChildrenValidation = require("../validation/welfareHomeChildrenValidation");
 
 // this time find all where applicant is the applicant
 
@@ -8,7 +7,7 @@ const getAllWHFCApprover = async (req, res) => {
     // validitiy of user will be checked from the token itself
     // you have to querry by project_in_charge.ref
 
-    const approverId = req.user;
+    const approverId = req.user._id;
 
     // find by applicant
     const allWHFCProject = await welfareHomeChildrenModel

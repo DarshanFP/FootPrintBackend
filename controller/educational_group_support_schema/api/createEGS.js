@@ -60,8 +60,8 @@ const createEGS = async (req, res) => {
         parseInt(`${projectCode.project_number}`.substring(6)) + 1
       }`;
     }
+
     const updatedGeneralInformation = {
-      // general_information =  {general_information : 'data'}
       ...general_information,
       project_incharge: {
         agree: true,

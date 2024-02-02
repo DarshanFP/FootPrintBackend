@@ -22,7 +22,6 @@ const generalInformationSchema = Joi.object({
   project_incharge: Joi.object({
     agree: Joi.boolean().default(false),
     date: Joi.date().default(Date.now),
-    comment_box_project_incharge: Joi.string().allow(null).default(null),
   }),
 });
 
@@ -109,6 +108,7 @@ const expensesSchema = Joi.object({
 
 // Define Educational Group Support Schema
 const educationalGroupSupportSchema = Joi.object({
+  project_number: Joi.string(),
   project_title: Joi.string().required(),
   general_information: generalInformationSchema,
   beneficiaries: Joi.array().items(beneficiarySchema),

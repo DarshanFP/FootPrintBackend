@@ -1,8 +1,8 @@
-const welfareHomeChildrenModel = require("../../../modals/WelfareHomeChildren");
+const HIVAffectedOutreach = require("../../../modals/HIVAffectedOutreach");
 
-const editWHFCApprover = async (req, res) => {
+const editHIVApprover = async (req, res) => {
   try {
-    const approverId = req.user();
+    const approverId = req.user()._id;
     //fields we require from the request body
     const { comment, agree, project_number, ammount_approved } = req.body;
 
@@ -16,7 +16,8 @@ const editWHFCApprover = async (req, res) => {
     // These getAllWHF documents shall only be accessible to two particular people 
     // They shall be kept in a collection called approvers WF
     // The documents will contain the ids and the ids shall be used later on 
-    const updatedData = await welfareHomeChildrenModel.findOneAndUpdate(
+    const updatedData = await 
+    HIVAffectedOutreach.findOneAndUpdate(
       project_number,
       {
         $push: {
@@ -52,4 +53,4 @@ const editWHFCApprover = async (req, res) => {
   }
 };
 
-module.exports = editWHFCApprover ; 
+module.exports = editHIVApprover ; 

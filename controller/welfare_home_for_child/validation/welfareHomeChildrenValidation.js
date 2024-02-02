@@ -126,6 +126,7 @@ const budgetSchema = Joi.object({
 
 const welfareHomeChildrenValidation = Joi.object({
   project_title: Joi.string().required(),
+  project_number: Joi.string(),
   general_information: Joi.object({
     project_region: Joi.string().required(),
     institution_name: Joi.string().required(),

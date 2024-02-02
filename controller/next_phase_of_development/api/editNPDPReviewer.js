@@ -1,6 +1,6 @@
 const NextPhaseOfDevelopmentProposal = require("../../../modals/NextPhaseOfDevelopmentProposal");
 
-const editNPDPReviwer = async (req, res) => {
+const editNPDPReviewer = async (req, res) => {
   try {
     const reviewerId = req.user();
     //fields we require from the request body
@@ -48,4 +48,4 @@ const editNPDPReviwer = async (req, res) => {
   }
 };
 
-module.exports = editNPDPReviwer ;
+module.exports = editNPDPReviewer ;

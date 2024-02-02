@@ -14,7 +14,8 @@ const getAllWHFCReviewer = async (req, res) => {
       .find({
         "mailing_details.provincial_superior.ref": reviewerId,
       })
-      .populate({
+      .populate(
+        {
         path: mailing_details.project_in_charge.ref,
         select: "name email mobile",
       });
