@@ -1,3 +1,4 @@
+const { required } = require("joi");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -94,7 +95,13 @@ const SocialIndividual = new Schema({
     type: String,
     required: true,
   },
-  //   revenueGoals:
+  revenueGoals: {
+    businessPlan: { type: String, required: true },
+    currentYear: { type: Number, required: true },
+    year1: { type: Number, required: true },
+    year2: { type: Number, required: true },
+    year3: { type: Number, required: true },
+  },
   businessStrengthsPreviousYear: {
     type: String,
     required: true,

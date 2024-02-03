@@ -3,6 +3,17 @@ const Budget_costSchema = Joi.object({
   budget: Joi.number().required(),
   cost: Joi.number().required(),
 });
+
+const revenueGoalsSchema = Joi.array().items(
+  Joi.object.keys({
+    businessPlan: Joi.string().required(),
+    currentYear: Joi.number().required(),
+    year1: Joi.number().default(0),
+    year2: Joi.number().default(0),
+    year3: Joi.number().default(0),
+  })
+);
+
 const SocialIndividualValidate = Joi.object({
   nameOfSelfEmployment: Joi.string().required(),
   photograph_benificary: Joi.string().required(),
@@ -43,6 +54,7 @@ const SocialIndividualValidate = Joi.object({
   businessSustainability: Joi.string().required(),
   expectedBenefits: Joi.string().required(),
   budget_cost_table: Joi.array().items(Budget_costSchema),
+  revenueGoals: revenueGoalsSchema,
   aadhar_img: Joi.string().required(),
   request_letter_img: Joi.string().required(),
   quotations_regarding_the_purchase_img: Joi.string().required(),
@@ -63,8 +75,7 @@ const SocialIndividualValidate = Joi.object({
     agree: Joi.boolean().default(false),
     date: Joi.date().default(Date.now),
   }),
-  comment_box_provincial_superior: Joi.string().allow(null),
-  comment_box_project_coordinator: Joi.string().allow(null),
+  comment_box_provincial_superior: Joi.string().allow(null).default(null),
+  comment_box_project_coordinator: Joi.string().allow(null).default(null),
 });
 module.exports = SocialIndividualValidate;
-
