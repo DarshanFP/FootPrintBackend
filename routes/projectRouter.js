@@ -51,7 +51,15 @@ const editISGreviewer=require('../controller/editISGreviewer')
 const getallISGapplicant=require('../controller/getallISGapplicant')
 const getallISGapprover=require('../controller/getallISGapprover')
 const getallISGreviewer=require('../controller/getallISGreviewer')
-// done 
+const createCG=require('../controller/createCG')
+const editCGapprover=require('../controller/editCGapprover')
+const editCGreviewer=require('../controller/editCGreviewer')
+
+const getallCGapplicant=require('../controller/getallCGapplicant')
+const getallCGapprover=require('../controller/getallCGapprover')
+const getallCGreviewer=require('../controller/getallCGreviewer')
+
+// donC
 router.post('/createHOI',protectApplicant,createHOI);
 router.post('/createEOI',protectApplicant,createEOI)
 router.post('/createLOI',protectApplicant,createLOI)
@@ -60,14 +68,17 @@ router.post('/createEI',protectApplicant,createEI)
 router.post('/createDPLG',protectApplicant,createDPLG)
 router.post('/createEG',protectApplicant,createEG)
 router.post('/createISG',protectApplicant,createISG)
+router.post('/createCG',protectApplicant,createCG)
 
 router.put('/editreviewerHOI',protectReviewer,editHOIreviewer)
 router.put('/editreviewerISG',protectReviewer,editISGreviewer)
+router.put('/editreviewerCG',protectReviewer,editCGreviewer)
 router.put('/editapproverHOI',protectApprover,editHOIapprover)
 
 router.put('/editreviewerEOI',protectReviewer,editEOIreviewer)
 router.put('/editapproverEOI',protectApprover,editEOIapprover)
 router.put('/editapproverISG',protectApprover,editISGapprover)
+router.put('/editapproverCG',protectApprover,editCGapprover)
 
 router.put('/editreviewerLOI',protectReviewer,editLOIreviewer);
 router.put('/editapproverLOI',protectApprover,editLOIapprover)
@@ -98,6 +109,10 @@ router.put('/editreviewerDPLG',protectReviewer,editDPLGreviewer)
 router.get('/getallDPLGapplicant',protectApplicant,getallDPLGapplicant)
 router.get('/getallDPLGreviewer',protectReviewer,getallDPLGreviewer)
 router.get('/getallDPLGapprover',protectApprover,getallDPLGapprover)
+
+router.get('/getallCGapplicant',protectApplicant,getallCGapplicant)
+router.get('/getallCGreviewer',protectReviewer,getallCGreviewer)
+router.get('/getallCGapprover',protectApprover,getallCGapprover)
 
 
 router.get('/getallISGapplicant',protectApplicant,getallISGapplicant)
