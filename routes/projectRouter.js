@@ -76,6 +76,7 @@ const getallEGapprover = require("../controller/getallEGapprover");
 const getallEGreviewer = require("../controller/getallEGreviewer");
 const createEG = require("../controller/createEG");
 
+
 router.post("/createEG", protectApplicant, createEG);
 router.post("/createSI", protectApplicant, createSI);
 router.post("/createEI", protectApplicant, createEI);

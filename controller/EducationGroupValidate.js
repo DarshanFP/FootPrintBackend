@@ -1,12 +1,5 @@
 const Joi = require('joi');
 
-const ContactSchema = Joi.object({
-  role: Joi.string().required(),
-  name: Joi.string().required(),
-  cellNumber: Joi.string().required(),
-  email: Joi.string().required(),
-});
-
 const PeopleSchema = Joi.object({
   class: Joi.number().required(),
   totalFemale: Joi.number().required(),
@@ -45,7 +38,6 @@ const EducationGroupValidate = Joi.object({
   objectives: Joi.array().items(
     Joi.string().required(),
   ),
-  contacts: Joi.array().items(ContactSchema),
   peopleDetails: Joi.array().items(PeopleSchema),
   targetGroupInformation: Joi.array().items(targetGroupInformationSchema),
   targetGroupStudies: Joi.array().items(targetGroupStudiesSchema),

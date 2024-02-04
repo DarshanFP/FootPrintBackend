@@ -18,17 +18,15 @@ const Budget_cost = new Schema({
   cost: { type: Number, required: true },
 });
 
+const Studies = new Schema({
+  serialNo: { type: String, required: true },
+  name: { type: String, required: true },
+  family_situation: { type: String, required: true },
+  nature_livlihood: { type: String, required: true },
+  requested_amount: { type: Number, required: true },
+});
 
-const Studies=new Schema({
-  serialNo:{type: String, required: true},
-  name:{type: String, required: true},
-  family_situation:{type: String, required: true},
-  nature_livlihood:{type: String, required: true},
-  requested_amount:{type:Number, required:true}
-})
-
-
-const DevProjLivliGroup=new Schema({
+const DevProjLivliGroup = new Schema({
   project_code: { type: String, required: true, unique: true },
   applicant: {
     type: mongoose.Schema.Types.ObjectId,
@@ -40,31 +38,35 @@ const DevProjLivliGroup=new Schema({
     ref: "Reviewer",
     required: true,
   },
-  NameOfSociety:{type:String, required:true},
-  DateOfSubmission:{type:String, required:true},
-  TitleOfProject:{type:String, required:true},
+  NameOfSociety: { type: String, required: true },
+  DateOfSubmission: { type: String, required: true },
+  TitleOfProject: { type: String, required: true },
   address: {
     type: String,
     required: true,
   },
-  OverallProjectPeriod:{type:Number, required:true},
-  OverallProjectBudget:{type:Number, required:true},
-  ProjectOfInitialProject:{type:String, required:true},
-  problemAnalysis:{type:String, required:true},
-  solutionAnalysis:{type:String, required:true},
-  goal:{type:String, required:true},
-  objectives:[objectiveSchema],
-  sustainability:{type:String, required:true},
-  monitoringProcess:{type:String, required:true},
+  OverallProjectPeriod: { type: Number, required: true },
+  OverallProjectBudget: { type: Number, required: true },
+  ProjectOfInitialProject: { type: String, required: true },
+  problemAnalysis: { type: String, required: true },
+  solutionAnalysis: { type: String, required: true },
+  goal: { type: String, required: true },
+  objectives: [objectiveSchema],
+  sustainability: { type: String, required: true },
+  monitoringProcess: { type: String, required: true },
   budget_cost_table: [Budget_cost],
-  studies_table_data:[Studies],
-  project_coordinator_agree: {
-    agree: { type: Boolean, default: false },
-    date: {
-      type: Date,
-      default: Date.now,
+  studies_table_data: [Studies],
+  project_coordinator: [
+    {
+      ref: mongoose.Schema.Types.ObjectId,
+      comment: { type: String, default: null },
+      agree: { type: Boolean, default: false },
+      date: {
+        type: Date,
+        default: Date.now,
+      },
     },
-  },
+  ],
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },
     date: {
@@ -83,11 +85,9 @@ const DevProjLivliGroup=new Schema({
     type: String,
     default: null,
   },
-  comment_box_project_coordinator: {
-    type: String,
-    default: null,
+  amount_approved: {
+    type: Number,
+    default: 0,
   },
-
-
-})
-module.exports=mongoose.model("DPLG", DevProjLivliGroup);
+});
+module.exports = mongoose.model("DPLG", DevProjLivliGroup);

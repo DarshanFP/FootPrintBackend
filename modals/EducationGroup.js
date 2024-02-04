@@ -25,6 +25,7 @@ const targetGroupStudiesSchema = new Schema({
   scholarshipEligibility: { type: String, required: true },
   expectedAmount: { type: String, required: true },
 });
+
 const EducationGroupSchema = new Schema({
   project_code: { type: String, required: true, unique: true },
   applicant: {
@@ -57,18 +58,20 @@ const EducationGroupSchema = new Schema({
   monitoringMethods: { type: String, required: true },
   evaluationProcess: { type: String, required: true },
   conclusion: { type: String, required: true },
-  project_coordinator_agree: [{
-    ref: mongoose.Schema.Types.ObjectId,
-    agree: { type: Boolean, default: false },
-    date: {
-      type: Date,
-      default: Date.now,
+  project_coordinator: [
+    {
+      ref: mongoose.Schema.Types.ObjectId, // approver id
+      agree: { type: Boolean, default: false }, // agreed or not
+      date: {
+        type: Date,
+        default: Date.now,
+      },
+      comment: {
+        type: String,
+        default: null,
+      },
     },
-    comment: {
-      type: String , 
-      default: null, 
-    }
-  }],
+  ],
   // agree_sytanx_changed
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },
@@ -88,7 +91,10 @@ const EducationGroupSchema = new Schema({
     type: String,
     default: null,
   },
-  
+  amount_approved: {
+    type: Number,
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model("EG", EducationGroupSchema);
