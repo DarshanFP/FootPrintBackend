@@ -3,6 +3,7 @@
 const NextPhaseOfDevelopmentProposal = require("../../../modals/NextPhaseOfDevelopmentProposal");
 
 const getAllNPDPReviewer = async (req, res) => {
+  console.log(`request${req}`);
   try {
     // validitiy of user will be checked from the token itself
     // you have to querry by project_in_charge.ref
@@ -10,14 +11,12 @@ const getAllNPDPReviewer = async (req, res) => {
     const reviewerId = req.user;
 
     // find by applicant
-    const allNPDP = await NextPhaseOfDevelopmentProposal
-      .find({
-        "mailing_details.provincial_superior.ref": reviewerId,
-      })
-      .populate({
-        path: mailing_details.project_in_charge.ref,
-        select: "name email mobile",
-      });
+    const allNPDP = await NextPhaseOfDevelopmentProposal.find({
+      "mailing_list.provincial_superior.ref": reviewerId,
+    }).populate({
+      path: 'mailing_list.project_in_charge.ref',
+      select: "name email mobile",
+    });
 
     if (!allNPDP) {
       return res.status(400).json({
@@ -28,7 +27,7 @@ const getAllNPDPReviewer = async (req, res) => {
     return res.status(200).json({
       status: true,
       message: "successfully got all projects",
-      data: res,
+      data: allNPDP,
     });
   } catch (error) {
     return res.status(400).json({

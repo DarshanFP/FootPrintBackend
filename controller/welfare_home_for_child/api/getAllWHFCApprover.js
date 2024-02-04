@@ -13,10 +13,10 @@ const getAllWHFCApprover = async (req, res) => {
     const allWHFCProject = await welfareHomeChildrenModel
       .find({
         // don't need this complicated querry
-        // "mailing_details.project_coordinators.ref" : approverId,
+        // "mailing_list.project_coordinators.ref" : approverId,
       })
-      .populate(mailing_details.project_in_charge.ref)
-      .populate(mailing_details.provincial_superior.ref);
+      .populate('mailing_list.project_in_charge.ref')
+      .populate('mailing_list.provincial_superior.ref');
     // I am not sure if populating is required , if it will be I'll put it there
 
     if (!allWHFCProject) {

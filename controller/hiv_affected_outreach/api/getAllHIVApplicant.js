@@ -9,9 +9,9 @@ const getAllHIVApplicant = async (req, res) => {
 
     // find by applicant
     const allHIVProject = await welfareHomeChildrenModel.find({
-      "mailing_details.project_in_charge.ref": applicantId,
+      "mailing_list.project_in_charge.ref": applicantId,
     });
-    //   .populate(mailing_details.project_in_charge.ref);
+    //   .populate(mailing_list.project_in_charge.ref);
     // I am not sure if populating is required , if it will be I'll put it there
 
     if (!allHIVProject) {

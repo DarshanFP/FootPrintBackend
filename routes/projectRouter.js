@@ -98,12 +98,12 @@ router.put("/getAllEGReviewer", protectReviewer, getallEGreviewer);
 
 // EGS Routes
 router.post("/createEGS", protectApplicant, createEGS);
-router.get("/editEGSApplicant", protectApplicant, editEGSApplicant);
-router.get("/editEGSApprover", protectApprover, editEGSApprover);
-router.get("/editEGSReviewer", protectReviewer, editEGSReviewer);
-router.put("/getAllEGSApplicant", protectApplicant, getAllEGSApplicant);
-router.put("/getAllEGSApprover", protectApprover, getAllEGSApprover);
-router.put("/getAllEGSReviewer", protectReviewer, getAllEGSReviewer);
+router.put("/editEGSApplicant", protectApplicant, editEGSApplicant);
+router.put("/editEGSApprover", protectApprover, editEGSApprover);
+router.put("/editEGSReviewer", protectReviewer, editEGSReviewer);
+router.get("/getAllEGSApplicant", protectApplicant, getAllEGSApplicant);
+router.get("/getAllEGSApprover", protectApprover, getAllEGSApprover);
+router.get("/getAllEGSReviewer", protectReviewer, getAllEGSReviewer);
 
 // SI Routes
 router.post("/createSI", protectApplicant, createSI);
@@ -164,21 +164,21 @@ router.put("/editWHFCApprover", protectApprover, editWHFCApprover);
 
 // NPDP Routes
 router.post("/createNPDP", protectApplicant, createNPDP);
-router.get("/editNPDPApplicant", protectApplicant, editNPDPApplicant);
-router.get("/editNPDPApprover", protectApprover, editNPDPApprover);
-router.get("/editNPDPReviewer", protectReviewer, editNPDPReviewer);
-router.put("/getAllNPDPApprover", protectApprover, getAllNPDPApprover);
-router.put("/getAllNPDPApplicant", protectApplicant, getAllNPDPApplicant);
-router.put("/getAllNPDPReviewer", protectReviewer, getAllNPDPReviewer);
+router.put("/editNPDPApplicant", protectApplicant, editNPDPApplicant);
+router.put("/editNPDPApprover", protectApprover, editNPDPApprover);
+router.put("/editNPDPReviewer", protectReviewer, editNPDPReviewer);
+router.get("/getAllNPDPApprover", protectApprover, getAllNPDPApprover);
+router.get("/getAllNPDPApplicant", protectApplicant, getAllNPDPApplicant);
+router.get("/getAllNPDPReviewer", protectReviewer, getAllNPDPReviewer);
 
 // HIV Routes
 router.post("/createHIV", protectApplicant, createHIV);
-router.get("/editHIVApplicant", protectApplicant, editHIVApplicant);
-router.get("/editHIVApprover", protectApprover, editHIVApprover);
-router.get("/editHIVReviewer", protectReviewer, editHIVReviewer);
-router.put("/getAllHIVApplicant", protectApplicant, getAllHIVApplicant);
-router.put("/getAllHIVApprover", protectApprover, getAllHIVApprover);
-router.put("/getAllHIVReviewer", protectReviewer, getAllHIVReviewer);
+router.put("/editHIVApplicant", protectApplicant, editHIVApplicant);
+router.put("/editHIVApprover", protectApprover, editHIVApprover);
+router.put("/editHIVReviewer", protectReviewer, editHIVReviewer);
+router.get("/getAllHIVApplicant", protectApplicant, getAllHIVApplicant);
+router.get("/getAllHIVApprover", protectApprover, getAllHIVApprover);
+router.get("/getAllHIVReviewer", protectReviewer, getAllHIVReviewer);
 
 // CG Routes
 router.post("/createCG", protectApplicant, createCG);

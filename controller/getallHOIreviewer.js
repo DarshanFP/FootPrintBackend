@@ -4,9 +4,7 @@ const HOI = require("../modals/HealthOngoingIndividual");
 const getallHOIreviewer=async(req,res)=>{
 try {
     const reviewer=req.user;
-    console.log(reviewer);
     const HOIreviewer=await HOI.find({ reviewer: reviewer}).populate('applicant')
-    console.log(HOIreviewer);
     if(HOIreviewer.length===0){
         return res.json({success:false, msg:'No project for this reviewer'})
     }

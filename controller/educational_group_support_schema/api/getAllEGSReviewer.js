@@ -8,6 +8,8 @@ const getAllEGSReviewer = async (req , res) => {
             {
                 'general_information.provincial_superior.ref' :  reviewerID,
             }
+        ).populate(
+            'general_information.project_incharge.ref'
         ) ; 
 
         return res.status(200).json({

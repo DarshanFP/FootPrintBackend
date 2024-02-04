@@ -7,18 +7,16 @@ const getAllWHFCReviewer = async (req, res) => {
     // validitiy of user will be checked from the token itself
     // you have to querry by project_in_charge.ref
 
-    const reviewerId = req.user;
-
+    const reviewerId = req.user._id;
     // find by applicant
     const allWHFCProject = await welfareHomeChildrenModel
       .find({
-        "mailing_details.provincial_superior.ref": reviewerId,
-      })
-      .populate(
-        {
-        path: mailing_details.project_in_charge.ref,
-        select: "name email mobile",
-      });
+        "mailing_list.provincial_superior.ref": reviewerId,
+      })?.populate(
+        'mailing_list.project_in_charge.ref',
+      )
+      ;
+     
 
     if (!allWHFCProject) {
       return res.status(400).json({
@@ -29,9 +27,10 @@ const getAllWHFCReviewer = async (req, res) => {
     return res.status(200).json({
       status: true,
       message: "successfully got all projects",
-      data: res,
+      data: allWHFCProject,
     });
   } catch (error) {
+    console.log(error);
     return res.status(400).json({
       success: false,
       message: "Cannot fetch any projects",
