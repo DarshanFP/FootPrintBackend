@@ -65,7 +65,6 @@ const DevProjLivliGroup=new Schema({
       default: Date.now,
     },
   },
-  // agree_sytanx_changed
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },
     date: {

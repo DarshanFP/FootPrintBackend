@@ -1,6 +1,6 @@
-const DPLG = require("../modals/DevProjLivliGroup");
+const CG = require("../modals/CommonGroup");
 
-const editDPLGapprover = async (req, res) => {
+const editCGapprover = async (req, res) => {
   try {
     const {
       projectID,
@@ -15,7 +15,7 @@ const editDPLGapprover = async (req, res) => {
       return res.json({ success: false, msg: "send all fields" });
     }
 
-    const editedDPLG = await DPLG.findByIdAndUpdate(
+    const editedCG = await CG.findByIdAndUpdate(
       projectID,
       {
         comment_box_project_coordinator: comment_box_project_coordinator,
@@ -25,13 +25,13 @@ const editDPLGapprover = async (req, res) => {
     );
 
 
-    if (!editedDPLG) {
+    if (!editedCG) {
       return res.json({ success: false, msg: "updation failed" });
     }
-    return res.json({ success: true, data: editedDPLG });
+    return res.json({ success: true, data: editedCG });
   } catch (error) {
     console.log(error);
     res.json({ success: false });
   }
 };
-module.exports = editDPLGapprover;
+module.exports = editCGapprover;

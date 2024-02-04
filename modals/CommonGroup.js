@@ -18,7 +18,7 @@ const Budget_cost = new Schema({
   cost: { type: Number, required: true },
 });
 
-const InstitutionSkillGroup = new Schema({
+const CommonGroup = new Schema({
   project_code: { type: String, required: true, unique: true },
   applicant: {
     type: mongoose.Schema.Types.ObjectId,
@@ -30,7 +30,12 @@ const InstitutionSkillGroup = new Schema({
     ref: "Reviewer",
     required: true,
   },
-  NameOfSociety: { type: String, required: true },
+  goal: { type: String, required: true },
+  objectives: [objectiveSchema],
+  selectedMonths: [{ type: Number, required: true }],
+  isSubmitted: { type: Number, required: true },
+  budget_cost_table: [Budget_cost],
+  nameOfSociety: { type: String, required: true },
   DateOfSubmission: { type: String, required: true },
   TitleOfProject: { type: String, required: true },
   address: {
@@ -39,18 +44,16 @@ const InstitutionSkillGroup = new Schema({
   },
   OverallProjectPeriod: { type: Number, required: true },
   OverallProjectBudget: { type: Number, required: true },
-  NumberOfBeneficiaries: { type: Number, required: true },
-  ResidentialVillages: { type: String, required: true },
-  SelectionCriteriaAndProfile: { type: String, required: true },
-  DescriptionOfBeneficiary: { type: String, required: true },
-  problemAnalysis: { type: String, required: true },
-  solutionAnalysis: { type: String, required: true },
-  goal: { type: String, required: true },
-  objectives: [objectiveSchema],
-  sustainability: { type: String, required: true },
-  monitoringProcess: { type: String, required: true },
-  evaluationMethodology: { type: String, required: true },
-  budgetData: [Budget_cost],
+  ProjectArea: { type: String, required: true },
+  directBeneficiaries: { type: Number, required: true },
+  indirectBeneficiaries: { type: Number, required: true },
+  problemAnalysis: { type: Number, required: true },
+  solutionAnalysis: { type: Number, required: true },
+  sustainability: { type: Number, required: true },
+  monitoringProcess: { type: Number, required: true },
+  evaluationMethodology: { type: Number, required: true },
+  beneficiaryAgreement: { type: Boolean, required: true },
+  beneficiaryAgreementDate: { type: Date, default: Date.now, required: true },
   project_coordinator_agree: {
     agree: { type: Boolean, default: false },
     date: {
@@ -81,4 +84,4 @@ const InstitutionSkillGroup = new Schema({
     default: null,
   },
 });
-module.exports = mongoose.model("ISG", InstitutionSkillGroup);
+module.exports = mongoose.model("CG", CommonGroup);
