@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-
 const createHOI = require("../controller/createHOI");
 const { protectApplicant } = require("../middleware/authApplicant");
 const { protectReviewer } = require("../middleware/authReviewer");
@@ -69,33 +68,35 @@ const editHIVReviewer = require("../controller/hiv_affected_outreach/api/editHIV
 const getAllHIVApplicant = require("../controller/hiv_affected_outreach/api/getAllHIVApplicant");
 const getAllHIVApprover = require("../controller/hiv_affected_outreach/api/getAllHIVApprover");
 const getAllHIVReviewer = require("../controller/hiv_affected_outreach/api/getAllHIVReviewer");
+const createEG = require("../controller/createEG");
+const createCG = require("../controller/createCG");
+const editCGapprover = require("../controller/editCGapprover");
+const editCGreviewer = require("../controller/editCGreviewer");
+const getallCGapplicant = require("../controller/getallCGapplicant");
+const getallCGapprover = require("../controller/getallCGapprover");
+const getallCGreviewer = require("../controller/getallCGreviewer");
 const editEGapprover = require("../controller/editEGapprover");
 const editEGreviewer = require("../controller/editEGreviewer");
 const getallEGapplicant = require("../controller/getallEGapplicant");
 const getallEGapprover = require("../controller/getallEGapprover");
 const getallEGreviewer = require("../controller/getallEGreviewer");
-const createEG = require("../controller/createEG");
+const createISG = require("../controller/createISG");
+const editISGapprover = require("../controller/editISGapprover");
+const editISGreviewer = require("../controller/editISGreviewer");
+const getallISGapplicant = require("../controller/getallISGapplicant");
+const getallISGapprover = require("../controller/getallISGapprover");
+const getallISGreviewer = require("../controller/getallISGreviewer");
 
-
+// EG Routes
 router.post("/createEG", protectApplicant, createEG);
-router.post("/createSI", protectApplicant, createSI);
-router.post("/createEI", protectApplicant, createEI);
-router.post("/createDPLG", protectApplicant, createDPLG);
-//done
-router.post("/createHOI", protectApplicant, createHOI);
-router.post("/createEOI", protectApplicant, createEOI);
-router.post("/createLOI", protectApplicant, createLOI);
+// router.get("/editEGSApplicant", protectApplicant, editEGApplicant);
+router.get("/editEGApprover", protectApprover, editEGapprover);
+router.get("/editEGReviewer", protectReviewer, editEGreviewer);
+router.put("/getAllEGApplicant", protectApplicant, getallEGapplicant);
+router.put("/getAllEGApprover", protectApprover, getallEGapprover);
+router.put("/getAllEGReviewer", protectReviewer, getallEGreviewer);
 
-// WHFC
-router.post("/createWHFC", protectApplicant, createWHFC);
-router.get("/getAllWHFCApplicant", protectApplicant, getAllWHFCApplicant);
-router.get("/getAllWHFCReviewer", protectReviewer, getAllWHFCReviewer);
-router.get("/getAllWHFCApprover", protectApprover, getAllWHFCApprover);
-router.put("/editWHFCApplicant", protectApplicant, editWHFCApplicant);
-router.put("/editWHFCReviewer", protectReviewer, editWHFCReviewer);
-router.put("/editWHFCApprover", protectApprover, editWHFCApprover);
-
-// EGS
+// EGS Routes
 router.post("/createEGS", protectApplicant, createEGS);
 router.get("/editEGSApplicant", protectApplicant, editEGSApplicant);
 router.get("/editEGSApprover", protectApprover, editEGSApprover);
@@ -104,8 +105,65 @@ router.put("/getAllEGSApplicant", protectApplicant, getAllEGSApplicant);
 router.put("/getAllEGSApprover", protectApprover, getAllEGSApprover);
 router.put("/getAllEGSReviewer", protectReviewer, getAllEGSReviewer);
 
-//NPDP
-router.post("/createEGS", protectApplicant, createNPDP);
+// SI Routes
+router.post("/createSI", protectApplicant, createSI);
+router.put("/editapproverSI", protectApprover, editedSIapprover);
+router.put("/editreviewerSI", protectReviewer, editedSIreviewer);
+router.get("/getallSIapplicant", protectApplicant, getallSIapplicant);
+router.get("/getallSIreviewer", protectReviewer, getallSIreviewer);
+router.get("/getallSIapprover", protectApprover, getallSIapprover);
+
+// EI Routes
+router.post("/createEI", protectApplicant, createEI);
+router.put("/editapproverEI", protectApplicant, editEIapprover);
+router.put("/editreviewerEI", protectReviewer, editEIreviewer);
+router.get("/getallEIapprover", protectApprover, getallEIapprover);
+router.get("/getallEIreviewer", protectReviewer, getallEIreviewer);
+router.get("/getallEIapplicant", protectApplicant, getallEIapplicant);
+
+// DPLG Routes
+router.post("/createDPLG", protectApplicant, createDPLG);
+router.put("/editapproverDPLG", protectApprover, editDPLGapprover);
+router.put("/editreviewerDPLG", protectReviewer, editDPLGreviewer);
+router.get("/getallDPLGapplicant", protectApplicant, getallDPLGapplicant);
+router.get("/getallDPLGreviewer", protectReviewer, getallDPLGreviewer);
+router.get("/getallDPLGapprover", protectApprover, getallDPLGapprover);
+
+// HOI Routes
+router.post("/createHOI", protectApplicant, createHOI);
+router.put("/editreviewerHOI", protectReviewer, editHOIreviewer);
+router.put("/editapproverHOI", protectApprover, editHOIapprover);
+router.get("/getallHOIapplicant", protectApplicant, getallHOIapplicant);
+router.get("/getallHOIreviewer", protectReviewer, getallHOIreviewer);
+router.get("/getallHOIapprover", protectApprover, getallHOIapprover);
+
+// EOI Routes
+router.post("/createEOI", protectApplicant, createEOI);
+router.put("/editreviewerEOI", protectReviewer, editEOIreviewer);
+router.put("/editapproverEOI", protectApprover, editEOIapprover);
+router.get("/getallEOIapplicant", protectApplicant, getallEOIapplicant);
+router.get("/getallEOIreviewer", protectReviewer, getallEOIreviewer);
+router.get("/getallEOIapprover", protectApprover, getallEOIapprover);
+
+// LOI Routes
+router.post("/createLOI", protectApplicant, createLOI);
+router.put("/editreviewerLOI", protectReviewer, editLOIreviewer);
+router.put("/editapproverLOI", protectApprover, editLOIapprover);
+router.get("/getallLOIapplicant", protectApplicant, getallLOIapplicant);
+router.get("/getallLOIreviewer", protectReviewer, getallLOIreviewer);
+router.get("/getallLOIapprover", protectApprover, getallLOIapprover);
+
+// WHFC Routes
+router.post("/createWHFC", protectApplicant, createWHFC);
+router.get("/getAllWHFCApplicant", protectApplicant, getAllWHFCApplicant);
+router.get("/getAllWHFCReviewer", protectReviewer, getAllWHFCReviewer);
+router.get("/getAllWHFCApprover", protectApprover, getAllWHFCApprover);
+router.put("/editWHFCApplicant", protectApplicant, editWHFCApplicant);
+router.put("/editWHFCReviewer", protectReviewer, editWHFCReviewer);
+router.put("/editWHFCApprover", protectApprover, editWHFCApprover);
+
+// NPDP Routes
+router.post("/createNPDP", protectApplicant, createNPDP);
 router.get("/editNPDPApplicant", protectApplicant, editNPDPApplicant);
 router.get("/editNPDPApprover", protectApprover, editNPDPApprover);
 router.get("/editNPDPReviewer", protectReviewer, editNPDPReviewer);
@@ -113,7 +171,7 @@ router.put("/getAllNPDPApprover", protectApprover, getAllNPDPApprover);
 router.put("/getAllNPDPApplicant", protectApplicant, getAllNPDPApplicant);
 router.put("/getAllNPDPReviewer", protectReviewer, getAllNPDPReviewer);
 
-//HIV
+// HIV Routes
 router.post("/createHIV", protectApplicant, createHIV);
 router.get("/editHIVApplicant", protectApplicant, editHIVApplicant);
 router.get("/editHIVApprover", protectApprover, editHIVApprover);
@@ -122,57 +180,21 @@ router.put("/getAllHIVApplicant", protectApplicant, getAllHIVApplicant);
 router.put("/getAllHIVApprover", protectApprover, getAllHIVApprover);
 router.put("/getAllHIVReviewer", protectReviewer, getAllHIVReviewer);
 
-// done
-router.put("/editreviewerHOI", protectReviewer, editHOIreviewer);
-router.put("/editapproverHOI", protectApprover, editHOIapprover);
+// CG Routes
+router.post("/createCG", protectApplicant, createCG);
+router.put("/editapproverCG", protectApprover, editCGapprover);
+router.put("/editreviewerCG", protectReviewer, editCGreviewer);
+router.get("/getallCGapplicant", protectApplicant, getallCGapplicant);
+router.get("/getallCGapprover", protectApplicant, getallCGapprover);
+router.get("/getallCGreviewer", protectReviewer, getallCGreviewer);
 
-// done
-router.put("/editreviewerEOI", protectReviewer, editEOIreviewer);
-router.put("/editapproverEOI", protectApprover, editEOIapprover);
 
-// done
-router.put("/editreviewerLOI", protectReviewer, editLOIreviewer);
-router.put("/editapproverLOI", protectApprover, editLOIapprover);
+// ISG Routes
+router.post("/createISG", protectApplicant, createISG);
+router.put("/editapproverISG", protectApprover, editISGapprover);
+router.put("/editreviewerISG", protectReviewer, editISGreviewer);
+router.get("/getallISGapplicant", protectApplicant, getallISGapplicant);
+router.get("/getallISGapprover", protectApplicant, getallISGapprover);
+router.get("/getallISGreviewer", protectReviewer, getallISGreviewer);
 
-router.get("/getallHOIapplicant", protectApplicant, getallHOIapplicant);
-router.get("/getallEOIapplicant", protectApplicant, getallEOIapplicant);
-router.get("/getallLOIapplicant", protectApplicant, getallLOIapplicant);
-router.get("/getallHOIreviewer", protectReviewer, getallHOIreviewer);
-router.get("/getallEOIreviewer", protectReviewer, getallEOIreviewer);
-router.get("/getallLOIreviewer", protectReviewer, getallLOIreviewer);
-
-router.get("/getallHOIapprover", protectApprover, getallHOIapprover);
-router.get("/getallEOIapprover", protectApprover, getallEOIapprover);
-router.get("/getallLOIapprover", protectApprover, getallLOIapprover);
-router.put("/editapproverSI", protectApprover, editedSIapprover);
-router.put("/editreviewerSI", protectReviewer, editedSIreviewer);
-router.get("/getallSIapplicant", protectApplicant, getallSIapplicant);
-router.get("/getallSIreviewer", protectReviewer, getallSIreviewer);
-router.get("/getallSIapprover", protectApprover, getallSIapprover);
-router.put("/editapproverEI", protectApplicant, editEIapprover);
-router.put("/editreviewerEI", protectReviewer, editEIreviewer);
-
-router.get("/getallEIapprover", protectApprover, getallEIapprover);
-router.get("/getallEIreviewer", protectReviewer, getallEIreviewer);
-router.get("/getallEIapplicant", protectApplicant, getallEIapplicant);
-router.put("/editapproverDPLG", protectApprover, editDPLGapprover);
-router.put("/editreviewerDPLG", protectReviewer, editDPLGreviewer);
-router.get("/getallDPLGapplicant", protectApplicant, getallDPLGapplicant);
-router.get("/getallDPLGreviewer", protectReviewer, getallDPLGreviewer);
-router.get("/getallDPLGapprover", protectApprover, getallDPLGapprover);
-
-router.get("/getallEIapprover", protectApprover, getallEIapprover);
-router.get("/getallEIreviewer", protectReviewer, getallEIreviewer);
-router.get("/getallEIapplicant", protectApplicant, getallEIapplicant);
-router.put("/editapproverDPLG", protectApprover, editDPLGapprover);
-router.put("/editreviewerDPLG", protectReviewer, editDPLGreviewer);
-router.get("/getallDPLGapplicant", protectApplicant, getallDPLGapplicant);
-router.get("/getallDPLGreviewer", protectReviewer, getallDPLGreviewer);
-router.get("/getallDPLGapprover", protectApprover, getallDPLGapprover);
-
-router.put("/editapproverEG", protectApprover, editEGapprover);
-router.put("/editreviewerEG", protectApprover, editEGreviewer);
-router.get("/getallEGapplicant", protectApplicant, getallEGapplicant);
-router.get("/getallEGapprover", protectApplicant, getallEGapprover);
-router.get("/getallEGreviewer", protectReviewer, getallEGreviewer);
 module.exports = router;

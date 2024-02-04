@@ -5,7 +5,7 @@ const Budget_costSchema = Joi.object({
 });
 
 const revenueGoalsSchema = Joi.array().items(
-  Joi.object.keys({
+  Joi.object().keys({
     businessPlan: Joi.string().required(),
     currentYear: Joi.number().required(),
     year1: Joi.number().default(0),
