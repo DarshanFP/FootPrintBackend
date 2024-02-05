@@ -69,8 +69,8 @@ const createEOI = async (req, res) => {
       balance_amount_requested,
     } = req.body;
 
-    benificary_agree = {...benificary_agree , date: currentDate};
-    project_in_charge_agree = {...project_in_agree , date: currentDate};
+    const benificiaryAgree = {...benificary_agree , date: currentDate};
+    const projectInChargeAgree = {...project_in_agree , date: currentDate};
     
     const projectExists = await EOI.findOne({ aadhar_no });
     if (projectExists) {
@@ -138,8 +138,8 @@ const createEOI = async (req, res) => {
       request_letter_img,
       death_certificate_img,
       mark_list_of_previous_year,
-      benificary_agree,
-      project_in_charge_agree,
+      benificary_agree : benificiaryAgree,
+      project_in_charge_agree: projectInChargeAgree,
       present_study,
       details_of_budget,
       total_cost_of_study,
