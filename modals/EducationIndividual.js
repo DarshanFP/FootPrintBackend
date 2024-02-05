@@ -267,7 +267,7 @@ const EducationIndividual = new Schema({
     agree: { type: Boolean, dafault: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   // agree_syntax_changed
@@ -275,7 +275,7 @@ const EducationIndividual = new Schema({
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   // agree_sytanx_changed
@@ -283,7 +283,7 @@ const EducationIndividual = new Schema({
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   //agree_syntax_changed
@@ -291,7 +291,7 @@ const EducationIndividual = new Schema({
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   comment_box_provincial_superior: {

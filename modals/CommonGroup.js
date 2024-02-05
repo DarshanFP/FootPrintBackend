@@ -53,26 +53,26 @@ const CommonGroup = new Schema({
   monitoringProcess: { type: Number, required: true },
   evaluationMethodology: { type: Number, required: true },
   beneficiaryAgreement: { type: Boolean, required: true },
-  beneficiaryAgreementDate: { type: Date, default: Date.now, required: true },
+  beneficiaryAgreementDate: { type: Date, default: Date.now(), required: true },
   project_coordinator_agree: {
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   provincial_superior_agree: {
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   comment_box_provincial_superior: {

@@ -18,7 +18,7 @@ const editEOIreviewer = async (req, res) => {
         projectID,
         {
           comment_box_provincial_superior: comment_box_provincial_superior,
-          provincial_superior_agree: {...provincial_superior_agree,date: Date.now},
+          provincial_superior_agree: {...provincial_superior_agree,date: Date.now()},
         },
         { new: true }
       );

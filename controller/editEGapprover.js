@@ -23,7 +23,7 @@ const editEGapprover = async (req, res) => {
           project_coordinator: {
             ref: req.user._id,
             agree: project_coordinator_agree,
-            date: Date.now,
+            date: Date.now(),
             comment: comment_box_project_coordinator,
           },
         },

@@ -25,7 +25,7 @@ const editHIVApprover = async (req, res) => {
             ref: approverId,
             agree,
             comment,
-            date: Date.now,
+            date: Date.now(),
           },
         },
         amount_approved

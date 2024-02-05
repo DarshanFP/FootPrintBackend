@@ -41,7 +41,7 @@ const InstitutionSkillGroupValidate= Joi.object({
   budgetData: Joi.array().items(budgetCostValidation).required(),
   project_in_charge_agree: Joi.object({
     agree: Joi.boolean().default(false),
-    date: Joi.date().default(Date.now),
+    date: Joi.date().default(Date.now()),
   }).required()
 });
 

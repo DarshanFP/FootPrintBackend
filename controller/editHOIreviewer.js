@@ -2,6 +2,7 @@ const HOI = require("../modals/HealthOngoingIndividual");
 
 const editHOIreviewer = async (req, res) => {
   try {
+    console.log(req);
     const {
       projectID,
       comment_box_provincial_superior,
@@ -12,6 +13,7 @@ const editHOIreviewer = async (req, res) => {
       !comment_box_provincial_superior ||
       provincial_superior_agree === undefined
     ) {
+      console.log(provincial_superior_agree);
       return res.json({ success: false, msg: "send all fields" });
     }
 
@@ -19,7 +21,7 @@ const editHOIreviewer = async (req, res) => {
       projectID,
       {
         comment_box_provincial_superior: comment_box_provincial_superior,
-        provincial_superior_agree: {...provincial_superior_agree , date: Date.now},
+        provincial_superior_agree: {...provincial_superior_agree , date: new Date()},
       },
       { new: true }
     );

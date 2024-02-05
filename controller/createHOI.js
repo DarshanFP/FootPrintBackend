@@ -49,8 +49,8 @@ const createHOI = async (req, res) => {
     } = req.body;
     const projectExists = await HOI.findOne({ aadhar_no });
     
-    benificary_agree = {...benificary_agree , date: Date.now};
-    project_in_charge_agree = {...project_in_agree , date: Date.now};
+    benificary_agree = {...benificary_agree , date: Date.now()};
+    project_in_charge_agree = {...project_in_agree , date: Date.now()};
 
     if (projectExists) {
       return res.json({ success: false, msg: "This aadhar number exists" });

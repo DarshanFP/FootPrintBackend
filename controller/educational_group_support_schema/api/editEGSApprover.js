@@ -21,7 +21,7 @@ const editEGSApprover = async (req, res) => {
         $push: {
           "general_information.project_coordinators": {
             ref: approverId,
-            date: Date.now,
+            date: Date.now(),
             agree: agree,
             comment: comment,
           },

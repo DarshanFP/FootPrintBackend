@@ -92,19 +92,19 @@ const EducationIndividualValidate = Joi.object({
   // syntax changed
   benificary_agree: Joi.object().keys({
     agree: Joi.boolean().default(false),
-    date: Joi.date().default(Date.now),
+    date: Joi.date().default(Date.now()),
   }),
   project_coordinator_agree: Joi.object().keys({
     agree: Joi.boolean().default(false),
-    date: Joi.date().default(Date.now),
+    date: Joi.date().default(Date.now()),
   }),
   project_in_charge_agree: Joi.object().keys({
     agree: Joi.boolean().default(false),
-    date: Joi.date().default(Date.now),
+    date: Joi.date().default(Date.now()),
   }),
   provincial_superior_agree: Joi.object().keys({
     agree: Joi.boolean().default(false),
-    date: Joi.date().default(Date.now),
+    date: Joi.date().default(Date.now()),
   }),
   comment_box_provincial_superior: Joi.string().allow(null),
   comment_box_project_coordinator: Joi.string().allow(null),

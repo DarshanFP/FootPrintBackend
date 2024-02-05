@@ -55,30 +55,27 @@ const InstitutionSkillGroup = new Schema({
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   provincial_superior_agree: {
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   comment_box_provincial_superior: {
     type: String,
     default: null,
   },
-  comment_box_project_coordinator: {
-    type: String,
-    default: null,
-  },
+
 });
 module.exports = mongoose.model("ISG", InstitutionSkillGroup);

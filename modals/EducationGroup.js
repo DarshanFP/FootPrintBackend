@@ -64,7 +64,7 @@ const EducationGroupSchema = new Schema({
       agree: { type: Boolean, default: false }, // agreed or not
       date: {
         type: Date,
-        default: Date.now,
+        default: Date.now(),
       },
       comment: {
         type: String,
@@ -77,14 +77,14 @@ const EducationGroupSchema = new Schema({
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   provincial_superior_agree: {
     agree: { type: Boolean, default: false },
     date: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
     },
   },
   comment_box_provincial_superior: {

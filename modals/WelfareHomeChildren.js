@@ -50,7 +50,7 @@ const welfareHomeChildrenSchema = new mongoose.Schema(
 
         date: {
           type: Date,
-          default: Date.now,
+          default: Date.now(),
         }, // Date of agreement field
       },
       project_in_charge: {
@@ -62,7 +62,7 @@ const welfareHomeChildrenSchema = new mongoose.Schema(
 
         date: {
           type: Date,
-          default: Date.now,
+          default: Date.now(),
         }, // Date of agreement field
       },
       provincial_superior: {
@@ -74,7 +74,7 @@ const welfareHomeChildrenSchema = new mongoose.Schema(
 
         date: {
           type: Date,
-          default: Date.now,
+          default: Date.now(),
         }, // Date of agreement field
         comment: String, // Comment box for provincial superior
       },
@@ -88,7 +88,7 @@ const welfareHomeChildrenSchema = new mongoose.Schema(
 
           date: {
             type: Date,
-            default: Date.now,
+            default: Date.now(),
           }, // Date of agreement field
           comment: String, // Comment box for project coordinator
         },

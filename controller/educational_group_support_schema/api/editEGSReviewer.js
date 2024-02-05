@@ -19,7 +19,7 @@ const editEGSReviewer = async (req, res) => {
       {
         "general_information.provincial_superior.agree": agree,
         "general_information.provincial_superior.comment": comment,
-        "general_information.provincial_superior.date": Date.now,
+        "general_information.provincial_superior.date": Date.now(),
       }
     );
 

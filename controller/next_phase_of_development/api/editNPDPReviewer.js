@@ -21,7 +21,7 @@ const editNPDPReviewer = async (req, res) => {
             ref: reviewerId,
             agree,
             comment,
-            date: Date.now,
+            date: Date.now(),
           },
         },
       },
