@@ -62,6 +62,10 @@ const editCG=require('../controller/editCG')
 const editDPLG=require('../controller/editDPLG')
 const editEG=require('../controller/editEG')
 const editEI=require('../controller/editEI')
+const editEOI=require('../controller/editEOI')
+const editHOI=require('../controller/editHOI')
+const editISG=require('../controller/editISG')
+
 // donC
 router.post('/createHOI',protectApplicant,createHOI);
 router.post('/createEOI',protectApplicant,createEOI)
@@ -135,4 +139,7 @@ router.put('/editCG',protectApplicant,editCG)
 router.put('/editDPLG',protectApplicant,editDPLG)
 router.put('/editEG',protectApplicant,editEG)
 router.put('/editEI',protectApplicant,editEI)
+router.put('/editEOI',protectApplicant,editEOI)
+router.put('/editHOI',protectApplicant,editHOI)
+router.put('/editISG',protectApplicant,editISG)
 module.exports=router
