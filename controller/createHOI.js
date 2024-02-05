@@ -50,7 +50,7 @@ const createHOI = async (req, res) => {
     const projectExists = await HOI.findOne({ aadhar_no });
     
     const benificiaryAgree = {...benificary_agree , date: Date.now()};
-    const projectInChargeAgree = {...project_in_agree , date: Date.now()};
+    const projectInChargeAgree = {...project_in_charge_agree , date: Date.now()};
 
     if (projectExists) {
       return res.json({ success: false, msg: "This aadhar number exists" });
