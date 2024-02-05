@@ -54,44 +54,41 @@ const HIVAffectedOutreach = new mongoose.Schema(
         }, // Date of agreement field
       },
       project_in_charge: {
-        ref: mongoose.Schema.Types.ObjectId,
-        agree: {
-          type: Boolean,
-          default: false,
-        }, // Agreement field
-
+        ref: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Applicant',
+        },
+        agree: { type: Boolean, default: false },
         date: {
           type: Date,
           default: Date.now(),
-        }, // Date of agreement field
+        },
       },
-      provincial_superior: {
-        ref: mongoose.Schema.Types.ObjectId,
-        agree: {
-          type: Boolean,
-          default: false,
-        }, // Agreement field
-
+      provincial_superior:{
+        comment: {type: String , default: null}
+        ,ref: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Reviewer',
+        },
+        agree: { type: Boolean, default: false },
         date: {
           type: Date,
           default: Date.now(),
-        }, // Date of agreement field
-        comment: String, // Comment box for provincial superior
+        },
       },
       project_coordinators: [
         {
-          ref: mongoose.Schema.Types.ObjectId,
-          agree: {
-            type: Boolean,
-            default: false,
-          }, // Agreement field
-
+          comment: {type: String , default: null}
+          ,ref: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Approver',
+          },
+          agree: { type: Boolean, default: false },
           date: {
             type: Date,
             default: Date.now(),
-          }, // Date of agreement field
-          comment: String, // Comment box for project coordinator
-        },
+          },
+        }
       ],
     },
     key_information: {

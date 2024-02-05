@@ -60,17 +60,17 @@ const EducationGroupSchema = new Schema({
   conclusion: { type: String, required: true },
   project_coordinator: [
     {
-      ref: mongoose.Schema.Types.ObjectId, // approver id
-      agree: { type: Boolean, default: false }, // agreed or not
+      comment: {type: String , default: null}
+      ,ref: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Approver',
+      },
+      agree: { type: Boolean, default: false },
       date: {
         type: Date,
         default: Date.now(),
       },
-      comment: {
-        type: String,
-        default: null,
-      },
-    },
+    }
   ],
   // agree_sytanx_changed
   project_in_charge_agree: {

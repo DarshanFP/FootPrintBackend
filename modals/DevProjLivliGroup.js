@@ -58,14 +58,17 @@ const DevProjLivliGroup = new Schema({
   studies_table_data: [Studies],
   project_coordinator: [
     {
-      ref: mongoose.Schema.Types.ObjectId,
-      comment: { type: String, default: null },
+      comment: {type: String , default: null}
+      ,ref: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Approver',
+      },
       agree: { type: Boolean, default: false },
       date: {
         type: Date,
         default: Date.now(),
       },
-    },
+    }
   ],
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },

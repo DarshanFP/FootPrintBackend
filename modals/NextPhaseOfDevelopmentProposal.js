@@ -54,23 +54,42 @@ const nextPhaseOfDevelopmentSchema = new mongoose.Schema(
       },
     },
     mailing_list: {
-      project_in_charge: {
-        ref: mongoose.Schema.Types.ObjectId,
-        agree: Boolean, // Agreement field
-        date: Date, // Date of agreement field
+      project_in_charge:{
+        comment: { type: String, default: null },
+        ref: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Applicant",
+        },
+        agree: { type: Boolean, default: false },
+        date: {
+          type: Date,
+          default: Date.now(),
+        },
       },
       provincial_superior: {
-        ref: mongoose.Schema.Types.ObjectId,
-        agree: Boolean, // Agreement field
-        date: Date, // Date of agreement field
-        comment_box_provincial_superior: String, // Comment box for provincial superior
+        comment: { type: String, default: null },
+        ref: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Reviewer",
+        },
+        agree: { type: Boolean, default: false },
+        date: {
+          type: Date,
+          default: Date.now(),
+        },
       },
       project_coordinators: [
         {
-          ref: mongoose.Schema.Types.ObjectId,
-          agree: Boolean, // Agreement field
-          date: Date, // Date of agreement field
-          comment_box_project_coordinator: String, // Comment box for project coordinator
+          comment: { type: String, default: null },
+          ref: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Approver",
+          },
+          agree: { type: Boolean, default: false },
+          date: {
+            type: Date,
+            default: Date.now(),
+          },
         },
       ],
     },

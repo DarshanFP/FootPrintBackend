@@ -33,7 +33,6 @@ const beneficiarySchema = new mongoose.Schema({
   },
 });
 
-
 const objectiveSchema = new mongoose.Schema({
   objective: { type: String, required: true },
   results_and_outcomes: [String],
@@ -46,27 +45,21 @@ const objectiveSchema = new mongoose.Schema({
   ],
 });
 
-
 const solutionAnalysisSchema = new mongoose.Schema({
   goal: { type: String, required: true },
   objectives: [objectiveSchema],
 });
 
 const roleSchema = new mongoose.Schema({
+  comment: { type: String, default: null },
   ref: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: "Approver",
   },
-  agree: {
-    type: Boolean,
-    default: false,
-  },
+  agree: { type: Boolean, default: false },
   date: {
     type: Date,
     default: Date.now(),
-  },
-  comment: {
-    type: String,
-    default: null,
   },
 });
 
@@ -74,14 +67,47 @@ const educationalGroupSupportSchema = new mongoose.Schema(
   {
     project_title: { type: String, required: true },
     project_number: { type: String, required: true },
-    present_project_year: {type : Date , required: true},
+    present_project_year: { type: Date, required: true },
     general_information: {
       full_address: { type: String, required: true },
-      overall_project_period: {type: String, required: true},
+      overall_project_period: { type: String, required: true },
       overall_project_budget: { type: Number, required: true },
-      project_coordinators: [roleSchema],
-      provincial_superior: roleSchema,
-      project_incharge: roleSchema,
+      project_coordinators: [{
+        comment: { type: String, default: null },
+        ref: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Approver",
+        },
+        agree: { type: Boolean, default: false },
+        date: {
+          type: Date,
+          default: Date.now(),
+        },
+      }],
+      provincial_superior: {
+        comment: { type: String, default: null },
+        ref: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Reviewer",
+        },
+        agree: { type: Boolean, default: false },
+        date: {
+          type: Date,
+          default: Date.now(),
+        },
+      },
+      project_incharge: {
+        comment: { type: String, default: null },
+        ref: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Applicant",
+        },
+        agree: { type: Boolean, default: false },
+        date: {
+          type: Date,
+          default: Date.now(),
+        },
+      },
     },
     project_summary: {
       project_location_geographical_area: { type: String, required: true },
@@ -116,9 +142,9 @@ const educationalGroupSupportSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-roleSchema.index({
-    project_number : -1 , // -1 implies the indexing will happen in decreasing order 
-})
+educationalGroupSupportSchema.index({
+  project_number: -1, // -1 implies the indexing will happen in decreasing order
+});
 
 module.exports = mongoose.model(
   "education_group_support",

@@ -2,10 +2,11 @@ const welfareHomeChildrenModel = require("../../../modals/WelfareHomeChildren");
 
 const editWHFCReviewer = async (req, res) => {
   try {
-    const reviewerId = req.user();
+    const reviewerId = req.user._id;
     //fields we require from the request body
     const { comment, agree, project_number } = req.body;
 
+    console.log(req.body);
     if (!comment || agree === undefined || project_number === null) {
       return res.status(400).json({
         success: false,
@@ -14,7 +15,7 @@ const editWHFCReviewer = async (req, res) => {
     }
 
     const updatedData = await welfareHomeChildrenModel.findOneAndUpdate(
-      project_number,
+      {project_number : project_number},
       {
         $set: {
           "mailing_list.provincial_superior": {
