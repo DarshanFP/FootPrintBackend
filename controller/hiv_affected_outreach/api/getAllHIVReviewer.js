@@ -20,6 +20,7 @@ const getAllHIVReviewer = async (req, res) => {
         path: 'mailing_list.project_in_charge.ref',
         select: "name email mobile",
       });
+      console.log(allHIVProject);
 
     if (!allHIVProject) {
       return res.status(400).json({

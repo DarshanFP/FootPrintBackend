@@ -52,7 +52,7 @@ const createHIV = async (req, res) => {
     // create regex to get the fo
     const projectCodeRegex = RegExp(`^HV${currentYear}`);
     // find one from the decreasing indexed string, the one that stays at top
-    const lastCode = await welfareHomeChildrenModel.findOne(
+    const lastCode = await HIVAffectedOutreach.findOne(
       {
         project_number: { $regex: projectCodeRegex },
       },

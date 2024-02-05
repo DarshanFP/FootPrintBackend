@@ -51,13 +51,20 @@ const InstitutionSkillGroup = new Schema({
   monitoringProcess: { type: String, required: true },
   evaluationMethodology: { type: String, required: true },
   budgetData: [Budget_cost],
-  project_coordinator_agree: {
-    agree: { type: Boolean, default: false },
-    date: {
-      type: Date,
-      default: Date.now(),
+  project_coordinators: [
+    {
+      ref: mongoose.Schema.Types.ObjectId,
+      agree: { type: Boolean, default: false },
+      date: {
+        type: Date,
+        default: Date.now(),
+      },
+      comment: {
+        type: String,
+        default: null,
+      },
     },
-  },
+  ],
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },
     date: {
@@ -76,6 +83,9 @@ const InstitutionSkillGroup = new Schema({
     type: String,
     default: null,
   },
-
+  amount_approved: {
+    type: Number ,
+    default: 0, 
+  }
 });
 module.exports = mongoose.model("ISG", InstitutionSkillGroup);
