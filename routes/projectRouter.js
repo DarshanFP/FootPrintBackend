@@ -58,7 +58,10 @@ const editCGreviewer=require('../controller/editCGreviewer')
 const getallCGapplicant=require('../controller/getallCGapplicant')
 const getallCGapprover=require('../controller/getallCGapprover')
 const getallCGreviewer=require('../controller/getallCGreviewer')
-
+const editCG=require('../controller/editCG')
+const editDPLG=require('../controller/editDPLG')
+const editEG=require('../controller/editEG')
+const editEI=require('../controller/editEI')
 // donC
 router.post('/createHOI',protectApplicant,createHOI);
 router.post('/createEOI',protectApplicant,createEOI)
@@ -124,4 +127,12 @@ router.put('/editreviewerEG',protectApprover,editEGreviewer)
 router.get('/getallEGapplicant',protectApplicant,getallEGapplicant)
 router.get('/getallEGapprover',protectApplicant,getallEGapprover)
 router.get('/getallEGreviewer',protectReviewer,getallEGreviewer)
+
+
+
+
+router.put('/editCG',protectApplicant,editCG)
+router.put('/editDPLG',protectApplicant,editDPLG)
+router.put('/editEG',protectApplicant,editEG)
+router.put('/editEI',protectApplicant,editEI)
 module.exports=router
