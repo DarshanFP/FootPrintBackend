@@ -9,7 +9,7 @@ const getAllHIVReviewer = async (req, res) => {
     // validitiy of user will be checked from the token itself
     // you have to querry by project_in_charge.ref
 
-    const reviewerId = req.user_id;
+    const reviewerId = req.user._id;
 
     // find by applicant
     const allHIVProject = await HIVAffectedOutreach
