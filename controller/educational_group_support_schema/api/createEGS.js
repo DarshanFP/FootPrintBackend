@@ -31,7 +31,6 @@ const createEGS = async (req, res) => {
     const {
       project_title,
       general_information,
-      beneficiaries,
       objectives,
       project_summary,
       expenses,
@@ -81,7 +80,6 @@ const createEGS = async (req, res) => {
       present_project_year: currentYear,
       project_number: projectNumber,
       project_title,
-      beneficiaries,
       objectives,
       project_summary,
       expenses,

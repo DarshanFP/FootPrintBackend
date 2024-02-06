@@ -23,16 +23,6 @@ const generalInformationSchema = Joi.object({
   }),
 });
 
-// Define Beneficiary Schema
-const beneficiarySchema = Joi.object({
-  name: Joi.string().required(),
-  caste: Joi.string().required(),
-  occupation_of_parents: Joi.string().required(),
-  family_background_and_need_of_support: Joi.string().required(),
-  class_of_study_or_name_of_institution: Joi.string().required(),
-  eligibility_of_scholarship_and_expected_amount: Joi.string().required(),
-  contribution_from_family: Joi.string().required(),
-});
 
 // Define Objective Schema
 const objectiveSchema = Joi.object({
@@ -106,7 +96,6 @@ const educationalGroupSupportSchema = Joi.object({
   project_number: Joi.string(),
   project_title: Joi.string().required(),
   general_information: generalInformationSchema,
-  beneficiaries: Joi.array().items(beneficiarySchema),
   objectives: Joi.array().items(objectiveSchema),
   project_summary: projectSummarySchema,
   expenses: expensesSchema,
