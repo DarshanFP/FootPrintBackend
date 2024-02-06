@@ -6,7 +6,7 @@ const nextPhaseOfDevelopmentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    project_Number: {
+    project_number: {
       type: String,
       required: true,
     },
