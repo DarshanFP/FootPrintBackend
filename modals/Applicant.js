@@ -9,7 +9,6 @@ const applicantSchema=new Schema({
     nameOfProvince: {
         type: String,
         required: true,
-        enum: ["north", "south", "central"],
       },
     apostolate:{
         type:String,

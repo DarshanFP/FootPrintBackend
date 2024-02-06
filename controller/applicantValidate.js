@@ -13,6 +13,6 @@ const applicantValidate=Joi.object({
     }),
     nameOfProvince: Joi.string().valid('north', 'south', 'central').required(),
     reviewer: Joi.string().required(),
-    apostolate: Joi.string().valid('social', 'education', 'health', 'others').required(),
+    apostolate: Joi.string().required(),
   })
 module.exports=applicantValidate

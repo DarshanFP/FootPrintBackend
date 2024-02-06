@@ -11,6 +11,6 @@ const reviewerValidate=Joi.object({
         'number.max': 'Mobile cannot exceed 10 digits',
         'any.required': 'Mobile is required',
       }),
-    nameOfProvince: Joi.string().valid('north', 'south', 'central').required(),
+    nameOfProvince: Joi.string().required(),
   });
 module.exports=reviewerValidate

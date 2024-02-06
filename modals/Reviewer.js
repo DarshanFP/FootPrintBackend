@@ -9,7 +9,6 @@ const reviewerSchema = new Schema({
   nameOfProvince: {
     type: String,
     required: true,
-    enum: ["north", "south", "central"],
   },
   isVarified:{
     type:Boolean,

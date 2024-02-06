@@ -86,15 +86,24 @@ const editISGreviewer = require("../controller/editISGreviewer");
 const getallISGapplicant = require("../controller/getallISGapplicant");
 const getallISGapprover = require("../controller/getallISGapprover");
 const getallISGreviewer = require("../controller/getallISGreviewer");
+const editEG = require("../controller/editEG");
+const editEI = require("../controller/editEI");
+const editDPLG = require("../controller/editDPLG");
+const editHOI = require("../controller/editHOI");
+const editEOI = require("../controller/editEOI");
+const editCG = require("../controller/editCG");
+const editISG = require("../controller/editISG");
 
 // EG Routes
 router.post("/createEG", protectApplicant, createEG);
-// router.get("/editEGSApplicant", protectApplicant, editEGApplicant);
 router.get("/editEGApprover", protectApprover, editEGapprover);
 router.get("/editEGReviewer", protectReviewer, editEGreviewer);
 router.put("/getAllEGApplicant", protectApplicant, getallEGapplicant);
 router.put("/getAllEGApprover", protectApprover, getallEGapprover);
 router.put("/getAllEGReviewer", protectReviewer, getallEGreviewer);
+router.put('/editEG',protectApplicant,editEG)
+
+
 
 // EGS Routes
 router.post("/createEGS", protectApplicant, createEGS);
@@ -105,6 +114,7 @@ router.get("/getAllEGSApplicant", protectApplicant, getAllEGSApplicant);
 router.get("/getAllEGSApprover", protectApprover, getAllEGSApprover);
 router.get("/getAllEGSReviewer", protectReviewer, getAllEGSReviewer);
 
+
 // SI Routes
 router.post("/createSI", protectApplicant, createSI);
 router.put("/editapproverSI", protectApprover, editedSIapprover);
@@ -112,6 +122,7 @@ router.put("/editreviewerSI", protectReviewer, editedSIreviewer);
 router.get("/getallSIapplicant", protectApplicant, getallSIapplicant);
 router.get("/getallSIreviewer", protectReviewer, getallSIreviewer);
 router.get("/getallSIapprover", protectApprover, getallSIapprover);
+// edit SI??
 
 // EI Routes
 router.post("/createEI", protectApplicant, createEI);
@@ -120,6 +131,8 @@ router.put("/editreviewerEI", protectReviewer, editEIreviewer);
 router.get("/getallEIapprover", protectApprover, getallEIapprover);
 router.get("/getallEIreviewer", protectReviewer, getallEIreviewer);
 router.get("/getallEIapplicant", protectApplicant, getallEIapplicant);
+router.put('/editEI',protectApplicant,editEI)
+
 
 // DPLG Routes
 router.post("/createDPLG", protectApplicant, createDPLG);
@@ -128,6 +141,8 @@ router.put("/editreviewerDPLG", protectReviewer, editDPLGreviewer);
 router.get("/getallDPLGapplicant", protectApplicant, getallDPLGapplicant);
 router.get("/getallDPLGreviewer", protectReviewer, getallDPLGreviewer);
 router.get("/getallDPLGapprover", protectApprover, getallDPLGapprover);
+router.put('/editDPLG',protectApplicant,editDPLG)
+
 
 // HOI Routes
 router.post("/createHOI", protectApplicant, createHOI);
@@ -136,6 +151,8 @@ router.put("/editapproverHOI", protectApprover, editHOIapprover);
 router.get("/getallHOIapplicant", protectApplicant, getallHOIapplicant);
 router.get("/getallHOIreviewer", protectReviewer, getallHOIreviewer);
 router.get("/getallHOIapprover", protectApprover, getallHOIapprover);
+router.put('/editHOI',protectApplicant,editHOI)
+
 
 // EOI Routes
 router.post("/createEOI", protectApplicant, createEOI);
@@ -144,6 +161,8 @@ router.put("/editapproverEOI", protectApprover, editEOIapprover);
 router.get("/getallEOIapplicant", protectApplicant, getallEOIapplicant);
 router.get("/getallEOIreviewer", protectReviewer, getallEOIreviewer);
 router.get("/getallEOIapprover", protectApprover, getallEOIapprover);
+router.put('/editEOI',protectApplicant,editEOI)
+
 
 // LOI Routes
 router.post("/createLOI", protectApplicant, createLOI);
@@ -187,6 +206,7 @@ router.put("/editreviewerCG", protectReviewer, editCGreviewer);
 router.get("/getallCGapplicant", protectApplicant, getallCGapplicant);
 router.get("/getallCGapprover", protectApplicant, getallCGapprover);
 router.get("/getallCGreviewer", protectReviewer, getallCGreviewer);
+router.put('/editCG',protectApplicant,editCG)
 
 
 // ISG Routes
@@ -196,5 +216,8 @@ router.put("/editreviewerISG", protectReviewer, editISGreviewer);
 router.get("/getallISGapplicant", protectApplicant, getallISGapplicant);
 router.get("/getallISGapprover", protectApplicant, getallISGapprover);
 router.get("/getallISGreviewer", protectReviewer, getallISGreviewer);
+router.put('/editISG',protectApplicant,editISG)
+
+
 
 module.exports = router;
