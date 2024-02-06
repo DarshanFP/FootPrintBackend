@@ -19,7 +19,7 @@ const getAllHIVApprover = async (req, res) => {
       .populate('mailing_list.project_in_charge.ref')
       .populate('mailing_list.provincial_superior.ref');
     // I am not sure if populating is required , if it will be I'll put it there
-
+    
     if (!allHIVProject) {
       return res.status(400).json({
         status: false,
@@ -29,7 +29,7 @@ const getAllHIVApprover = async (req, res) => {
     return res.status(200).json({
       status: true,
       message: "successfully got all projects",
-      data: res,
+      data: allHIVProject,
     });
   } catch (error) {
     return res.status(400).json({
