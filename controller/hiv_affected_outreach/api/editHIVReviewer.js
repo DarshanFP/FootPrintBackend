@@ -2,7 +2,7 @@ const HIVAffectedOutreach = require("../../../modals/HIVAffectedOutreach");
 
 const editHIVReviewer = async (req, res) => {
   try {
-    const reviewerId = req.user();
+    const reviewerId = req.user._id ; 
     //fields we require from the request body
     const { comment, agree, project_number } = req.body;
 
@@ -14,7 +14,7 @@ const editHIVReviewer = async (req, res) => {
     }
 
     const updatedData = await HIVAffectedOutreach.findOneAndUpdate(
-      project_number,
+      {project_number},
       {
         $set: {
           "mailing_list.provincial_superior": {
@@ -40,6 +40,7 @@ const editHIVReviewer = async (req, res) => {
       data: updatedData,
     });
   } catch (error) {
+    console.log(error);
     return res.status(400).json({
       message: "review unsuccessful",
       error: error.message,
