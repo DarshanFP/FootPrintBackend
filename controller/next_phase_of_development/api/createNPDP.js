@@ -51,7 +51,7 @@ const createNPDP = async (req, res) => {
 
     let projectCode = `NP${currentYear}`;
 
-    if (lastCode == null) {
+    if (lastCode === null) {
       projectCode = `${projectCode}0`;
     } else {
       console.log(`${lastCode}`.substring(6));
