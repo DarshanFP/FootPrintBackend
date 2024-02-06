@@ -54,7 +54,7 @@ const projectSummarySchema = Joi.object({
   general_socio_economic_conditions_of_the_beneficiaries: Joi.string(),
   problems_identified_and_consequences: Joi.string(),
   need_of_the_project: Joi.string(),
-  identification_of_the_beneficiaries: Joi.array().items(
+  target_group: Joi.array().items(
     Joi.object({
       name: Joi.string().required(),
       caste: Joi.string().required(),
@@ -65,7 +65,6 @@ const projectSummarySchema = Joi.object({
       contribution_from_family: Joi.string().required(),
     })
   ),
-  target_group: Joi.string().required(),
   solution_analysis_logical_framework: Joi.object({
     goal: Joi.string().required(),
     objectives: Joi.array().items(
