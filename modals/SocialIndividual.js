@@ -95,13 +95,13 @@ const SocialIndividual = new Schema({
     type: String,
     required: true,
   },
-  revenueGoals: {
+  revenueGoals: [{
     businessPlan: { type: String, required: true },
     currentYear: { type: Number, required: true },
     year1: { type: Number, required: true },
     year2: { type: Number, required: true },
     year3: { type: Number, required: true },
-  },
+  }],
   businessStrengthsPreviousYear: {
     type: String,
     required: true,
@@ -111,6 +111,10 @@ const SocialIndividual = new Schema({
     required: true,
   },
   riskIdentification: {
+    type: String,
+    required: true,
+  },
+  riskMitigationMeasures: {
     type: String,
     required: true,
   },

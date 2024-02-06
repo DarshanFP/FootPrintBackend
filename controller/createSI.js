@@ -25,6 +25,8 @@ const createSI = async (req, res) => {
       }`;
     }
     await SI.create({
+      revenueGoals: req.body.revenueGoals, 
+      riskMitigationMeasures: req.body.riskMitigationMeasures,
       project_code: projectCode,
       applicant: req.user,
       reviewer: req.user.reviewer,

@@ -5,15 +5,13 @@ const generalInformationSchema = Joi.object({
   full_address: Joi.string().required(),
   overall_project_period: Joi.string().required(),
   overall_project_budget: Joi.number().required(),
-  project_coordinators: Joi.array()
-    .items(
-      Joi.object({
-        agree: Joi.boolean().default(false),
-        date: Joi.date().default(Date.now()),
-        comment: Joi.string().allow(null).default(null),
-      }) // coordinators agree and ref shall be added on the same day
-    )
-    .required(),
+  project_coordinators: Joi.array().items(
+    Joi.object({
+      agree: Joi.boolean().default(false),
+      date: Joi.date().default(Date.now()),
+      comment: Joi.string().allow(null).default(null),
+    }) // coordinators agree and ref shall be added on the same day
+  ),
   provincial_superior: Joi.object({
     agree: Joi.boolean().default(false),
     date: Joi.date().default(Date.now()),
@@ -43,9 +41,7 @@ const objectiveSchema = Joi.object({
   activities: Joi.array().items(
     Joi.object({
       activity: Joi.string().required(),
-      months: Joi.array().items(
-        Joi.boolean()
-      ).length(12),
+      months: Joi.array().items(Joi.boolean()).length(12),
       means_of_verification: Joi.string().required(),
     })
   ),

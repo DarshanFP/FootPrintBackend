@@ -51,6 +51,7 @@ const SocialIndividualValidate = Joi.object({
   businessStrengthsPreviousYear: Joi.string().required(),
   businessWeaknessesPreviousYear: Joi.string().required(),
   riskIdentification: Joi.string().required(),
+  riskMitigationMeasures: Joi.string().required(),
   businessSustainability: Joi.string().required(),
   expectedBenefits: Joi.string().required(),
   budget_cost_table: Joi.array().items(Budget_costSchema),
