@@ -58,6 +58,7 @@ const createNPDP = async (req, res) => {
       projectCode = `${projectCode}${parseInt(`${lastCode.project_number}`.substring(6) ?? '0') + 1}`;
     }
 
+    console.log(projectCode);
     // at some later dates we need to fetch both approvers from the database and add them manually for the purpose
     // the two are Sister Nirmala and Samuel Imbach
     // we shall send a request to the both approvers
@@ -96,6 +97,7 @@ const createNPDP = async (req, res) => {
     // ref shall be one of those
     // the main data to be generated
   } catch (error) {
+    console.log(error);
     return res.status(400).json({
       success: false,
       message: "Unexpected error creating the fields",
