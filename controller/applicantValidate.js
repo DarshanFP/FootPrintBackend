@@ -11,7 +11,7 @@ const applicantValidate=Joi.object({
       'number.max': 'Mobile cannot exceed 10 digits',
       'any.required': 'Mobile is required',
     }),
-    nameOfProvince: Joi.string().valid('north', 'south', 'central').required(),
+    nameOfProvince: Joi.string().required(),
     reviewer: Joi.string().required(),
     apostolate: Joi.string().required(),
   })
