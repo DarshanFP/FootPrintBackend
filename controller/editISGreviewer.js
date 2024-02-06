@@ -11,6 +11,7 @@ const editISGreviewer = async (req, res) => {
       !comment_box_provincial_superior ||
       provincial_superior_agree === undefined
     ) {
+      console.log(req);
       return res.json({ success: false, msg: "send all fields" });
     }
 

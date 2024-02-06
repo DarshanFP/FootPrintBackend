@@ -44,7 +44,7 @@ const createDPLG = async (req, res) => {
       monitoringProcess:req.body.monitoringProcess,
       budget_cost_table: req.body.budget_cost_table,
       studies_table_data:req.body.studies_table_data,
-      project_in_charge_agree: req.body.project_in_charge_agree,
+      project_in_charge_agree: {agree: true},
     });
     res.json({ success: true });
   } catch (error) {

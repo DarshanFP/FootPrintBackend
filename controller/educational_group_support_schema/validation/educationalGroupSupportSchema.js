@@ -23,7 +23,6 @@ const generalInformationSchema = Joi.object({
   }),
 });
 
-
 // Define Objective Schema
 const objectiveSchema = Joi.object({
   objective: Joi.string().required(),
@@ -64,7 +63,23 @@ const projectSummarySchema = Joi.object({
         activities: Joi.array().items(
           Joi.object({
             activity: Joi.string().required(),
-            months: Joi.array().items(Joi.number().integer().min(1).max(12)),
+            months: Joi.array()
+              .items(Joi.boolean())
+              .length(12)
+              .default([
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+              ]),
             means_of_verification: Joi.string().required(),
           })
         ),

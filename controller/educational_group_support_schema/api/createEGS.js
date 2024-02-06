@@ -23,7 +23,7 @@ const createEGS = async (req, res) => {
     // so we extract those user data from the request
     const applicant = req.user._id;
     const reviewer = req.user.reviewer;
-    const currentDate = new Date(); 
+    const currentDate = Date.now(); 
     const currentYear = currentDate.getFullYear();
     // vallidation successfull => all the fields are there
 

@@ -1,4 +1,4 @@
-const ISG= require("../modals/InstitutionSkillGroup");
+const ISG = require("../modals/InstitutionSkillGroup");
 const InstitutionSkillGroupValidate = require("./InstitutionSkillGroupValidate");
 
 const createISG = async (req, res) => {
@@ -37,17 +37,20 @@ const createISG = async (req, res) => {
       OverallProjectBudget: req.body.OverallProjectBudget,
       NumberOfBeneficiaries: req.body.NumberOfBeneficiaries,
       ResidentialVillages: req.body.ResidentialVillages,
-      SelectionCriteriaAndProfile:req.body.SelectionCriteriaAndProfile,
-      DescriptionOfBeneficiary:req.body.DescriptionOfBeneficiary,
-      problemAnalysis:req.body.problemAnalysis,
-      solutionAnalysis:req.body.solutionAnalysis,
+      SelectionCriteriaAndProfile: req.body.SelectionCriteriaAndProfile,
+      DescriptionOfBeneficiary: req.body.DescriptionOfBeneficiary,
+      problemAnalysis: req.body.problemAnalysis,
+      solutionAnalysis: req.body.solutionAnalysis,
       goal: req.body.goal,
       objectives: req.body.objectives,
-      sustainability:req.body.sustainability,
+      sustainability: req.body.sustainability,
       monitoringProcess: req.body.monitoringProcess,
       evaluationMethodology: req.body.evaluationMethodology,
       budgetData: req.body.budgetData,
-      project_in_charge_agree: req.body.project_in_charge_agree,
+      project_in_charge_agree: {
+        agree: true,
+        date: new Date()
+      },
     });
     res.json({ success: true });
   } catch (error) {

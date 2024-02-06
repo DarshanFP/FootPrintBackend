@@ -53,17 +53,17 @@ const InstitutionSkillGroup = new Schema({
   budgetData: [Budget_cost],
   project_coordinators: [
     {
-      comment: { type: String, default: null },
-      ref: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Approver",
-      },
+      ref: mongoose.Schema.Types.ObjectId,
       agree: { type: Boolean, default: false },
       date: {
         type: Date,
         default: Date.now(),
       },
-    }
+      comment: {
+        type: String,
+        default: null,
+      },
+    },
   ],
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },

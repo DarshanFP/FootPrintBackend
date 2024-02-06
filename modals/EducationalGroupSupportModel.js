@@ -39,7 +39,7 @@ const objectiveSchema = new mongoose.Schema({
   activities: [
     {
       activity: { type: String, required: true },
-      months: [Number],
+      months: [Boolean],
       means_of_verification: { type: String, required: true },
     },
   ],

@@ -96,11 +96,11 @@ const editISG = require("../controller/editISG");
 
 // EG Routes
 router.post("/createEG", protectApplicant, createEG);
-router.get("/editEGApprover", protectApprover, editEGapprover);
-router.get("/editEGReviewer", protectReviewer, editEGreviewer);
-router.put("/getAllEGApplicant", protectApplicant, getallEGapplicant);
-router.put("/getAllEGApprover", protectApprover, getallEGapprover);
-router.put("/getAllEGReviewer", protectReviewer, getallEGreviewer);
+router.put("/editEGApprover", protectApprover, editEGapprover);
+router.put("/editEGReviewer", protectReviewer, editEGreviewer);
+router.get("/getAllEGApplicant", protectApplicant, getallEGapplicant);
+router.get("/getAllEGApprover", protectApprover, getallEGapprover);
+router.get("/getAllEGReviewer", protectReviewer, getallEGreviewer);
 router.put('/editEG',protectApplicant,editEG)
 
 

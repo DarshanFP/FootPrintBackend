@@ -12,7 +12,7 @@ const editEGSReviewer = async (req, res) => {
       });
     }
 
-    const res = await EducationalGroupSupportModel.findOneAndUpdate(
+    const update = await EducationalGroupSupportModel.findOneAndUpdate(
       {
         project_number,
       },
@@ -24,11 +24,12 @@ const editEGSReviewer = async (req, res) => {
     );
 
     return res.status(200).json({
-      data: res,
+      data: update,
       message: "successfully reviewed",
       success: true,
     });
   } catch (e) {
+    console.log(e);
     return res.status(200).json({
       error: e,
       message: "unepxpected error reviewing",

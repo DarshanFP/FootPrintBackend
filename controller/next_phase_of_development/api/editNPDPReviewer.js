@@ -2,11 +2,12 @@ const NextPhaseOfDevelopmentProposal = require("../../../modals/NextPhaseOfDevel
 
 const editNPDPReviewer = async (req, res) => {
   try {
-    const reviewerId = req.user();
+    const reviewerId = req.user._id;
     //fields we require from the request body
     const { comment, agree, project_number } = req.body;
 
     if (!comment || agree === undefined || project_number === null) {
+      console.log(req.body);
       return res.status(400).json({
         success: false,
         message: "send all fields",
@@ -14,7 +15,7 @@ const editNPDPReviewer = async (req, res) => {
     }
 
     const updatedData = await NextPhaseOfDevelopmentProposal.findOneAndUpdate(
-      project_number,
+      {project_number},
       {
         $set: {
           "mailing_list.provincial_superior": {
