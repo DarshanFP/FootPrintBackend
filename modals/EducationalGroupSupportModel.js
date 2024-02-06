@@ -72,18 +72,20 @@ const educationalGroupSupportSchema = new mongoose.Schema(
       full_address: { type: String, required: true },
       overall_project_period: { type: String, required: true },
       overall_project_budget: { type: Number, required: true },
-      project_coordinators: [{
-        comment: { type: String, default: null },
-        ref: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Approver",
+      project_coordinators: [
+        {
+          comment: { type: String, default: null },
+          ref: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Approver",
+          },
+          agree: { type: Boolean, default: false },
+          date: {
+            type: Date,
+            default: Date.now(),
+          },
         },
-        agree: { type: Boolean, default: false },
-        date: {
-          type: Date,
-          default: Date.now(),
-        },
-      }],
+      ],
       provincial_superior: {
         comment: { type: String, default: null },
         ref: {
@@ -115,11 +117,7 @@ const educationalGroupSupportSchema = new mongoose.Schema(
       general_socio_economic_conditions_of_the_beneficiaries: String,
       problems_identified_and_consequences: String,
       need_of_the_project: String,
-      identification_of_the_beneficiaries: [beneficiarySchema],
-      target_group: {
-        type: String,
-        required: true,
-      },
+      target_group: [beneficiarySchema],
       solution_analysis_logical_framework: solutionAnalysisSchema,
       sustainability: String,
       monitoring_process_of_the_project: String,
