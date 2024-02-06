@@ -49,7 +49,7 @@ const createCG = async (req, res) => {
         monitoringProcess:req.body.monitoringProcess,
         evaluationMethodology: req.body.evaluationMethodology,
         beneficiaryAgreement: req.body.beneficiaryAgreement,
-        beneficiaryAgreementDate: req.body.beneficiaryAgreementDate,
+        beneficiaryAgreementDate: new Date(),
         project_in_charge_agree:req.body.project_in_charge_agree
     });
     res.json({ success: true });
