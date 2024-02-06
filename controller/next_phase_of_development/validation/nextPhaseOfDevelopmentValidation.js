@@ -25,7 +25,6 @@ const projectValidationSchema = Joi.object({
   society_name: stringRequiredSchema,
   project_title: stringRequiredSchema,
   project_highlights: stringRequiredSchema,
-  project_number: stringSchema, 
   key_data_of_project: Joi.object({
     project_area: stringRequiredSchema,
     project_area_description: stringSchema.allow('' , null),
