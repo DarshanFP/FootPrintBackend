@@ -184,7 +184,7 @@ const EducationIndividual = new Schema({
   eligibleForScholarship:{
     type: String,
     required: true,
-    enum:['yes','no']
+    enum:['Yes','No']
   },
   expectedScholarshipAmount:{
     type: Number,
@@ -196,7 +196,7 @@ const EducationIndividual = new Schema({
   },
   noFamilySupportReasons:{
     type: String,
-    required: true
+    default: '',
   },
   presentStudy:{
     type: String,

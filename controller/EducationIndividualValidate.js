@@ -44,7 +44,7 @@ const EducationIndividualValidate = Joi.object({
       "Others"
     )
     .required(),
-  health_status_of_father_others: Joi.string().default(""),
+  health_status_of_father_others: Joi.string().allow('' , null),
   health_status_of_mother: Joi.string()
     .valid(
       "Chronically Sick",
@@ -54,11 +54,11 @@ const EducationIndividualValidate = Joi.object({
       "Others"
     )
     .required(),
-  health_status_of_mother_others: Joi.string().default(""),
+  health_status_of_mother_others: Joi.string().allow('' , null),
   residential_status: Joi.string()
     .valid("houseOwner", "landOwner", "rentedHouse", "others")
     .required(),
-  residential_status_others: Joi.string().default(""),
+  residential_status_others: Joi.string().allow('' , null),
   family_situation_of_the_beneficiary: Joi.string().required(),
   financialSupportDetails: Joi.string().required(),
   familyEmploymentDetails: Joi.string().required(),
@@ -69,10 +69,10 @@ const EducationIndividualValidate = Joi.object({
   presentInstitutionDetails: Joi.string().required(),
   educationalAspiration: Joi.string().required(),
   sustainabilityDetails: Joi.string().required(),
-  eligibleForScholarship: Joi.string().valid("yes", "no").required(),
+  eligibleForScholarship: Joi.string().valid("Yes", "No").required(),
   expectedScholarshipAmount: Joi.number().required(),
   familyFinancialContribution: Joi.number().required(),
-  noFamilySupportReasons: Joi.string().required(),
+  noFamilySupportReasons: Joi.string().allow('' , null),
   presentStudy: Joi.string().required(),
   budgetDetails: Joi.string().required(),
   totalCostOfStudy: Joi.number().required(),
