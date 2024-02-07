@@ -9,7 +9,7 @@ const editCGapprover = async (req, res) => {
     } = req.body;
     if (
       !projectID ||
-      !comment_box_project_coordinator||
+      !comment_box_project_coordinator ||
       project_coordinator_agree === undefined
     ) {
       return res.json({ success: false, msg: "send all fields" });
@@ -18,12 +18,17 @@ const editCGapprover = async (req, res) => {
     const editedCG = await CG.findByIdAndUpdate(
       projectID,
       {
-        comment_box_project_coordinator: comment_box_project_coordinator,
-        project_coordinator_agree: project_coordinator_agree,
+        $push: {
+          project_coordinators: {
+            agree: project_coordinator_agree,
+            comment: comment_box_project_coordinator,
+            date: Date.now(),
+            ref: req.user._id,
+          },
+        },
       },
       { new: true }
     );
-
 
     if (!editedCG) {
       return res.json({ success: false, msg: "updation failed" });

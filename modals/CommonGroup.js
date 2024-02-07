@@ -52,7 +52,7 @@ const CommonGroup = new Schema({
   evaluationMethodology: { type: String, required: true },
   beneficiaryAgreement: { type: Boolean, required: true },
   beneficiaryAgreementDate: { type: Date, default: Date.now(), required: true },
-  project_coordinator: [{
+  project_coordinators: [{
     comment: {type: String , default: null}
     ,ref: {
       type: mongoose.Schema.Types.ObjectId,
@@ -79,10 +79,6 @@ const CommonGroup = new Schema({
     },
   },
   comment_box_provincial_superior: {
-    type: String,
-    default: null,
-  },
-  comment_box_project_coordinator: {
     type: String,
     default: null,
   },

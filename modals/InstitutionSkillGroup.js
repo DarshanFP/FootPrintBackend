@@ -53,7 +53,7 @@ const InstitutionSkillGroup = new Schema({
   budgetData: [Budget_cost],
   project_coordinators: [
     {
-      ref: mongoose.Schema.Types.ObjectId,
+      ref: { type: mongoose.Schema.Types.ObjectId, ref: "Approver" },
       agree: { type: Boolean, default: false },
       date: {
         type: Date,
@@ -84,8 +84,8 @@ const InstitutionSkillGroup = new Schema({
     default: null,
   },
   amount_approved: {
-    type: Number ,
-    default: 0, 
-  }
+    type: Number,
+    default: 0,
+  },
 });
 module.exports = mongoose.model("ISG", InstitutionSkillGroup);
