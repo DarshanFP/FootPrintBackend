@@ -9,7 +9,7 @@ const getAllEGSApplicant = async (req, res) => {
     })
       .populate("general_information.project_incharge.ref")
       .populate("general_information.provincial_superior.ref")
-      .populate("general_information.project_coordinator.ref");
+      .populate("general_information.project_coordinators.ref");
 
     if (allEGSApplicants.length == 0) {
       return res.status(400).json({

@@ -9,7 +9,7 @@ const getAllEGSReviewer = async (req, res) => {
     })
       .populate("general_information.project_incharge.ref")
       .populate("general_information.provincial_superior.ref")
-      .populate("general_information.project_coordinator.ref");
+      .populate("general_information.project_coordinators.ref");
 
     return res.status(200).json({
       success: true,

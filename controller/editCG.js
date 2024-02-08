@@ -18,6 +18,8 @@ const editCG = async (req, res) => {
     const editedCG =await CG.findOneAndUpdate(
       { project_code: projectID },
       {
+        comment_box_provincial_superior: null , 
+        project_coordinators: [] , 
         goal: req.body.goal,
         objectives: req.body.objectives,
         selectedMonths: req.body.selectedMonths,

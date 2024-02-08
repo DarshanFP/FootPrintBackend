@@ -28,6 +28,10 @@ const nextPhaseOfDevelopmentSchema = new mongoose.Schema(
     },
     key_data_of_project: {
       project_area: String,
+      project_area_description: {
+        type: String,
+        required: true,
+      },
       sister_in_charge: String,
       overall_project_budget: String,
       own_contribution: {
@@ -54,7 +58,7 @@ const nextPhaseOfDevelopmentSchema = new mongoose.Schema(
       },
     },
     mailing_list: {
-      project_in_charge:{
+      project_in_charge: {
         comment: { type: String, default: null },
         ref: {
           type: mongoose.Schema.Types.ObjectId,
@@ -99,10 +103,13 @@ const nextPhaseOfDevelopmentSchema = new mongoose.Schema(
         required: true, // Required field
       },
       objectives_previous: [String],
-      project_area: String,
       overall_goal: String,
       objectives: [
         {
+          objective: {
+            required: true,
+            type: String,
+          },
           results_outcome_previous_phases: String,
           activities_next_phase: [
             {
