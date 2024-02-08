@@ -16,10 +16,9 @@ const getAllHIVReviewer = async (req, res) => {
       .find({
         "mailing_list.provincial_superior.ref": reviewerId,
       })
-      .populate({
-        path: 'mailing_list.project_in_charge.ref',
-        select: "name email mobile",
-      });
+      .populate("mailing_list.project_in_charge.ref")
+      .populate("mailing_list.provincial_superior.ref")
+      .populate("mailing_list.project_coordinators.ref");
       console.log(allHIVProject);
 
     if (!allHIVProject) {

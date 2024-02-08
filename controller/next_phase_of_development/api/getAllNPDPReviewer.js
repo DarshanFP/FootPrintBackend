@@ -13,10 +13,9 @@ const getAllNPDPReviewer = async (req, res) => {
     // find by applicant
     const allNPDP = await NextPhaseOfDevelopmentProposal.find({
       "mailing_list.provincial_superior.ref": reviewerId,
-    }).populate({
-      path: 'mailing_list.project_in_charge.ref',
-      select: "name email mobile",
-    });
+    }) .populate("mailing_list.project_in_charge.ref")
+    .populate("mailing_list.provincial_superior.ref")
+    .populate("mailing_list.project_coordinators.ref");
 
     if (!allNPDP) {
       return res.status(400).json({

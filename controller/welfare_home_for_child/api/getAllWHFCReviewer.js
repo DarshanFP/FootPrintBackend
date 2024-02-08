@@ -13,7 +13,9 @@ const getAllWHFCReviewer = async (req, res) => {
       .find({
         "mailing_list.provincial_superior.ref": reviewerId,
       })
-      ?.populate("mailing_list.project_in_charge.ref");
+      .populate("mailing_list.project_in_charge.ref")
+      .populate("mailing_list.provincial_superior.ref")
+      .populate("mailing_list.project_coordinators.ref");
     if (!allWHFCProject) {
       return res.status(400).json({
         status: false,

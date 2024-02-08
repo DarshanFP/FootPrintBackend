@@ -1,4 +1,3 @@
-
 // this time find all where applicant is the applicant
 
 const NextPhaseOfDevelopmentProposal = require("../../../modals/NextPhaseOfDevelopmentProposal");
@@ -11,12 +10,14 @@ const getAllNPDPApplicant = async (req, res) => {
     const applicantId = req.user;
 
     // find by applicant
-    const allNPDPProject = await NextPhaseOfDevelopmentProposal
-      .find({
-        "mailing_list.project_in_charge.ref": applicantId,
-      })
+    const allNPDPProject = await NextPhaseOfDevelopmentProposal.find({
+      "mailing_list.project_in_charge.ref": applicantId,
+    })
+      .populate("mailing_list.project_in_charge.ref")
+      .populate("mailing_list.provincial_superior.ref")
+      .populate("mailing_list.project_coordinators.ref");
     //   .populate(mailing_list.project_in_charge.ref);
-    // I am not sure if populating is required , if it will be I'll put it there 
+    // I am not sure if populating is required , if it will be I'll put it there
 
     if (!allNPDPProject) {
       return res.status(400).json({
