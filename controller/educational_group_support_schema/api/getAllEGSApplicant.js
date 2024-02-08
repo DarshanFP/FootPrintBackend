@@ -8,7 +8,7 @@ const getAllEGSApplicant = async (req , res) => {
             {
                 'general_information.project_incharge.ref' :  applicantId,
             }
-        ) ; 
+        )
 
         if(allEGSApplicants.length == 0){
             return res.status(404).json({

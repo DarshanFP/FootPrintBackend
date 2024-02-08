@@ -14,7 +14,7 @@ require('dotenv').config();
 // use cross origin 
 const cors = require('cors');
 app.use(cors())
-``
+
 
 
 app.use(express.json());

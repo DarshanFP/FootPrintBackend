@@ -8,4 +8,3 @@ const approverSchema = new Schema({
   mobile: { type: Number, required: true },
 });
 module.exports = mongoose.model("Approver", approverSchema);
-pp

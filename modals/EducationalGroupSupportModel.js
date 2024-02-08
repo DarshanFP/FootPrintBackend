@@ -67,7 +67,7 @@ const educationalGroupSupportSchema = new mongoose.Schema(
   {
     project_title: { type: String, required: true },
     project_number: { type: String, required: true },
-    present_project_year: { type: Date, required: true },
+    present_project_year: { type: Number, required: true },
     general_information: {
       full_address: { type: String, required: true },
       overall_project_period: { type: String, required: true },
