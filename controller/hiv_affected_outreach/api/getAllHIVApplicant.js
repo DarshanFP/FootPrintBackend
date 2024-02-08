@@ -1,5 +1,7 @@
 // this time find all where applicant is the applicant
 
+const HIVAffectedOutreach = require("../../../modals/HIVAffectedOutreach");
+
 const getAllHIVApplicant = async (req, res) => {
   try {
     // validitiy of user will be checked from the token itself
@@ -8,7 +10,7 @@ const getAllHIVApplicant = async (req, res) => {
     const applicantId = req.user._id;
 
     // find by applicant
-    const allHIVProject = await welfareHomeChildrenModel.find({
+    const allHIVProject = await HIVAffectedOutreach.find({
       "mailing_list.project_in_charge.ref": applicantId,
     });
     //   .populate(mailing_list.project_in_charge.ref);
@@ -23,7 +25,7 @@ const getAllHIVApplicant = async (req, res) => {
     return res.status(200).json({
       status: true,
       message: "successfully got all applicants",
-      data: res,
+      data: allHIVProject,
     });
   } catch (error) {
     return res.status(400).json({

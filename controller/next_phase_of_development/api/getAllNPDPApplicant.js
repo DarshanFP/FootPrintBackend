@@ -27,7 +27,7 @@ const getAllNPDPApplicant = async (req, res) => {
     return res.status(200).json({
       status: true,
       message: "successfully got all applicants",
-      data: res,
+      data: allNPDPProject,
     });
   } catch (error) {
     return res.status(400).json({
