@@ -16,7 +16,6 @@ const getAllHIVApplicant = async (req, res) => {
       .populate("mailing_list.project_in_charge.ref")
       .populate("mailing_list.provincial_superior.ref")
       .populate("mailing_list.project_coordinators.ref");
-    //   .populate(mailing_list.project_in_charge.ref);
     // I am not sure if populating is required , if it will be I'll put it there
 
     if (!allHIVProject) {

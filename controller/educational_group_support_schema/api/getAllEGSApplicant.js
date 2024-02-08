@@ -12,7 +12,7 @@ const getAllEGSApplicant = async (req, res) => {
       .populate("general_information.project_coordinator.ref");
 
     if (allEGSApplicants.length == 0) {
-      return res.status(404).json({
+      return res.status(400).json({
         success: false,
         data: [],
         message: "No data found for the particular applicant",

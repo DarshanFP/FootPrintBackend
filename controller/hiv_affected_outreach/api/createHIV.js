@@ -21,6 +21,7 @@ const createHIV = async (req, res) => {
       general_information, // all the fields shall be required from user side
       mailing_list, // some fields shall be provided from the user side rest we make ourselves
       key_information, // all
+      challenges_faced_by_the_benificiary,
       present_situation_of_inmates,
       focus_areas_in_present_year,
       solution_analysis_logical_framework,
@@ -82,6 +83,7 @@ const createHIV = async (req, res) => {
       present_project_year: currentYear,
       project_number: projectCode,
       project_title,
+      challenges_faced_by_the_benificiary,
       general_information,
       key_information,
       present_situation_of_inmates,
