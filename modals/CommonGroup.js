@@ -52,18 +52,20 @@ const CommonGroup = new Schema({
   evaluationMethodology: { type: String, required: true },
   beneficiaryAgreement: { type: Boolean, required: true },
   beneficiaryAgreementDate: { type: Date, default: Date.now(), required: true },
-  project_coordinators: [{
-    comment: {type: String , default: null}
-    ,ref: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Approver',
+  project_coordinators: [
+    {
+      comment: { type: String, default: null },
+      ref: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Approver",
+      },
+      agree: { type: Boolean, default: false },
+      date: {
+        type: Date,
+        default: Date.now(),
+      },
     },
-    agree: { type: Boolean, default: false },
-    date: {
-      type: Date,
-      default: Date.now(),
-    },
-  }],
+  ],
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },
     date: {
@@ -81,6 +83,10 @@ const CommonGroup = new Schema({
   comment_box_provincial_superior: {
     type: String,
     default: null,
+  },
+  amount_approved: {
+    type: Number,
+    default: 0,
   },
 });
 module.exports = mongoose.model("CG", CommonGroup);
