@@ -21,7 +21,6 @@ const editWHFCApprover = async (req, res) => {
       {
         $push: {
           "mailing_list.project_coordinators": {
-          
             ref: approverId,
             agree,
             comment,

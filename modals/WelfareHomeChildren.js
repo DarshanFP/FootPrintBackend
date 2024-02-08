@@ -82,7 +82,7 @@ const welfareHomeChildrenSchema = new mongoose.Schema(
           comment: { type: String, default: null },
           ref: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Applicant",
+            ref: "Approver",
           },
           agree: { type: Boolean, default: false },
           date: {
