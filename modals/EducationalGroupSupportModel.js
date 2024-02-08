@@ -110,6 +110,7 @@ const educationalGroupSupportSchema = new mongoose.Schema(
           default: Date.now(),
         },
       },
+      
     },
     project_summary: {
       project_location_geographical_area: { type: String, required: true },

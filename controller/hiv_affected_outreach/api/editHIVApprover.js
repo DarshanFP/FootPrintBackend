@@ -34,6 +34,7 @@ const editHIVApprover = async (req, res) => {
         },
         amount_approved,
       },
+      
       { new: true }
     );
 

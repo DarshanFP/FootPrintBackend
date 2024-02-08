@@ -59,6 +59,7 @@ const EducationGroupSchema = new Schema({
   evaluationProcess: { type: String, required: true },
   conclusion: { type: String, required: true },
   project_coordinators: [
+  
     {
       comment: {type: String , default: null}
       ,ref: {

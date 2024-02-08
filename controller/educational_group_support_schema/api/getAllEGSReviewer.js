@@ -10,6 +10,7 @@ const getAllEGSReviewer = async (req , res) => {
             }
         ).populate(
             'general_information.project_incharge.ref'
+            
         ) ; 
 
         return res.status(200).json({

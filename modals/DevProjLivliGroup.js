@@ -57,6 +57,7 @@ const DevProjLivliGroup = new Schema({
   budget_cost_table: [Budget_cost],
   studies_table_data: [Studies],
   project_coordinators: [
+    
     {
       comment: { type: String, default: null },
       ref: {

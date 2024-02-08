@@ -17,6 +17,7 @@ const getAllNPDPApprover = async (req, res) => {
         // "mailing_list.project_coordinators.ref" : approverId,
       })
       .populate('mailing_list.project_in_charge.ref')
+      
       .populate('mailing_list.provincial_superior.ref');
     // I am not sure if populating is required , if it will be I'll put it there
 
