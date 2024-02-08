@@ -25,7 +25,7 @@ const editHIVApprover = async (req, res) => {
       { project_number },
       {
         $push: {
-          "mailing_list.project_coordinator": {
+          "mailing_list.project_coordinators": {
             ref: approverId,
             agree,
             comment,

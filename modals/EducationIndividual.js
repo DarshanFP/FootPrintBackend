@@ -147,84 +147,84 @@ const EducationIndividual = new Schema({
   },
   financialSupportDetails: {
     type: String,
-    required: true
+    required: true,
   },
   familyEmploymentDetails: {
     type: String,
-    required: true
+    required: true,
   },
-  previousEducationDetails:{
-    type: String,
-    required: true
-  },
-  previousInstitutionDetails:{
-    type: String,
-    required: true
-  },
-  previousMarksPercentage:{
-    type: Number,
-    required: true
-  },
-  presentEducationDetails:{
-    type: String,
-    required: true
-  },
-  presentInstitutionDetails:{
-    type: String,
-    required: true
-  },
-  educationalAspiration:{
-    type: String,
-    required: true
-  },
-  sustainabilityDetails:{
-    type: String,
-    required: true
-  },
-  eligibleForScholarship:{
+  previousEducationDetails: {
     type: String,
     required: true,
-    enum:['Yes','No']
   },
-  expectedScholarshipAmount:{
-    type: Number,
-    required: true
-  },
-  familyFinancialContribution:{
-    type: Number,
-    required: true
-  },
-  noFamilySupportReasons:{
+  previousInstitutionDetails: {
     type: String,
-    default: '',
+    required: true,
   },
-  presentStudy:{
+  previousMarksPercentage: {
+    type: Number,
+    required: true,
+  },
+  presentEducationDetails: {
     type: String,
-    required: true
+    required: true,
   },
-  budgetDetails:{
+  presentInstitutionDetails: {
     type: String,
-    required: true
+    required: true,
   },
-  totalCostOfStudy:{
-    type: Number,
-    required: true
+  educationalAspiration: {
+    type: String,
+    required: true,
   },
-  scholarshipExpected:{
-    type: Number,
-    required: true
+  sustainabilityDetails: {
+    type: String,
+    required: true,
   },
-  beneficiaryContribution:{
-    type: Number,
-    required: true
+  eligibleForScholarship: {
+    type: String,
+    required: true,
+    enum: ["Yes", "No"],
   },
-  totalScholarshipAndContribution:{
+  expectedScholarshipAmount: {
     type: Number,
-    required: true
+    required: true,
   },
-  balanceAmountRequested:{
+  familyFinancialContribution: {
     type: Number,
-    required: true
+    required: true,
+  },
+  noFamilySupportReasons: {
+    type: String,
+    default: "",
+  },
+  presentStudy: {
+    type: String,
+    required: true,
+  },
+  budgetDetails: {
+    type: String,
+    required: true,
+  },
+  totalCostOfStudy: {
+    type: Number,
+    required: true,
+  },
+  scholarshipExpected: {
+    type: Number,
+    required: true,
+  },
+  beneficiaryContribution: {
+    type: Number,
+    required: true,
+  },
+  totalScholarshipAndContribution: {
+    type: Number,
+    required: true,
+  },
+  balanceAmountRequested: {
+    type: Number,
+    required: true,
   },
   aadhar_img: {
     type: String,
@@ -302,7 +302,9 @@ const EducationIndividual = new Schema({
     type: String,
     default: null,
   },
-
-
+  amount_approved: {
+    type: Number,
+    default: 0,
+  },
 });
 module.exports = mongoose.model("EI", EducationIndividual);

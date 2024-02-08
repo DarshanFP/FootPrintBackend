@@ -182,5 +182,9 @@ const SocialIndividual = new Schema({
     type: String,
     default: null,
   },
+  amount_approved : {
+    type : Number , 
+    default : 0 ,
+  }
 });
 module.exports = mongoose.model("SI", SocialIndividual);

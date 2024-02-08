@@ -20,7 +20,7 @@ const editDPLGapprover = async (req, res) => {
       projectID,
       {
         $push: {
-          project_coordinator: {
+          project_coordinators: {
             ref: req.user._id,
             agree: project_coordinator_agree,
             date: Date.now(),

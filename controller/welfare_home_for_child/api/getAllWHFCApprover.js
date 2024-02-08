@@ -28,7 +28,7 @@ const getAllWHFCApprover = async (req, res) => {
     return res.status(200).json({
       status: true,
       message: "successfully got all projects",
-      data: res,
+      data: allWHFCProject,
     });
   } catch (error) {
     return res.status(400).json({

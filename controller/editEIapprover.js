@@ -6,6 +6,7 @@ const editEIapprover = async (req, res) => {
       projectID,
       comment_box_project_coordinator,
       project_coordinator_agree,
+      amount_approved, 
     } = req.body;
     if (
       !projectID ||
@@ -20,6 +21,7 @@ const editEIapprover = async (req, res) => {
       {
         comment_box_project_coordinator: comment_box_project_coordinator,
         project_coordinator_agree: project_coordinator_agree,
+        amount_approved : amount_approved , 
       },
       { new: true }
     );

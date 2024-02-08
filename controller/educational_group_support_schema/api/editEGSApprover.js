@@ -6,6 +6,7 @@ const editEGSApprover = async (req, res) => {
     const { amount_approved, comment, agree, project_number } = req.body;
 
     const approverId = req.user._id;
+    console.log(approverId);
 
     if (!comment || agree === undefined || !project_number) {
       return res.status(400).json({
@@ -15,8 +16,8 @@ const editEGSApprover = async (req, res) => {
     }
 
     // there should be some mechanism to allow complete approval
-    const res = await EducationalGroupSupportModel.findOneAndUpdate(
-      project_number,
+    const updatedApprover = await EducationalGroupSupportModel.findOneAndUpdate(
+      {project_number},
       {
         $push: {
           "general_information.project_coordinators": {
@@ -32,13 +33,14 @@ const editEGSApprover = async (req, res) => {
     );
 
     return res.status(200).json({
-      data: res,
+      data: updatedApprover,
       message: "successfully approved by one of the approvers ",
       success: true,
     });
   } catch (e) {
+    console.log(e);
     return res.status(200).json({
-      error: e,
+      error: e.message,
       message: "unepxpected error approving",
       success: false,
     });

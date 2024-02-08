@@ -43,6 +43,7 @@ const welfareHomeChildrenSchema = new mongoose.Schema(
           type: String,
           required: true, // Required field
         },
+        // address: { type: String, required: true },
         agree: {
           type: Boolean,
           default: false,
@@ -64,11 +65,11 @@ const welfareHomeChildrenSchema = new mongoose.Schema(
           default: Date.now(),
         },
       },
-      provincial_superior:{
+      provincial_superior: {
         comment: { type: String, default: null },
         ref: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "Approver",
+          ref: "Reviewer",
         },
         agree: { type: Boolean, default: false },
         date: {

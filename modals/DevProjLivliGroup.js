@@ -56,19 +56,19 @@ const DevProjLivliGroup = new Schema({
   monitoringProcess: { type: String, required: true },
   budget_cost_table: [Budget_cost],
   studies_table_data: [Studies],
-  project_coordinator: [
+  project_coordinators: [
     {
-      comment: {type: String , default: null}
-      ,ref: {
+      comment: { type: String, default: null },
+      ref: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Approver',
+        ref: "Approver",
       },
       agree: { type: Boolean, default: false },
       date: {
         type: Date,
         default: Date.now(),
       },
-    }
+    },
   ],
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },

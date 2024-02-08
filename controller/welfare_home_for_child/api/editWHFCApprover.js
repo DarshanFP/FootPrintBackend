@@ -2,11 +2,11 @@ const welfareHomeChildrenModel = require("../../../modals/WelfareHomeChildren");
 
 const editWHFCApprover = async (req, res) => {
   try {
-    const approverId = req.user();
+    const approverId = req.user._id;
     //fields we require from the request body
-    const { comment, agree, project_number, ammount_approved } = req.body;
+    const { comment, agree, project_number, amount_approved } = req.body;
 
-    if (!comment || agree === undefined || project_number === null || ammount_approved === null) {
+    if (!comment || agree === undefined || project_number === null || amount_approved === null) {
       return res.status(400).json({
         success: false,
         message: "send all fields",
@@ -17,10 +17,10 @@ const editWHFCApprover = async (req, res) => {
     // They shall be kept in a collection called approvers WF
     // The documents will contain the ids and the ids shall be used later on 
     const updatedData = await welfareHomeChildrenModel.findOneAndUpdate(
-      project_number,
+      {project_number},
       {
         $push: {
-          "mailing_list.project_coordinator": {
+          "mailing_list.project_coordinators": {
             ref: approverId,
             agree,
             comment,

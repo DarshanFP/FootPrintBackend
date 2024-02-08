@@ -16,8 +16,8 @@ const getAllNPDPApprover = async (req, res) => {
         // don't need this complicated querry
         // "mailing_list.project_coordinators.ref" : approverId,
       })
-      .populate(mailing_list.project_in_charge.ref)
-      .populate(mailing_list.provincial_superior.ref);
+      .populate('mailing_list.project_in_charge.ref')
+      .populate('mailing_list.provincial_superior.ref');
     // I am not sure if populating is required , if it will be I'll put it there
 
     if (!allWHFCProject) {
@@ -29,7 +29,7 @@ const getAllNPDPApprover = async (req, res) => {
     return res.status(200).json({
       status: true,
       message: "successfully got all projects",
-      data: res,
+      data: allWHFCProject,
     });
   } catch (error) {
     return res.status(400).json({

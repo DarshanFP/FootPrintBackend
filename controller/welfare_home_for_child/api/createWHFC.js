@@ -45,7 +45,6 @@ const createWHFC = async (req, res) => {
       provincial_superior: {
         ...mailing_list.provincial_superior,
         ref: req.user.reviewer,
-        date: currentDate,
       },
     };
     console.log(mailingList);

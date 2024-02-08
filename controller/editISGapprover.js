@@ -21,7 +21,7 @@ const editISGapprover = async (req, res) => {
       {
         $push: {
           project_coordinators: {
-            comment: comment_box_project_coordinators,
+            comment: comment_box_project_coordinator,
             ref: req.user._id,
             agree: false,
             date: new Date(),
