@@ -22,6 +22,20 @@ const getReviewer = require("../controller/getReviewer");
 const getApprover = require("../controller/getApprover");
 const approverChangePassword = require("../controller/approverChangePassword");
 const applicantChangePassword = require("../controller/applicantChangepassword");
+const sendEmailApplicant=require('../controller/sendEmailApplicant');
+const varifyEmailApplicant=require('../controller/varifyEmailApplicant')
+const sendEmailReviewer=require('../controller/sendEmailReviewer')
+const varifyEmailReviewer=require('../controller/varifyEmailReviewer')
+const sendEmailApprover=require('../controller/sendEmailApprover')
+const varifyEmailApprover=require('../controller/varifyEmailApprover')
+
+router.post('/sendemailapplicant',sendEmailApplicant)
+router.post('/sendemailreviewer',sendEmailReviewer)
+router.post('/sendemailapprover',sendEmailApprover)
+router.post('/varifyemailapplicant',protectApplicant,varifyEmailApplicant)
+router.post('/varifyemailreviewer',protectApplicant,varifyEmailReviewer)
+router.post('/varifyemailapprover',protectApplicant,varifyEmailApprover)
+
 // done
 router.post("/reviewersignup", reviewerSignup);
 // done

@@ -15,7 +15,7 @@ const createISG = async (req, res) => {
     const { TitleOfProject } = req.body;
     const projectExists = await ISG.findOne({ TitleOfProject });
     if (projectExists) {
-      return res.json({ success: false, msg: "This aadhar number exists" });
+      return res.json({ success: false, msg: "This project titkle exists" });
     }
     const allISG = await ISG.find({}, "project_code");
     if (allISG.length === 0) {

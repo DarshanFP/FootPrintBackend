@@ -15,7 +15,7 @@ const createEG = async (req, res) => {
     const { TitleOfProject } = req.body;
     const projectExists = await EG.findOne({ TitleOfProject });
     if (projectExists) {
-      return res.json({ success: false, msg: "This aadhar number exists" });
+      return res.json({ success: false, msg: "This project title exists" });
     }
     const allEG = await EG.find({}, "project_code");
     if (allEG.length === 0) {
