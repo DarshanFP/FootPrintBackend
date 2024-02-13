@@ -4,7 +4,7 @@ const EI = require("../modals/EducationIndividual");
 const getallEIapplicant=async(req,res)=>{
 try {
     const applicant=req.user;
-    const EIapplicant=await EI.find({ applicant: applicant}).populate('reviewer')
+    const EIapplicant=await EI.find({ applicant: applicant}).populate('reviewer').populate('applicant')
     if(EIapplicant.length===0){
         return res.json({success:false, msg:'No project for this applicant'})
     }

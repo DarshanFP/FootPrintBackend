@@ -4,7 +4,7 @@ const EOI = require("../modals/EducationOngoingIndividual");
 const getallEOIapplicant=async(req,res)=>{
 try {
     const applicant=req.user;
-    const EOIapplicant=await EOI.find({ applicant: applicant}).populate('reviewer')
+    const EOIapplicant=await EOI.find({ applicant: applicant}).populate('reviewer').populate('applicant')
     if(EOIapplicant.length===0){
         return res.json({success:false, msg:'No project for this applicant'})
     }
