@@ -30,7 +30,7 @@ const protectApplicant = async (req, res, next) => {
   if (!token) {
     // res.status(401);
     return res.json({success:false, msg:'Token is not there'});
-    throw new Error("Not authorized, no token");
+
   }
 };
 

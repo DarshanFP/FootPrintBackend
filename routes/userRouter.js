@@ -33,8 +33,8 @@ router.post('/sendemailapplicant',sendEmailApplicant)
 router.post('/sendemailreviewer',sendEmailReviewer)
 router.post('/sendemailapprover',sendEmailApprover)
 router.post('/varifyemailapplicant',protectApplicant,varifyEmailApplicant)
-router.post('/varifyemailreviewer',protectApplicant,varifyEmailReviewer)
-router.post('/varifyemailapprover',protectApplicant,varifyEmailApprover)
+router.post('/varifyemailreviewer',protectReviewer,varifyEmailReviewer)
+router.post('/varifyemailapprover',protectApprover,varifyEmailApprover)
 
 // done
 router.post("/reviewersignup", reviewerSignup);

@@ -17,7 +17,7 @@ const tarnsporter = nodemailer.createTransport({
         try {
             const user=await Applicant.findOne({email:req.body.email})
             if(!user){
-               return res.status(404).json({success:false, msg:'Applicant not exists'})
+               return res.status(404).json({success:false, msg:'User not exists'})
             }
            
             
