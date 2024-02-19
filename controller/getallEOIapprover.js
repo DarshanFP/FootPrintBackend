@@ -3,7 +3,7 @@ const EOI = require("../modals/EducationOngoingIndividual");
 
 const getallEOIapprover=async(req,res)=>{
 try {
-    
+    // there are multiple approver 
     const EOIapprover=await EOI.find({ }).populate('applicant').populate('reviewer')
     if(EOIapprover.length===0){
         return res.json({success:false, msg:'No project'})

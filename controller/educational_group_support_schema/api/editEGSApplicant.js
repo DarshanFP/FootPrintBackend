@@ -1,13 +1,12 @@
 const EducationalGroupSupportModel = require("../../../modals/EducationalGroupSupportModel");
 const educationalGroupSupportSchema = require("../validation/educationalGroupSupportSchema");
 
-const createEGS = async (req, res) => {
+const editEGSApplicant = async (req, res) => {
   try {
     // first evaluate req body
     // request body contains your required data
     // use of the json middleware makes the request body a json object
 
-    // validate request body
     try {
       await educationalGroupSupportSchema.validateAsync(req.body);
     } catch (error) {
@@ -24,9 +23,7 @@ const createEGS = async (req, res) => {
     // vallidation successfull => all the fields are there
 
     // extract all the fields for use
-    const {
-      project_number,
-    } = req.body;
+    const { project_number } = req.body;
 
     // you have the fields that were sent in the request body
     // const project_number
@@ -34,12 +31,31 @@ const createEGS = async (req, res) => {
     // ^ -- start $ end
     // ^ from start match these symbols
 
-    await EducationalGroupSupportModel.findAndUpdate(
+    const editEGS = await EducationalGroupSupportModel.findOneAndUpdate(
       { project_number },
-      req.body
+      {
+        ...req.body,
+        general_information: {
+          ...req.body.general_information,
+          provincial_superior: {
+            agree: false,
+            comment: null,
+            ref: req.user.reviewer,
+          },
+          project_coordinators: [],
+          project_incharge: {
+            agree: true,
+            date: Date.now(),
+            ref: req.user._id,
+            comment: null,
+          },
+        },
+      },
+      { new: true }
     );
 
     return res.status(200).json({
+      date: editEGS,
       success: true,
       message: "Successful submission of form",
     });
@@ -52,4 +68,5 @@ const createEGS = async (req, res) => {
   }
 };
 
-module.exports = createEGS;
+module.exports = editEGSApplicant;
+``;

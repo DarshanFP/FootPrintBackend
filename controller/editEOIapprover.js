@@ -22,7 +22,8 @@ const editEOIapprover = async (req, res) => {
       {
         comment_box_project_coordinator: comment_box_project_coordinator,
         project_coordinator_agree: {...project_coordinator_agree , date: Date.now()},
-        amount_approved_project_coordinator:amount_approved_project_coordinator
+        amount_approved_project_coordinator:amount_approved_project_coordinator,
+        approver : req.user._id, 
       },
       { new: true }
     );

@@ -5,6 +5,11 @@ const editEOI = async (req, res) => {
       const { projectID, ...restOfReqBody } = req.body;
     const modifiedReqBody = { ...restOfReqBody };
 
+
+
+      // reverted project 
+      // 
+
       if (!projectID) {
         res.json({ success: false, msg: "send project ID" });
       }

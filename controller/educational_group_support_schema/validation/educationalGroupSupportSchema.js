@@ -86,9 +86,9 @@ const projectSummarySchema = Joi.object({
       })
     ),
   }),
-  sustainability: Joi.string(),
-  monitoring_process_of_the_project: Joi.string(),
-  mode_of_evaluation: Joi.string(),
+  sustainability: Joi.string().required(),
+  monitoring_process_of_the_project: Joi.string().required(),
+  mode_of_evaluation: Joi.string().required(),
   budget: Joi.object({
     expenses: Joi.array().items(
       Joi.object({
