@@ -31,6 +31,15 @@ const editEGSApplicant = async (req, res) => {
     // ^ -- start $ end
     // ^ from start match these symbols
 
+
+    
+    // Review pages and approval pages 
+    // comment , revereted projects 
+    // comment ##123 comment = `Previous Comment : ${Comment} `
+    // Reviewer view 
+    // Previous comment , edit 
+    // Previous comment , reviewer saw it, checked again on that particular field , Comment overwrite 
+
     const editEGS = await EducationalGroupSupportModel.findOneAndUpdate(
       { project_number },
       {

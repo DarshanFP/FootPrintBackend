@@ -85,13 +85,14 @@ const educationalGroupSupportSchema = new mongoose.Schema(
             default: Date.now(),
           },
         },
-      ],
+      ], // Group projects will have two project Coordinators 
       provincial_superior: {
         comment: { type: String, default: null },
         ref: {
           type: mongoose.Schema.Types.ObjectId,
           ref: "Reviewer",
-        },
+        }, // IN view we need data of the reviewer 
+        // For data we simply populate 
         agree: { type: Boolean, default: false },
         date: {
           type: Date,
@@ -110,7 +111,6 @@ const educationalGroupSupportSchema = new mongoose.Schema(
           default: Date.now(),
         },
       },
-      
     },
     project_summary: {
       project_location_geographical_area: { type: String, required: true },
