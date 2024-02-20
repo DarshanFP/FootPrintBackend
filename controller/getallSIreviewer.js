@@ -4,7 +4,7 @@ const SI = require("../modals/SocialIndividual");
 const getallSIreviewer=async(req,res)=>{
 try {
     const reviewer=req.user;
-    const SIreviewer=await SI.find({ reviewer: reviewer}).populate('applicant')
+    const SIreviewer=await SI.find({ reviewer: reviewer}).populate('applicant').populate('reviewer')
     if(SIreviewer.length===0){
         return res.json({success:false, msg:'No project for this reviewer'})
     }

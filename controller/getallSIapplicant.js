@@ -2,9 +2,7 @@ const SI = require("../modals/SocialIndividual");
 const getallSIapplicant = async (req, res) => {
   try {
     const applicant = req.user;
-    const SIapplicant = await SI.find({ applicant: applicant }).populate(
-      "reviewer"
-    );
+    const SIapplicant = await SI.find({ applicant: applicant }).populate("reviewer").populate('applicant');
     if (SIapplicant.length === 0) {
       return res.json({ success: false, msg: "No project for this reviewer" });
     }

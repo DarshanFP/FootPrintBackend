@@ -4,7 +4,7 @@ const HOI = require("../modals/HealthOngoingIndividual");
 const getallHOIapplicant=async(req,res)=>{
 try {
     const applicant=req.user;
-    const HOIapplicant=await HOI.find({ applicant: applicant}).populate('reviewer')
+    const HOIapplicant=await HOI.find({ applicant: applicant}).populate('reviewer').populate('applicant')
     if(HOIapplicant.length===0){
         return res.json({success:false, msg:'No project for this applicant'})
     }

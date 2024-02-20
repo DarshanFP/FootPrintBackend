@@ -4,7 +4,7 @@ const LOI = require("../modals/LivlihoodOngoingIndividual");
 const getallLOIapplicant=async(req,res)=>{
 try {
     const applicant=req.user;
-    const LOIapplicant=await LOI.find({ applicant: applicant}).populate('reviewer')
+    const LOIapplicant=await LOI.find({ applicant: applicant}).populate('reviewer').populate('applicant')
     if(LOIapplicant.length===0){
         return res.json({success:false, msg:'No project for this reviewer'})
     }

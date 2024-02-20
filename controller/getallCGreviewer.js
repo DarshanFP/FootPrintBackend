@@ -4,7 +4,7 @@ const CG = require("../modals/CommonGroup");
 const getallCGreviewer=async(req,res)=>{
 try {
     const reviewer=req.user;
-    const CGreviewer=await CG.find({ reviewer:reviewer}).populate('applicant')
+    const CGreviewer=await CG.find({ reviewer:reviewer}).populate('applicant').populate('reviewer')
     if(CGreviewer.length===0){
         return res.json({success:false, msg:'No project for this applicant' })
     }

@@ -42,8 +42,10 @@ const InstitutionSkillGroupValidate= Joi.object({
   budgetData: Joi.array().items(budgetCostValidation).required(),
   project_in_charge_agree: Joi.object({
     agree: Joi.boolean().default(false),
-    date: Joi.date().default(Date.now()),
-  }).required()
+    date: Joi.date().default(Date.now),
+  }).required(),
+  comment_box_provincial_superior: Joi.string().allow(null),
+  comment_box_project_coordinator: Joi.string().allow(null),
 });
 
 module.exports = InstitutionSkillGroupValidate;

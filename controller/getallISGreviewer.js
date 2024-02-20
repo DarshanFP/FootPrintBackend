@@ -4,7 +4,7 @@ const ISG = require("../modals/InstitutionSkillGroup");
 const getallISGreviewer=async(req,res)=>{
 try {
     const reviewer=req.user;
-    const ISGreviewer=await ISG.find({ reviewer:reviewer}).populate('applicant')
+    const ISGreviewer=await ISG.find({ reviewer:reviewer}).populate('applicant').populate('reviewer')
     if(ISGreviewer.length===0){
         return res.json({success:false, msg:'No project for this applicant' })
     }

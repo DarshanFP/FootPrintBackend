@@ -4,7 +4,7 @@ const DPLG = require("../modals/DevProjLivliGroup");
 const getallDPLGreviewer=async(req,res)=>{
 try {
     const reviewer=req.user;
-    const DPLGreviewer=await DPLG.find({ reviewer:reviewer}).populate('applicant')
+    const DPLGreviewer=await DPLG.find({ reviewer:reviewer}).populate('applicant').populate('reviewer')
     if(DPLGreviewer.length===0){
         return res.json({success:false, msg:'No project for this applicant' })
     }
