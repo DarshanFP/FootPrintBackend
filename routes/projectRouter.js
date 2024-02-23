@@ -65,6 +65,7 @@ const editEI=require('../controller/editEI')
 const editEOI=require('../controller/editEOI')
 const editHOI=require('../controller/editHOI')
 const editISG=require('../controller/editISG')
+const editSI=require('../controller/editSI')
 
 // donC
 router.post('/createHOI',protectApplicant,createHOI);
@@ -142,4 +143,5 @@ router.put('/editEI',protectApplicant,editEI)
 router.put('/editEOI',protectApplicant,editEOI)
 router.put('/editHOI',protectApplicant,editHOI)
 router.put('/editISG',protectApplicant,editISG)
+router.put('/editSI',protectApplicant,editSI)
 module.exports=router
