@@ -17,6 +17,11 @@ const editEG = async (req, res) => {
       const editedEG =await EG.findOneAndUpdate(
         { project_code: projectID },
         {
+          project_coordinators: [] , 
+          comment_box_provincial_superior: null , 
+          provincial_superior_agree: {
+            agree: false , 
+          } , 
             NameOfSociety: req.body.NameOfSociety,
             DateOfSubmission: req.body.DateOfSubmission,
             TitleOfProject: req.body.TitleOfProject,
