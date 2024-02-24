@@ -13,7 +13,7 @@ const objectiveSchema = Joi.object({
 });
 
 const Budget_cost = Joi.object({
-  budget: Joi.number().required(),
+  budget: Joi.string().required(),
   cost: Joi.number().required(),
 });
 

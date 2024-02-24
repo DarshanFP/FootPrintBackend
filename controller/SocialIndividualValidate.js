@@ -1,6 +1,6 @@
 const Joi = require("joi");
 const Budget_costSchema = Joi.object({
-  budget: Joi.number().required(),
+  budget: Joi.string().required(),
   cost: Joi.number().required(),
 });
 
@@ -55,6 +55,8 @@ const SocialIndividualValidate = Joi.object({
   businessSustainability: Joi.string().required(),
   expectedBenefits: Joi.string().required(),
   budget_cost_table: Joi.array().items(Budget_costSchema),
+  beneficiary_contribution: Joi.number().required(),
+  amount_requested: Joi.number().required(),
   revenueGoals: revenueGoalsSchema,
   aadhar_img: Joi.string().required(),
   request_letter_img: Joi.string().required(),

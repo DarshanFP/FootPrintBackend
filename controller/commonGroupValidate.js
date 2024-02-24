@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require("joi");
 
 const activitySchema = Joi.object({
   activity: Joi.string().required(),
@@ -13,7 +13,7 @@ const objectiveSchema = Joi.object({
 });
 
 const budgetCostSchema = Joi.object({
-  budget: Joi.number().required(),
+  budget: Joi.string().required(),
   cost: Joi.number().required(),
 });
 
@@ -42,8 +42,16 @@ const commonGroupValidate = Joi.object({
     date: Joi.date().default(Date.now()),
   }),
   comment_box_provincial_superior: Joi.string().allow(null),
-  comment_box_project_coordinator: Joi.string().allow(null),
-  
+  project_coordinators: Joi.array()
+    .items(
+      Joi.object({
+        comment: Joi.string().required(),
+        ref: Joi.string().required(),
+        agree: Joi.boolean().default(false),
+        date: Joi.date().default(Date.now()),
+      }).allow(null)
+    )
+    .allow(null),
 });
 
 module.exports = commonGroupValidate;

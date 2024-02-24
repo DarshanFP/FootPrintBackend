@@ -1,9 +1,9 @@
-const { required } = require("joi");
+const { required, number } = require("joi");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const Budget_cost = new Schema({
-  budget: { type: Number, required: true },
+  budget: { type: String, required: true },
   cost: { type: Number, required: true },
 });
 
@@ -95,13 +95,15 @@ const SocialIndividual = new Schema({
     type: String,
     required: true,
   },
-  revenueGoals: [{
-    businessPlan: { type: String, required: true },
-    currentYear: { type: Number, required: true },
-    year1: { type: Number, required: true },
-    year2: { type: Number, required: true },
-    year3: { type: Number, required: true },
-  }],
+  revenueGoals: [
+    {
+      businessPlan: { type: String, required: true },
+      currentYear: { type: Number, required: true },
+      year1: { type: Number, required: true },
+      year2: { type: Number, required: true },
+      year3: { type: Number, required: true },
+    },
+  ],
   businessStrengthsPreviousYear: {
     type: String,
     required: true,
@@ -129,6 +131,14 @@ const SocialIndividual = new Schema({
   budget_cost_table: [Budget_cost],
   aadhar_img: {
     type: String,
+    required: true,
+  },
+  beneficiary_contribution: {
+    type: Number,
+    required: true,
+  },
+  amount_requested: {
+    type: Number,
     required: true,
   },
   request_letter_img: {
@@ -182,9 +192,9 @@ const SocialIndividual = new Schema({
     type: String,
     default: null,
   },
-  amount_approved : {
-    type : Number , 
-    default : 0 ,
-  }
+  amount_approved: {
+    type: Number,
+    default: 0,
+  },
 });
 module.exports = mongoose.model("SI", SocialIndividual);

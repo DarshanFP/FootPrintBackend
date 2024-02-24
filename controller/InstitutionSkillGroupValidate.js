@@ -16,7 +16,7 @@ const objectiveSchemaValidation = Joi.object({
 
 // JOI validation for Budget_cost
 const budgetCostValidation = Joi.object({
-  budget: Joi.number().required(),
+  budget: Joi.string().required(),
   cost: Joi.number().required(),
 });
 

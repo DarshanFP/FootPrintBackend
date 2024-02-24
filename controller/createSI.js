@@ -39,6 +39,8 @@ const createSI = async (req, res) => {
       aadhar_no: req.body.aadhar_no,
       gender: req.body.gender,
       DOB: req.body.DOB,
+      beneficiary_contribution: req.body.beneficiary_contribution,
+      amount_requested: req.body.amount_requested,
       married: req.body.married,
       spouse_name: req.body.spouse_name,
       no_of_children: req.body.no_of_children,
