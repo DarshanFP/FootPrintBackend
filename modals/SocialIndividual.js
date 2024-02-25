@@ -104,6 +104,12 @@ const SocialIndividual = new Schema({
       year3: { type: Number, required: true },
     },
   ],
+  estimated_income : {
+    currentYear: { type: Number, required: true },
+      year1: { type: Number, required: true },
+      year2: { type: Number, required: true },
+      year3: { type: Number, required: true },
+  } ,
   businessStrengthsPreviousYear: {
     type: String,
     required: true,
@@ -153,6 +159,7 @@ const SocialIndividual = new Schema({
     type: String,
     required: true,
   },
+
   benificary_agree: {
     agree: { type: Boolean, dafault: false },
     date: {

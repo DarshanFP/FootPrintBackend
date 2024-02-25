@@ -23,19 +23,20 @@ const getReviewer = require("../controller/getReviewer");
 const getApprover = require("../controller/getApprover");
 const approverChangePassword = require("../controller/approverChangePassword");
 const applicantChangePassword = require("../controller/applicantChangepassword");
-const sendEmailApplicant=require('../controller/sendEmailApplicant');
-const varifyEmailApplicant=require('../controller/varifyEmailApplicant')
-const sendEmailReviewer=require('../controller/sendEmailReviewer')
-const varifyEmailReviewer=require('../controller/varifyEmailReviewer')
-const sendEmailApprover=require('../controller/sendEmailApprover')
-const varifyEmailApprover=require('../controller/varifyEmailApprover')
+const sendEmailApplicant = require("../controller/sendEmailApplicant");
+const varifyEmailApplicant = require("../controller/varifyEmailApplicant");
+const sendEmailReviewer = require("../controller/sendEmailReviewer");
+const varifyEmailReviewer = require("../controller/varifyEmailReviewer");
+const sendEmailApprover = require("../controller/sendEmailApprover");
+const varifyEmailApprover = require("../controller/varifyEmailApprover");
+const allapplicantApprover = require("../controller/allApplicantsApprover");
 
-router.post('/sendemailapplicant',sendEmailApplicant)
-router.post('/sendemailreviewer',sendEmailReviewer)
-router.post('/sendemailapprover',sendEmailApprover)
-router.post('/varifyemailapplicant',protectApplicant,varifyEmailApplicant)
-router.post('/varifyemailreviewer',protectReviewer,varifyEmailReviewer)
-router.post('/varifyemailapprover',protectApprover,varifyEmailApprover)
+router.post("/sendemailapplicant", sendEmailApplicant);
+router.post("/sendemailreviewer", sendEmailReviewer);
+router.post("/sendemailapprover", sendEmailApprover);
+router.post("/varifyemailapplicant", protectApplicant, varifyEmailApplicant);
+router.post("/varifyemailreviewer", protectReviewer, varifyEmailReviewer);
+router.post("/varifyemailapprover", protectApprover, varifyEmailApprover);
 
 // done
 router.post("/reviewersignup", reviewerSignup);
@@ -64,6 +65,8 @@ router.delete("/applicantunvarify", protectReviewer, applicantUnvarify);
 router.get("/allreviewer", protectApprover, allreviewer);
 // done
 router.get("/allapplicant", protectReviewer, allapplicant);
+//new creation
+router.get("/allapplicantsapprover", protectApprover, allapplicantApprover);
 // done
 router.get("/getapplicant", protectApplicant, getApplicant);
 //done

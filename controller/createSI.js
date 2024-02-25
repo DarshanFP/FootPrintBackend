@@ -3,6 +3,7 @@ const SocialIndividualValidate = require("../controller/SocialIndividualValidate
 const createSI = async (req, res) => {
   try {
     try {
+      console.log(req.body)
       await SocialIndividualValidate.validateAsync(req.body);
     } catch (error) {
       console.log(error);
@@ -41,6 +42,7 @@ const createSI = async (req, res) => {
       DOB: req.body.DOB,
       beneficiary_contribution: req.body.beneficiary_contribution,
       amount_requested: req.body.amount_requested,
+      estimated_income: req.body.estimated_income,
       married: req.body.married,
       spouse_name: req.body.spouse_name,
       no_of_children: req.body.no_of_children,

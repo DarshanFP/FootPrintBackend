@@ -58,6 +58,12 @@ const SocialIndividualValidate = Joi.object({
   beneficiary_contribution: Joi.number().required(),
   amount_requested: Joi.number().required(),
   revenueGoals: revenueGoalsSchema,
+  estimated_income : Joi.object().keys({
+    currentYear: Joi.number().required(),
+    year1: Joi.number().default(0),
+    year2: Joi.number().default(0),
+    year3: Joi.number().default(0),
+  }),
   aadhar_img: Joi.string().required(),
   request_letter_img: Joi.string().required(),
   quotations_regarding_the_purchase_img: Joi.string().required(),

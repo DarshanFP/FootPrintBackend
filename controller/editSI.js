@@ -17,6 +17,8 @@ const editSI=async (req,res)=>{
       const editedSI =await SI.findOneAndUpdate(
         { project_code: projectID },
         {
+            revenueGoals : req.body.revenueGoals,
+            beneficiary_contribution: req.body.beneficiary_contribution,
             nameOfSelfEmployment: req.body.nameOfSelfEmployment,
             photograph_benificary: req.body.photograph_benificary,
             name: req.body.name,
@@ -46,11 +48,21 @@ const editSI=async (req,res)=>{
             request_letter_img: req.body.request_letter_img,
             quotations_regarding_the_purchase_img: req.body.quotations_regarding_the_purchase_img,
             other_supporting_documents: req.body.other_supporting_documents,
-            benificary_agree: req.body.benificary_agree,
-            project_in_charge_agree: Joi.object().keys({
-              agree: Joi.boolean().default(false),
-              date: Joi.date().default(Date.now),
-            }),
+            benificary_agree: {
+              agree : true ,
+            },
+            project_in_charge_agree: {
+              agree : true ,
+            },
+            comment_box_project_coordinator: null , 
+            comment_box_provincial_superior: null,
+            project_coordinator_agree: {
+              agree : false , 
+            },
+            provincial_superior_agree: {
+              agree : false ,
+            },
+            estimated_income : req.body.estimated_income,
         },
         { new: true }
       );
