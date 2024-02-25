@@ -8,6 +8,7 @@ const editEGSApplicant = async (req, res) => {
     // use of the json middleware makes the request body a json object
 
     try {
+      console.log(req.body);
       await educationalGroupSupportSchema.validateAsync(req.body);
     } catch (error) {
       return res.status(400).json({
@@ -24,6 +25,7 @@ const editEGSApplicant = async (req, res) => {
 
     // extract all the fields for use
     const { project_number } = req.body;
+    console.log(project_number);
 
     // you have the fields that were sent in the request body
     // const project_number
@@ -41,7 +43,7 @@ const editEGSApplicant = async (req, res) => {
     // Previous comment , reviewer saw it, checked again on that particular field , Comment overwrite 
 
     const editEGS = await EducationalGroupSupportModel.findOneAndUpdate(
-      { project_number },
+      { project_number : project_number },
       {
         ...req.body,
         general_information: {

@@ -82,6 +82,10 @@ const editEI = async (req, res) => {
         mark_list_of_previous_year: req.body.mark_list_of_previous_year,
         benificary_agree: req.body.benificary_agree,
         project_in_charge_agree: req.body.project_in_charge_agree,
+        provincial_superior_agree: req.body.provincial_superior_agree,
+        comment_box_provincial_superior: req.body.comment_box_provincial_superior,
+        project_coordinator_agree: req.body.project_coordinator_agree,
+        comment_box_project_coordinator: req.body.comment_box_project_coordinator,
       },
       { new: true }
     );
