@@ -93,6 +93,7 @@ const editHOI = require("../controller/editHOI");
 const editEOI = require("../controller/editEOI");
 const editCG = require("../controller/editCG");
 const editISG = require("../controller/editISG");
+const editSI = require("../controller/editSI");
 
 // EG Routes
 router.post("/createEG", protectApplicant, createEG);
@@ -122,7 +123,7 @@ router.put("/editreviewerSI", protectReviewer, editedSIreviewer);
 router.get("/getallSIapplicant", protectApplicant, getallSIapplicant);
 router.get("/getallSIreviewer", protectReviewer, getallSIreviewer);
 router.get("/getallSIapprover", protectApprover, getallSIapprover);
-router.put('/editSI',protectApplicant,editSI);
+router.put('/editSI',protectApplicant, editSI);
 
 // EI Routes
 router.post("/createEI", protectApplicant, createEI);

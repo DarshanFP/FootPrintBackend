@@ -3,9 +3,9 @@ const commonGroupValidate = require("../controller/commonGroupValidate");
 
 const editCG = async (req, res) => {
   try {
+    console.log(req.body)
     const { projectID, ...restOfReqBody } = req.body;
   const modifiedReqBody = { ...restOfReqBody };
-// const { projectID } = req.body;
     if (!projectID) {
       res.json({ success: false, msg: "send project ID" });
     }
