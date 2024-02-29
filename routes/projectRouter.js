@@ -94,6 +94,7 @@ const editEOI = require("../controller/editEOI");
 const editCG = require("../controller/editCG");
 const editISG = require("../controller/editISG");
 const editSI = require("../controller/editSI");
+const getprojectsApplicant=require("../controller/getProjectsApplicant")
 
 // EG Routes
 router.post("/createEG", protectApplicant, createEG);
@@ -104,7 +105,7 @@ router.get("/getAllEGApprover", protectApprover, getallEGapprover);
 router.get("/getAllEGReviewer", protectReviewer, getallEGreviewer);
 router.put('/editEG',protectApplicant,editEG)
 
-
+router.get('/getallprojectsapplicant',protectApplicant,getprojectsApplicant)
 
 // EGS Routes
 router.post("/createEGS", protectApplicant, createEGS);
