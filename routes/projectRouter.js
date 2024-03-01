@@ -107,7 +107,7 @@ router.get("/getAllEGReviewer", protectReviewer, getallEGreviewer);
 router.put('/editEG',protectApplicant,editEG)
 
 router.get('/getallprojectsapplicant',protectApplicant,getprojectsApplicant)
-router.get('/getallprojectsreviewer',protectReviewer,getprojectsApplicant)
+router.get('/getallprojectsreviewer',protectReviewer,getprojectsReviewer)
 
 // EGS Routes
 router.post("/createEGS", protectApplicant, createEGS);
