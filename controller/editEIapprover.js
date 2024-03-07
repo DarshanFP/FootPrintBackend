@@ -11,10 +11,7 @@ const editEIapprover = async (req, res) => {
       amount_approved, 
     } = req.body;
     if (
-      !projectID ||
-      !comment_box_project_coordinator_swz||
-      project_coordinator_agree === undefined||
-      project_coordinator_agree_swz === undefined
+      !projectID 
     ) {
       return res.json({ success: false, msg: "send all fields" });
     }
