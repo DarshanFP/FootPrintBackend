@@ -8,7 +8,7 @@ const editCGapprover = async (req, res) => {
       comment_box_project_coordinator_swz,
       project_coordinator_agree,
       project_coordinator_agree_swz,
-      amount_approved,
+      amount_approved, 
     } = req.body;
     if (
       !projectID ||

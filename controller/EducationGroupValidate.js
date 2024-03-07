@@ -45,10 +45,22 @@ const EducationGroupValidate = Joi.object({
   monitoringMethods: Joi.string().required(),
   evaluationProcess: Joi.string().required(),
   conclusion: Joi.string().required(),
-  project_in_charge_agree: Joi.object({
+  benificary_agree: Joi.object().keys({
     agree: Joi.boolean().default(false),
     date: Joi.date().default(Date.now()),
-  }).required(),
+  }),
+  project_coordinator_agree: Joi.object().keys({
+    agree: Joi.boolean().default(false),
+    date: Joi.date().default(Date.now()),
+  }),
+  project_in_charge_agree: Joi.object().keys({
+    agree: Joi.boolean().default(false),
+    date: Joi.date().default(Date.now()),
+  }),
+  provincial_superior_agree: Joi.object().keys({
+    agree: Joi.boolean().default(false),
+    date: Joi.date().default(Date.now()),
+  }),
   comment_box_provincial_superior: Joi.string().allow(null),
   comment_box_project_coordinator: Joi.string().allow(null),
 });
