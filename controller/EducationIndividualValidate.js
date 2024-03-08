@@ -1,4 +1,10 @@
 const Joi = require("joi");
+
+const Budget_cost = Joi.object({
+  budget: Joi.string().required(),
+  cost: Joi.number().required(),
+});
+
 const EducationIndividualValidate = Joi.object({
   photograph_benificary: Joi.string().required(),
   name: Joi.string().required(),
@@ -74,7 +80,7 @@ const EducationIndividualValidate = Joi.object({
   familyFinancialContribution: Joi.number().required(),
   noFamilySupportReasons: Joi.string().allow('' , null),
   presentStudy: Joi.string().required(),
-  budgetDetails: Joi.string().required(),
+  budgetDetails: Joi.array().items(Budget_cost).required(),
   totalCostOfStudy: Joi.number().required(),
   scholarshipExpected: Joi.number().required(),
   beneficiaryContribution: Joi.number().required(),

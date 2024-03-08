@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const Budget_cost = new Schema({
+  budget: { type: String, required: true },
+  cost: { type: Number, required: true },
+});
+
 const EducationIndividual = new Schema({
   project_code: { type: String, required: true, unique: true },
   applicant: {
@@ -202,10 +207,7 @@ const EducationIndividual = new Schema({
     type: String,
     required: true,
   },
-  budgetDetails: {
-    type: String,
-    required: true,
-  },
+  budgetDetails: [Budget_cost],
   totalCostOfStudy: {
     type: Number,
     required: true,
