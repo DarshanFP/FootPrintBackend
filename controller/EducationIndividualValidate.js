@@ -112,6 +112,10 @@ const EducationIndividualValidate = Joi.object({
     agree: Joi.boolean().default(false),
     date: Joi.date().default(Date.now()),
   }),
+  project_coordinator_agree_swz:Joi.object().keys({
+    agree: Joi.boolean().default(false),
+    date: Joi.date().default(Date.now()),
+  }),
   provincial_superior_agree: Joi.object().keys({
     agree: Joi.boolean().default(false),
     date: Joi.date().default(Date.now()),
