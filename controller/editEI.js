@@ -89,6 +89,7 @@ const editEI = async (req, res) => {
         comment_box_provincial_superior: req.body.comment_box_provincial_superior,
         project_coordinator_agree: req.body.project_coordinator_agree,
         comment_box_project_coordinator: req.body.comment_box_project_coordinator,
+        comment_box_project_coordinator_swz:req.body.comment_box_project_coordinator_swz
       },
       { new: true }
     );
