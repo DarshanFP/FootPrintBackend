@@ -160,6 +160,18 @@ const EducationIndividual = new Schema({
     type: String,
     required: true,
   },
+  type_of_work_monthly_income:{
+    type: String,
+    required: true,
+  },
+  details_other_family_members:{
+    type: String,
+    required: true,
+  },
+  age:{
+    type:Number,
+    required:true
+  },
   previousInstitutionDetails: {
     type: String,
     required: true,

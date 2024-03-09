@@ -58,6 +58,9 @@ const createEI = async (req, res) => {
       family_situation_of_the_beneficiary:
         req.body.family_situation_of_the_beneficiary,
       financialSupportDetails: req.body.financialSupportDetails,
+      age:req.body.age,
+      type_of_work_monthly_income:req.body.type_of_work_monthly_income,
+      details_other_family_members:req.body.details_other_family_members,
       familyEmploymentDetails: req.body.familyEmploymentDetails,
       previousEducationDetails: req.body.previousEducationDetails,
       previousInstitutionDetails: req.body.previousInstitutionDetails,
