@@ -118,6 +118,7 @@ const EducationIndividualValidate = Joi.object({
   }),
   comment_box_provincial_superior: Joi.string().allow(null),
   comment_box_project_coordinator: Joi.string().allow(null),
+  comment_box_project_coordinator_swz:Joi.string().allow(null)
 });
 
 module.exports = EducationIndividualValidate;
