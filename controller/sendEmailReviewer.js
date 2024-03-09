@@ -60,7 +60,7 @@ const sendEmailReviewer = async (req, res) => {
             .status(200)
             .json({
               success: true,
-              message: "Email send successfully",
+              msg: "Email send successfully",
               token: authToken,
             });
         }
@@ -86,7 +86,7 @@ const sendEmailReviewer = async (req, res) => {
             .status(200)
             .json({
               success: true,
-              message: "Email send successfully",
+              msg: "Email send successfully",
               token: authToken,
             });
         }

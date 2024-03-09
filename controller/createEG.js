@@ -10,7 +10,7 @@ const createEG = async (req, res) => {
       // if not matches then error 
     } catch (error) {
       console.log(error);
-      return res.status(400).json({ success: false, message: error.message });
+      return res.status(400).json({ success: false, msg: error.message });
     }
     let projectCode = 0;
     const currentDate = new Date();

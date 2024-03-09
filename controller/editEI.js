@@ -13,7 +13,7 @@ const editEI = async (req, res) => {
       await EducationIndividualValidate.validateAsync(modifiedReqBody);
     } catch (error) {
       console.log(error);
-      return res.status(400).json({ success: false, message: error.message });
+      return res.status(400).json({ success: false, msg: error.message });
     }
     console.log(projectID);
     const editedEI = await EI.findOneAndUpdate(

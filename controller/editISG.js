@@ -14,7 +14,7 @@ const editISG = async (req, res) => {
         await InstitutionSkillGroupValidate.validateAsync(modifiedReqBody);
       } catch (error) {
         console.log(error);
-        return res.status(400).json({ success: false, message: error.message });
+        return res.status(400).json({ success: false, msg: error.message });
       }
       const editedISG =await ISG.findOneAndUpdate(
         { project_code: projectID },

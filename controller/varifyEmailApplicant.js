@@ -7,7 +7,7 @@ const varifyEmailApplicant = async (req, res) => {
      
         const generatedotp = await EmailOtp.findOne({ email: req.user.email });
         if (!generatedotp) {
-          res.status(400).json({ success: false, message: "Time limit exceeds" });
+          res.status(400).json({ success: false, msg: "Time limit exceeds" });
         } else {
           const otpCompare = await bcrypt.compare(otp, generatedotp.otp)
 
@@ -22,11 +22,11 @@ const varifyEmailApplicant = async (req, res) => {
        
             res
               .status(200)
-              .json({ success: true, message: "Email varified successfully" });
+              .json({ success: true, msg: "Email varified successfully" });
           } else {
             res
               .status(400)
-              .json({ success: false, message: "otp is not correct" });
+              .json({ success: false, msg: "otp is not correct" });
           }
         }
       

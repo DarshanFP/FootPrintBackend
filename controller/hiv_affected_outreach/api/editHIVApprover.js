@@ -14,7 +14,7 @@ const editHIVApprover = async (req, res) => {
     ) {
       return res.status(400).json({
         success: false,
-        message: "send all fields",
+        msg : "send all fields",
       });
     }
     // The idea I am thinking of is that the approvers shall not be added before hand
@@ -40,19 +40,19 @@ const editHIVApprover = async (req, res) => {
 
     if (!updatedData) {
       return res.status(400).json({
-        message: "approval unsuccessful",
+        msg: "approval unsuccessful",
         sucess: false,
       });
     }
     return res.status(200).json({
-      message:
+      msg:
         "successfully approved the application waiting for others approval",
       success: true,
       data: updatedData,
     });
   } catch (error) {
     return res.status(400).json({
-      message: "approval unsuccessful",
+      msg: "approval unsuccessful",
       error: error.message,
       sucess: false,
     });

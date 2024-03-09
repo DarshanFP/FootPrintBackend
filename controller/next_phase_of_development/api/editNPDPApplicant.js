@@ -11,7 +11,7 @@ const editNPDPApplicant = async (req, res) => {
     } catch (error) {
       return res.status(400).json({
         success: false,
-        message: `vaidation errror`,
+        msg: `vaidation errror`,
         error: error.message,
       });
     }
@@ -31,11 +31,11 @@ const editNPDPApplicant = async (req, res) => {
     if (update === null)
       return res.status(200).json({
         success: false,
-        message: "update unsuccessful",
+        msg: "update unsuccessful",
       });
     return res.status(200).json({
       success: true,
-      message: "successfully updated",
+      msg: "successfully updated",
       data: update,
     });
     // what we need to generate from our side
@@ -44,7 +44,7 @@ const editNPDPApplicant = async (req, res) => {
   } catch (error) {
     return res.status(400).json({
       success: false,
-      message: "Unexpected error during update",
+      msg: "Unexpected error during update",
       error: error.message,
     });
   }

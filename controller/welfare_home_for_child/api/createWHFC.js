@@ -8,7 +8,7 @@ const createWHFC = async (req, res) => {
     } catch (error) {
       return res.status(400).json({
         success: false,
-        message: `vaidation errror`,
+        msg: `vaidation errror`,
         error: error.message,
       });
     }
@@ -93,7 +93,7 @@ const createWHFC = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: "successfull submission",
+      msg: "successfull submission",
     });
     // what we need to generate from our side
     // ref shall be one of those
@@ -101,7 +101,7 @@ const createWHFC = async (req, res) => {
   } catch (error) {
     return res.status(400).json({
       success: false,
-      message: "Unexpected error creating the fields",
+      msg: "Unexpected error creating the fields",
       error: error.message,
     });
   }

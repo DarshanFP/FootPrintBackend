@@ -17,7 +17,7 @@ const editEOI = async (req, res) => {
         await EducationOngoingIndividualValidate.validateAsync(modifiedReqBody);
       } catch (error) {
         console.log(error);
-        return res.status(400).json({ success: false, message: error.message });
+        return res.status(400).json({ success: false, msg: error.message });
       }
       const editedEOI =await EOI.findOneAndUpdate(
         { project_code: projectID },

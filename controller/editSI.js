@@ -12,7 +12,7 @@ const editSI=async (req,res)=>{
         await SocialIndividualValidate.validateAsync(modifiedReqBody);
       } catch (error) {
         console.log(error);
-        return res.status(400).json({ success: false, message: error.message });
+        return res.status(400).json({ success: false, msg: error.message });
       }
       const editedSI =await SI.findOneAndUpdate(
         { project_code: projectID },

@@ -12,7 +12,7 @@ const createEGS = async (req, res) => {
       await educationalGroupSupportSchema.validateAsync(req.body);
     } catch (error) {
       return res.status(400).json({
-        message: "Error validating, please check the fields",
+        msg : "Error validating, please check the fields",
         error: error.message,
         success: false,
       });
@@ -87,13 +87,13 @@ const createEGS = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: "Successful submission of form",
+      msg: "Successful submission of form",
     });
   } catch (error) {
     return res.status(400).json({
       success: false,
       error: error.message,
-      message: `Unexpected error submitting the form`,
+      msg: `Unexpected error submitting the form`,
     });
   }
 };

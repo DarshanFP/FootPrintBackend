@@ -8,19 +8,19 @@ const getAllEGSApprover = async (req, res) => {
       .populate("general_information.project_coordinators.ref");
     if (allEGSApprover.length === 0)
       return res.status(404).json({
-        message: "No applications for the approver",
+        msg: "No applications for the approver",
         data: [],
       });
     return res.status(200).json({
       success: true,
       data: allEGSApprover,
-      message: "All data for the approver",
+      msg: "All data for the approver",
     });
   } catch (error) {
     return res.status(400).json({
       success: false,
       error: error,
-      message: "Cannot find anything for the approver",
+      msg: "Cannot find anything for the approver",
     });
   }
 };

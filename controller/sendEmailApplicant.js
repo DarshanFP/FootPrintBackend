@@ -56,7 +56,7 @@ const tarnsporter = nodemailer.createTransport({
         } else {
           res
             .status(200)
-            .json({ success: true, message: "Email send successfully", token:authToken });
+            .json({ success: true, msg: "Email send successfully", token:authToken });
         }
       });
     } else {
@@ -78,7 +78,7 @@ const tarnsporter = nodemailer.createTransport({
         } else {
           res
             .status(200)
-            .json({ success: true, message: "Email send successfully", token:authToken });
+            .json({ success: true,msg : "Email send successfully", token:authToken });
         }
       });
     }

@@ -10,7 +10,7 @@ const editEGSApprover = async (req, res) => {
 
     if (!comment || agree === undefined || !project_number) {
       return res.status(400).json({
-        message: "please send all the fields",
+        msg: "please send all the fields",
         success: false,
       });
     }
@@ -34,14 +34,14 @@ const editEGSApprover = async (req, res) => {
 
     return res.status(200).json({
       data: updatedApprover,
-      message: "successfully approved by one of the approvers ",
+      msg: "successfully approved by one of the approvers ",
       success: true,
     });
   } catch (e) {
     console.log(e);
     return res.status(200).json({
       error: e.message,
-      message: "unepxpected error approving",
+      msg: "unepxpected error approving",
       success: false,
     });
   }

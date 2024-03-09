@@ -7,7 +7,7 @@ const createISG = async (req, res) => {
       await InstitutionSkillGroupValidate.validateAsync(req.body);
     } catch (error) {
       console.log(error);
-      return res.status(400).json({ success: false, message: error.message });
+      return res.status(400).json({ success: false, msg: error.message });
     }
     let projectCode = 0;
     const currentDate = new Date();

@@ -12,7 +12,7 @@ const editHOI = async (req, res) => {
         await HealthOngoingIndividualValidate.validateAsync(modifiedReqBody);
       } catch (error) {
         console.log(error);
-        return res.status(400).json({ success: false, message: error.message });
+        return res.status(400).json({ success: false, msg: error.message });
       }
       const editedHOI =await HOI.findOneAndUpdate(
         { project_code: projectID },

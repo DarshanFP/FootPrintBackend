@@ -7,7 +7,7 @@ const editEGSReviewer = async (req, res) => {
 
     if (!comment || agree === undefined || !project_number) {
       return res.status(400).json({
-        message: "please send all the fields",
+        msg: "please send all the fields",
         success: false,
       });
     }
@@ -25,14 +25,14 @@ const editEGSReviewer = async (req, res) => {
 
     return res.status(200).json({
       data: update,
-      message: "successfully reviewed",
+      msg: "successfully reviewed",
       success: true,
     });
   } catch (e) {
     console.log(e);
     return res.status(200).json({
       error: e,
-      message: "unepxpected error reviewing",
+      msg: "unepxpected error reviewing",
       success: false,
     });
   }

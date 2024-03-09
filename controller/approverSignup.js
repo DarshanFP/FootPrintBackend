@@ -7,7 +7,7 @@ const approverSignup = async (req,res) => {
     try {
       await approverValidate.validateAsync(req.body);
     } catch (error) {
-      return res.status(400).json({ success: false, message: error.message });
+      return res.status(400).json({ success: false, msg: error.message });
     }
 
     const { name, email, password, mobile,region } = req.body;

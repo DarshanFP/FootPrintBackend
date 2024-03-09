@@ -15,20 +15,20 @@ const getAllEGSApplicant = async (req, res) => {
       return res.status(400).json({
         success: false,
         data: [],
-        message: "No data found for the particular applicant",
+        msg: "No data found for the particular applicant",
       });
     }
 
     return res.status(200).json({
       success: true,
       data: allEGSApplicants,
-      message: "All data for the applicant",
+      msg: "All data for the applicant",
     });
   } catch (error) {
     return res.status(400).json({
       success: false,
       error: error,
-      message: "Cannot find anything for the applicant",
+      msg: "Cannot find anything for the applicant",
     });
   }
 };

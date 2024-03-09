@@ -20,18 +20,18 @@ const getAllNPDPReviewer = async (req, res) => {
     if (!allNPDP) {
       return res.status(400).json({
         status: false,
-        message: `Unable to fetch any projects for the reviewer`,
+        msg: `Unable to fetch any projects for the reviewer`,
       });
     }
     return res.status(200).json({
       status: true,
-      message: "successfully got all projects",
+      msg: "successfully got all projects",
       data: allNPDP,
     });
   } catch (error) {
     return res.status(400).json({
       success: false,
-      message: "Cannot fetch any projects",
+      msg: "Cannot fetch any projects",
       error: error.message,
     });
   }

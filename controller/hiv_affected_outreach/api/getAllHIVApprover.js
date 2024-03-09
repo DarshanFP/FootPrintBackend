@@ -24,18 +24,18 @@ const getAllHIVApprover = async (req, res) => {
     if (!allHIVProject) {
       return res.status(400).json({
         status: false,
-        message: `Unable to fetch any projects for the approver`,
+        msg: `Unable to fetch any projects for the approver`,
       });
     }
     return res.status(200).json({
       status: true,
-      message: "successfully got all projects",
+      msg: "successfully got all projects",
       data: allHIVProject,
     });
   } catch (error) {
     return res.status(400).json({
       success: false,
-      message: "Cannot fetch any projects",
+      msg: "Cannot fetch any projects",
       error: error.message,
     });
   }
