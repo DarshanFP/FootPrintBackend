@@ -29,7 +29,6 @@ const EducationIndividualValidate = Joi.object({
   father: Joi.string().required(),
   mother: Joi.string().required(),
   mother_tongue: Joi.string().required(),
-  religion: Joi.string().required(),
   caste: Joi.string().required(),
   occupation_of_father: Joi.string().required(),
   monthly_income_of_father: Joi.number().required(),
@@ -37,7 +36,7 @@ const EducationIndividualValidate = Joi.object({
   occupation_of_mother: Joi.string().required(),
   motherIs: Joi.string().valid("healthy", "sick", "dead").required(),
   fatherIs: Joi.string()
-    .valid("healthy", "sick", "dead", "deserted the family")
+    .valid("healthy", "sick", "dead", "deserted the family","NA")
     .required(),
   grandmother_support: Joi.string().valid("Yes", "No", "Died").required(),
   grandfather_support: Joi.string().valid("Yes", "No", "Died").required(),
@@ -47,7 +46,8 @@ const EducationIndividualValidate = Joi.object({
       "HIV/AIDS positive",
       "Disabled",
       "Alcoholic",
-      "Others"
+      "Others",
+      "NA"
     )
     .required(),
   health_status_of_father_others: Joi.string().allow('' , null),
@@ -57,12 +57,13 @@ const EducationIndividualValidate = Joi.object({
       "HIV/AIDS positive",
       "Disabled",
       "Alcoholic",
-      "Others"
+      "Others",
+      "NA"
     )
     .required(),
   health_status_of_mother_others: Joi.string().allow('' , null),
   residential_status: Joi.string()
-    .valid("houseOwner", "landOwner", "rentedHouse", "others")
+    .valid("houseOwner", "landOwner", "rentedHouse", "others","NA")
     .required(),
   residential_status_others: Joi.string().allow('' , null),
   family_situation_of_the_beneficiary: Joi.string().required(),

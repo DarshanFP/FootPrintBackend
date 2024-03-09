@@ -40,7 +40,6 @@ const createEI = async (req, res) => {
       father: req.body.father,
       mother: req.body.mother,
       mother_tongue: req.body.mother_tongue,
-      religion: req.body.religion,
       caste: req.body.caste,
       occupation_of_father: req.body.occupation_of_father,
       monthly_income_of_father: req.body.monthly_income_of_father,

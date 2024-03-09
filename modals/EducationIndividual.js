@@ -63,10 +63,6 @@ const EducationIndividual = new Schema({
     type: String,
     required: true,
   },
-  religion: {
-    type: String,
-    required: true,
-  },
   caste: {
     type: String,
     required: true,
@@ -116,6 +112,7 @@ const EducationIndividual = new Schema({
       "Disabled",
       "Alcoholic",
       "Others",
+      "NA"
     ],
   },
   health_status_of_father_others: {
@@ -131,6 +128,7 @@ const EducationIndividual = new Schema({
       "Disabled",
       "Alcoholic",
       "Others",
+      "NA"
     ],
   },
   health_status_of_mother_others: {
@@ -140,7 +138,7 @@ const EducationIndividual = new Schema({
   residential_status: {
     type: String,
     required: true,
-    enum: ["houseOwner", "landOwner", "rentedHouse", "others"],
+    enum: ["houseOwner", "landOwner", "rentedHouse", "others","NA"],
   },
   residential_status_others: {
     type: String,
