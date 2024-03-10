@@ -32,8 +32,8 @@ const targetGroupStudiesSchema = Joi.object({
   studyProposed: Joi.string().required(),
   totalExpense: Joi.number().required(),
   contribution: Joi.number().required(),
-  scholarshipEligibility: Joi.string().required(),
-  expectedAmount: Joi.string().required(),
+  scholarshipEligibility: Joi.number().required(),
+  expectedAmount: Joi.number().required(),
 });
 
 const EducationGroupValidate = Joi.object({

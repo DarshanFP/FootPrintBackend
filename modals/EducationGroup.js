@@ -31,8 +31,8 @@ const targetGroupStudiesSchema = new Schema({
   college_fee:{type:Number, require:true},
   hostel_fee: {type:Number,require:true},
   contribution: { type: Number, required: true },
-  scholarshipEligibility: { type: String, required: true },
-  expectedAmount: { type: String, required: true },
+  scholarshipEligibility: { type: Number, required: true },
+  expectedAmount: { type: Number, required: true },
 });
 
 const EducationGroupSchema = new Schema({
