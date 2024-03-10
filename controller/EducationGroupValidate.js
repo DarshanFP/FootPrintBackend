@@ -11,8 +11,7 @@ const PeopleSchema = Joi.object({
 const targetGroupInformationSchema = Joi.object({
   serialNo: Joi.number().required(),
   name: Joi.string().required(),
-  college_fee:Joi.number().required(),
-  hostel_fee:Joi.number().required(),
+
   casteAddress: Joi.string().required(),
   recommendedBy: Joi.string().required(),
   familyBackground: Joi.string().required(),
@@ -28,6 +27,8 @@ const ongoingBeneficiarySchema=Joi.object({
 const targetGroupStudiesSchema = Joi.object({
   serialNo: Joi.number().required(),
   name: Joi.string().required(),
+  college_fee:Joi.number().required(),
+  hostel_fee:Joi.number().required(),
   studyProposed: Joi.string().required(),
   totalExpense: Joi.number().required(),
   contribution: Joi.number().required(),
