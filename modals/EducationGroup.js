@@ -16,11 +16,20 @@ const targetGroupInformationSchema = new Schema({
   familyBackground: { type: String, required: true },
 });
 
+const ongoingBeneficiarySchema=new Schema({
+  name: { type: String, required: true },
+  cast_address:  { type: String, required: true },
+  year_of_study:  { type: String, required: true },
+  performance: { type: String, required: true }
+})
+
 const targetGroupStudiesSchema = new Schema({
   serialNo: { type: Number, required: true },
   name: { type: String, required: true },
   studyProposed: { type: String, required: true },
   totalExpense: { type: Number, required: true },
+  college_fee:{type:Number, require:true},
+  hostel_fee: {type:Number,require:true},
   contribution: { type: Number, required: true },
   scholarshipEligibility: { type: String, required: true },
   expectedAmount: { type: String, required: true },
@@ -58,6 +67,8 @@ const EducationGroupSchema = new Schema({
   monitoringMethods: { type: String, required: true },
   evaluationProcess: { type: String, required: true },
   conclusion: { type: String, required: true },
+  currentPhase:{ type: String, required: true },
+  ongoingBeneficiary:[ongoingBeneficiarySchema],
   // agree_sytanx_changed
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },

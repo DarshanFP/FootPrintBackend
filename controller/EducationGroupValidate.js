@@ -2,6 +2,8 @@ const Joi = require('joi');
 
 const PeopleSchema = Joi.object({
   class: Joi.number().required(),
+  college_fee:Joi.number().required(),
+  hostel_fee:Joi.number().required(),
   totalFemale: Joi.number().required(),
   totalMale: Joi.number().required(),
   total: Joi.number().required(),
@@ -14,6 +16,13 @@ const targetGroupInformationSchema = Joi.object({
   recommendedBy: Joi.string().required(),
   familyBackground: Joi.string().required(),
 });
+
+const ongoingBeneficiarySchema=Joi.object({
+  name:Joi.string().required(),
+  cast_address:  Joi.string().required(),
+  year_of_study: Joi.string().required(),
+  performance: Joi.string().required()
+})
 
 const targetGroupStudiesSchema = Joi.object({
   serialNo: Joi.number().required(),
@@ -39,15 +48,17 @@ const EducationGroupValidate = Joi.object({
     Joi.string().required(),
   ),
   peopleDetails: Joi.array().items(PeopleSchema),
+  ongoingBeneficiary:Joi.array().items(ongoingBeneficiarySchema),
   targetGroupInformation: Joi.array().items(targetGroupInformationSchema),
   targetGroupStudies: Joi.array().items(targetGroupStudiesSchema),
   otherActivities: Joi.string().required(),
   monitoringMethods: Joi.string().required(),
   evaluationProcess: Joi.string().required(),
   conclusion: Joi.string().required(),
+  currentPhase:Joi.string().required(),
   benificary_agree: Joi.object().keys({
     agree: Joi.boolean().default(false),
-    date: Joi.date().default(Date.now()),
+    date: Joi.date().default(Date.now()), 
   }),
   project_coordinator_agree: Joi.object().keys({
     agree: Joi.boolean().default(false),
