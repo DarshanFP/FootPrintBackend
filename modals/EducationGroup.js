@@ -20,7 +20,7 @@ const ongoingBeneficiarySchema=new Schema({
   name: { type: String, required: true },
   cast_address:  { type: String, required: true },
   year_of_study:  { type: String, required: true },
-  performance: { type: String, required: true }
+  performance: { type: Number, required: true }
 })
 
 const targetGroupStudiesSchema = new Schema({

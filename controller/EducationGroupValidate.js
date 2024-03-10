@@ -22,7 +22,7 @@ const ongoingBeneficiarySchema=Joi.object({
   name:Joi.string().required(),
   cast_address:  Joi.string().required(),
   year_of_study: Joi.string().required(),
-  performance: Joi.string().required()
+  performance: Joi.number().required()
 })
 
 const targetGroupStudiesSchema = Joi.object({
