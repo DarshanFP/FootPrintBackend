@@ -2,8 +2,7 @@ const Joi = require('joi');
 
 const PeopleSchema = Joi.object({
   class: Joi.number().required(),
-  college_fee:Joi.number().required(),
-  hostel_fee:Joi.number().required(),
+ 
   totalFemale: Joi.number().required(),
   totalMale: Joi.number().required(),
   total: Joi.number().required(),
@@ -12,6 +11,8 @@ const PeopleSchema = Joi.object({
 const targetGroupInformationSchema = Joi.object({
   serialNo: Joi.number().required(),
   name: Joi.string().required(),
+  college_fee:Joi.number().required(),
+  hostel_fee:Joi.number().required(),
   casteAddress: Joi.string().required(),
   recommendedBy: Joi.string().required(),
   familyBackground: Joi.string().required(),
