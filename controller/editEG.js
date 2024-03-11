@@ -8,12 +8,12 @@ const editEG = async (req, res) => {
       if (!projectID) {
         res.json({ success: false, msg: "send project ID" });
       }
-      try {
-        await EducationGroupValidate.validateAsync(modifiedReqBody);
-      } catch (error) {
-        console.log(error);
-        return res.status(400).json({ success: false, msg: error.message });
-      }
+      // try {
+      //   await EducationGroupValidate.validateAsync(modifiedReqBody);
+      // } catch (error) {
+      //   console.log(error);
+      //   return res.status(400).json({ success: false, msg: error.message });
+      // }
       const editedEG =await EG.findOneAndUpdate(
         { project_code: projectID },
         {
