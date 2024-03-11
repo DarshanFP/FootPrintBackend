@@ -60,7 +60,7 @@ const EducationGroupValidate = Joi.object({
   currentPhase:Joi.string().required(),
   benificary_agree: Joi.object().keys({
     agree: Joi.boolean().default(false),
-    date: Joi.date().default(Date.now()), 
+    date: Joi.date().default(Date.now()),
   }),
   project_coordinator_agree: Joi.object().keys({
     agree: Joi.boolean().default(false),
@@ -70,12 +70,17 @@ const EducationGroupValidate = Joi.object({
     agree: Joi.boolean().default(false),
     date: Joi.date().default(Date.now()),
   }),
+  project_coordinator_agree_swz:Joi.object().keys({
+    agree: Joi.boolean().default(false),
+    date: Joi.date().default(Date.now()),
+  }),
   provincial_superior_agree: Joi.object().keys({
     agree: Joi.boolean().default(false),
     date: Joi.date().default(Date.now()),
   }),
   comment_box_provincial_superior: Joi.string().allow(null),
   comment_box_project_coordinator: Joi.string().allow(null),
+  comment_box_project_coordinator_swz:Joi.string().allow(null)
 });
 
 module.exports = EducationGroupValidate;

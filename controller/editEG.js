@@ -45,6 +45,12 @@ const editEG = async (req, res) => {
             evaluationProcess: req.body.evaluationProcess,
             conclusion: req.body.conclusion,
             project_in_charge_agree: req.body.project_in_charge_agree,
+            provincial_superior_agree: req.body.provincial_superior_agree,
+            comment_box_provincial_superior: req.body.comment_box_provincial_superior,
+            project_coordinator_agree: req.body.project_coordinator_agree,
+            project_coordinator_agree_swz:req.body.project_coordinator_agree_swz,
+            comment_box_project_coordinator: req.body.comment_box_project_coordinator,
+            comment_box_project_coordinator_swz:req.body.comment_box_project_coordinator_swz
         },
         { new: true }
       );
