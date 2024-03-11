@@ -2,10 +2,11 @@ const EG = require("../modals/EducationGroup");
 const editEGreviewer = async (req, res) => {
   try {
     const {
-      projectID,
-      comment_box_provincial_superior,
-      provincial_superior_agree,
-    } = req.body;
+        projectID,
+        comment_box_provincial_superior,
+        provincial_superior_agree,
+      } = req.body;
+  
     if (
       !projectID ||
       !comment_box_provincial_superior ||
@@ -16,16 +17,11 @@ const editEGreviewer = async (req, res) => {
 
     const editedEG = await EG.findByIdAndUpdate(
       projectID,
-      {
-        $push: {
-          project_coordinators: {
-            agree: provincial_superior_agree,
-            comment: comment_box_provincial_superior,
-            ref: req.user._id,
-            
-          },
+      
+        {
+          comment_box_provincial_superior: comment_box_provincial_superior,
+          provincial_superior_agree: provincial_superior_agree,
         },
-      },
       { new: true }
     );
 
