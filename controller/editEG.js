@@ -1,5 +1,5 @@
 const EG = require("../modals/EducationGroup");
-const EducationGroupValidate = require("./EducationGroupValidate");
+// const EducationGroupValidate = require("./EducationGroupValidate");
 const editEG = async (req, res) => {
     try {
       const { projectID, ...restOfReqBody } = req.body;
@@ -8,12 +8,12 @@ const editEG = async (req, res) => {
       if (!projectID) {
         res.json({ success: false, msg: "send project ID" });
       }
-      try {
-        await EducationGroupValidate.validateAsync(modifiedReqBody);
-      } catch (error) {
-        console.log(error);
-        return res.status(400).json({ success: false, msg: error.message });
-      }
+      // try {
+      //   await EducationGroupValidate.validateAsync(modifiedReqBody);
+      // } catch (error) {
+      //   console.log(error);
+      //   return res.status(400).json({ success: false, msg: error.message });
+      // }
       const editedEG =await EG.findOneAndUpdate(
         { project_code: projectID },
         {
@@ -50,7 +50,8 @@ const editEG = async (req, res) => {
             project_coordinator_agree: req.body.project_coordinator_agree,
             project_coordinator_agree_swz:req.body.project_coordinator_agree_swz,
             comment_box_project_coordinator: req.body.comment_box_project_coordinator,
-            comment_box_project_coordinator_swz:req.body.comment_box_project_coordinator_swz
+            comment_box_project_coordinator_swz:req.body.comment_box_project_coordinator_swz,
+            amount_approved:req.body.amount_approved
         },
         { new: true }
       );
