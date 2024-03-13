@@ -19,7 +19,7 @@ const targetGroupInformationSchema = new Schema({
 
 const ongoingBeneficiarySchema=new Schema({
   name: { type: String, required: true },
-  cast:  { type: String, required: true },
+  caste:  { type: String, required: true },
   address:  { type: String, required: true },
   year_of_study:  { type: String, required: true },
   performance: { type: Number, required: true }
