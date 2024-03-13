@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PeopleSchema = new Schema({
-  class: { type: Number, required: true },
+  class: { type: String, required: true },
   totalFemale: { type: Number, required: true },
   totalMale: { type: Number, required: true },
   total: { type: Number, required: true },
@@ -11,14 +11,16 @@ const PeopleSchema = new Schema({
 const targetGroupInformationSchema = new Schema({
   serialNo: { type: Number, required: true },
   name: { type: String, required: true },
-  casteAddress: { type: String, required: true },
-  recommendedBy: { type: String, required: true },
+  caste: { type: String, required: true },
+  address: { type: String, required: true },
+  // recommendedBy: { type: String, required: true },
   familyBackground: { type: String, required: true },
 });
 
 const ongoingBeneficiarySchema=new Schema({
   name: { type: String, required: true },
-  cast_address:  { type: String, required: true },
+  cast:  { type: String, required: true },
+  address:  { type: String, required: true },
   year_of_study:  { type: String, required: true },
   performance: { type: Number, required: true }
 })

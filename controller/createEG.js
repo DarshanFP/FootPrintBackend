@@ -3,15 +3,15 @@ const EducationGroupValidate = require("./EducationGroupValidate");
 
 const createEG = async (req, res) => {
   try {
-    try {
-      // request 
-      // authAxios.post(route , req)
-      await EducationGroupValidate.validateAsync(req.body);
-      // if not matches then error 
-    } catch (error) {
-      console.log(error);
-      return res.status(400).json({ success: false, msg: error.message });
-    }
+    // try {
+    //   // request 
+    //   // authAxios.post(route , req)
+    //   await EducationGroupValidate.validateAsync(req.body);
+    //   // if not matches then error 
+    // } catch (error) {
+    //   console.log(error);
+    //   return res.status(400).json({ success: false, msg: error.message });
+    // }
     let projectCode = 0;
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
