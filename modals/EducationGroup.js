@@ -13,6 +13,7 @@ const targetGroupInformationSchema = new Schema({
   name: { type: String, required: true },
   caste: { type: String, required: true },
   address: { type: String, required: true },
+  year_of_study:{type:String,required:true},
   // recommendedBy: { type: String, required: true },
   familyBackground: { type: String, required: true },
 });
@@ -70,8 +71,10 @@ const EducationGroupSchema = new Schema({
   evaluationProcess: { type: String, required: true },
   conclusion: { type: String, required: true },
   currentPhase:{ type: String, required: true },
+  insOrNot:{type:String, required:true},
+  childOrYouth:{type:String,required:true},
   ongoingBeneficiary:[ongoingBeneficiarySchema],
-  // agree_sytanx_changed
+
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },
     date: {

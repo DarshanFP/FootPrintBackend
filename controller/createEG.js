@@ -1,5 +1,5 @@
 const EG = require("../modals/EducationGroup");
-const EducationGroupValidate = require("./EducationGroupValidate");
+// const EducationGroupValidate = require("./EducationGroupValidate");
 
 const createEG = async (req, res) => {
   try {
@@ -31,7 +31,7 @@ const createEG = async (req, res) => {
     await EG.create({
       project_code: projectCode,
       applicant: req.user,
-      reviewer: req.user.reviewer,
+      reviewer: req.user.reviewer, 
       NameOfSociety: req.body.NameOfSociety,
       DateOfSubmission: req.body.DateOfSubmission,
       TitleOfProject: TitleOfProject,
@@ -48,6 +48,8 @@ const createEG = async (req, res) => {
       targetGroupInformation: req.body.targetGroupInformation,
       targetGroupStudies: req.body.targetGroupStudies,
       otherActivities: req.body.otherActivities,
+      insOrNot:req.body.insOrNot,
+      childOrYouth:req.body.childOrYouth,
       currentPhase:req.body.currentPhase,
       monitoringMethods: req.body.monitoringMethods,
       evaluationProcess: req.body.evaluationProcess,

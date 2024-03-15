@@ -37,6 +37,8 @@ const editEG = async (req, res) => {
           monitoringMethods: req.body.monitoringMethods,
           currentPhase:req.body.currentPhase,
           evaluationProcess: req.body.evaluationProcess,
+          insOrNot:req.body.insOrNot,
+          childOrYouth:req.body.childOrYouth,
           conclusion: req.body.conclusion,
           project_in_charge_agree: req.body.project_in_charge_agree,
           provincial_superior_agree: req.body.provincial_superior_agree,
