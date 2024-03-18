@@ -67,11 +67,10 @@ const getprojectsApplicant = async (req, res) => {
     arr.push({ name: "HIV", data: allHIVProject });
 
     const allEGSApplicants = await EducationalGroupSupportModel.find({
-      "general_information.project_incharge.ref": applicant,
+      "applicant": applicant,
     })
-      .populate("general_information.project_incharge.ref")
-      .populate("general_information.provincial_superior.ref")
-      .populate("general_information.project_coordinators.ref");
+    .populate("reviewer")
+    .populate("applicant");
 
     arr.push({ name: "EGS", data: allEGSApplicants });
 

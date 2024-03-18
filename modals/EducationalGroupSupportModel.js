@@ -48,6 +48,9 @@ const objectiveSchema = new mongoose.Schema({
 const solutionAnalysisSchema = new mongoose.Schema({
   goal: { type: String, required: true },
   objectives: [objectiveSchema],
+  sustainability: String,
+  monitoring_process_of_the_project: String,
+  mode_of_evaluation: String,
 });
 
 const roleSchema = new mongoose.Schema({
@@ -66,58 +69,87 @@ const roleSchema = new mongoose.Schema({
 const educationalGroupSupportSchema = new mongoose.Schema(
   {
     project_title: { type: String, required: true },
-    project_number: { type: String, required: true },
-    present_project_year: { type: Number, required: true },
+    project_code: { type: String, required: true, unique: true },
+    applicant: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Applicant",
+      required: true,
+    },
+    reviewer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Reviewer",
+      required: true,
+    },
+    insOrNot: {
+      type: String,
+      enum: ["institutional", "non-institutional"], // Only accept these two values
+      required: true,
+    },
+    childOrYouth: {
+      type: String,
+      enum: ["children", "youth"], // Only accept these two values
+      required: true,
+    },
     general_information: {
       full_address: { type: String, required: true },
       overall_project_period: { type: String, required: true },
-      overall_project_budget: { type: Number, required: true },
-      project_coordinators: [
-        {
-          comment: { type: String, default: null },
-          ref: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Approver",
-          },
-          agree: { type: Boolean, default: false },
-          date: {
-            type: Date,
-            default: Date.now(),
-          },
-        },
-      ], // Group projects will have two project Coordinators 
-      provincial_superior: {
-        comment: { type: String, default: null },
-        ref: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Reviewer",
-        }, // IN view we need data of the reviewer 
-        // For data we simply populate 
-        agree: { type: Boolean, default: false },
-        date: {
-          type: Date,
-          default: Date.now(),
-        },
-      },
-      project_incharge: {
-        comment: { type: String, default: null },
-        ref: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Applicant",
-        },
-        agree: { type: Boolean, default: false },
-        date: {
-          type: Date,
-          default: Date.now(),
-        },
-      },
+      // overall_project_budget: { type: Number, required: true },
+      current_phase: { type: String, required: true },
+      projectExecutorName: { type: String, required: true },
+      projectExecutorEmail: { type: String, required: true },
+      projectExecutorMobile: { type: String, required: true },
+      // project_coordinators: [
+      //   {
+      //     comment: { type: String, default: null },
+      //     ref: {
+      //       type: mongoose.Schema.Types.ObjectId,
+      //       ref: "Approver",
+      //     },
+      //     agree: { type: Boolean, default: false },
+      //     date: {
+      //       type: Date,
+      //       default: Date.now(),
+      //     },
+      //   },
+      // ], // Group projects will have two project Coordinators
+      // provincial_superior: {
+      //   comment: { type: String, default: null },
+      //   ref: {
+      //     type: mongoose.Schema.Types.ObjectId,
+      //     ref: "Reviewer",
+      //   }, // IN view we need data of the reviewer
+      //   // For data we simply populate
+      //   agree: { type: Boolean, default: false },
+      //   date: {
+      //     type: Date,
+      //     default: Date.now(),
+      //   },
+      // },
+      // project_incharge: {
+      //   comment: { type: String, default: null },
+      //   ref: {
+      //     type: mongoose.Schema.Types.ObjectId,
+      //     ref: "Applicant",
+      //   },
+      //   agree: { type: Boolean, default: false },
+      //   date: {
+      //     type: Date,
+      //     default: Date.now(),
+      //   },
+      // },
     },
     project_summary: {
+      category: {
+        type: String,
+      enum: ["rural", "urban","tribal"], // Only accept these two values
+      required: true,
+      },
       project_location_geographical_area: { type: String, required: true },
       work_of_sisters_of_st_anns_in_the_project_area: String,
       general_socio_economic_conditions_of_the_beneficiaries: String,
       problems_identified_and_consequences: String,
       need_of_the_project: String,
+      beneficiarySelection:String,
       target_group: [beneficiarySchema],
       solution_analysis_logical_framework: solutionAnalysisSchema,
       sustainability: String,
@@ -135,8 +167,59 @@ const educationalGroupSupportSchema = new mongoose.Schema(
           default: 0,
         },
       },
-      amount_approved: { type: Number, default: 0 },
+
     },
+    benificary_agree: {
+      agree: { type: Boolean, dafault: false },
+      date: {
+        type: Date,
+        default: Date.now(),
+      },
+    },
+    // agree_syntax_changed
+    project_coordinator_agree: {
+      agree: { type: Boolean, default: false },
+      date: {
+        type: Date,
+        default: Date.now(),
+      },
+    },
+    project_coordinator_agree_swz: {
+      agree: { type: Boolean, default: false },
+      date: {
+        type: Date,
+        default: Date.now(),
+      },
+    },
+    // agree_sytanx_changed
+    project_in_charge_agree: {
+      agree: { type: Boolean, default: false },
+      date: {
+        type: Date,
+        default: Date.now(),
+      },
+    },
+    //agree_syntax_changed
+    provincial_superior_agree: {
+      agree: { type: Boolean, default: false },
+      date: {
+        type: Date,
+        default: Date.now(),
+      },
+    },
+    comment_box_provincial_superior: {
+      type: String,
+      default: null,
+    },
+    comment_box_project_coordinator: {
+      type: String,
+      default: null,
+    },
+    comment_box_project_coordinator_swz: {
+      type: String,
+      default: null,
+    },
+    amount_approved: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
