@@ -1,5 +1,5 @@
 const EG = require("../modals/EducationGroup");
-const EducationGroupValidate = require("./EducationGroupValidate");
+// const EducationGroupValidate = require("./EducationGroupValidate");
 const editEG = async (req, res) => {
     try {
       const { projectID, ...restOfReqBody } = req.body;

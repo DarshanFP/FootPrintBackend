@@ -152,9 +152,9 @@ const educationalGroupSupportSchema = new mongoose.Schema(
       beneficiarySelection:String,
       target_group: [beneficiarySchema],
       solution_analysis_logical_framework: solutionAnalysisSchema,
-      sustainability: String,
-      monitoring_process_of_the_project: String,
-      mode_of_evaluation: String,
+      // sustainability: String,
+      // monitoring_process_of_the_project: String,
+      // mode_of_evaluation: String,
       budget: {
         expenses: [
           {

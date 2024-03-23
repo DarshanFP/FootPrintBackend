@@ -12,6 +12,30 @@ const objectiveSchema = new Schema({
     },
   ],
 });
+const personalBudgetSchema = new Schema({
+  particulars: { type: String, required: true },
+  staff:{type:Number, required:true},
+  rate:{type:Number, required:true},
+  year_1:{type:Number, required:true},
+  year_2:{type:Number, required:true},
+  year_3:{type:Number, required:true},
+  year_4:{type:Number, required:true}
+  
+});
+
+const programmeBudgetSchema=new Schema({
+  particulars:{type: String, required: true},
+  year_1:{type:Number, required:true},
+  year_2:{type:Number, required:true},
+  year_3:{type:Number, required:true},
+  year_4:{type:Number, required:true}
+  
+})
+
+const timeframeSchema=new Schema({
+  activities:{type:String, required:true},
+  months:[Boolean]
+})
 
 const Budget_cost = new Schema({
   budget: { type: String, required: true },
@@ -31,8 +55,15 @@ const CommonGroup = new Schema({
     required: true,
   },
   goal: { type: String, required: true },
+  currentPhase:{type:String, required:true},
+  currentPhaseProjectBudget:{type:String, required:true},
+  reportingMethodology:{type:String, required:true},
+  president:{type:String, required:true},
   objectives: [objectiveSchema],
   budget_cost_table: [Budget_cost],
+  personalBudget:[personalBudgetSchema],
+  programmeBudget:[programmeBudgetSchema],
+  timeFrame:[timeframeSchema],
   nameOfSociety: { type: String, required: true },
   DateOfSubmission: { type: String, required: true },
   TitleOfProject: { type: String, required: true },
@@ -46,7 +77,7 @@ const CommonGroup = new Schema({
   directBeneficiaries: { type: Number, required: true },
   indirectBeneficiaries: { type: Number, required: true },
   problemAnalysis: { type: String, required: true },
-  solutionAnalysis: { type: String, required: true },
+  // solutionAnalysis: { type: String, required: true },
   sustainability: { type: String, required: true },
   monitoringProcess: { type: String, required: true },
   evaluationMethodology: { type: String, required: true },
