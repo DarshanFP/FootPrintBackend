@@ -36,10 +36,10 @@ const timeframeSchema=new Schema({
   months:[Boolean]
 })
 
-const Budget_cost = new Schema({
-  budget: { type: String, required: true },
-  cost: { type: Number, required: true },
-});
+// const Budget_cost = new Schema({
+//   budget: { type: String, required: true },
+//   cost: { type: Number, required: true },
+// });
 
 const CommonGroup = new Schema({
   project_code: { type: String, required: true, unique: true },
@@ -59,7 +59,7 @@ const CommonGroup = new Schema({
   reportingMethodology:{type:String, required:true},
   president:{type:String, required:true},
   objectives: [objectiveSchema],
-  budget_cost_table: [Budget_cost],
+  // budget_cost_table: [Budget_cost],
   personalBudget:[personalBudgetSchema],
   programmeBudget:[programmeBudgetSchema],
   timeFrame:[timeframeSchema],

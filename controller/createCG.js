@@ -33,7 +33,7 @@ const createCG = async (req, res) => {
         objectives: req.body.objectives,
         selectedMonths: req.body.selectedMonths,//
         isSubmitted: req.body.isSubmitted,//
-        budget_cost_table: req.body.budget_cost_table,
+        // budget_cost_table: req.body.budget_cost_table,
         nameOfSociety: req.body.nameOfSociety,
         currentPhase:req.body.currentPhase,
         currentPhaseProjectBudget:req.body.currentPhaseProjectBudget,
