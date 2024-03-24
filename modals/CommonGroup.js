@@ -7,7 +7,6 @@ const objectiveSchema = new Schema({
   activities: [
     {
       activity: { type: String, required: true },
-      timeframe: [{ type: Boolean, required: true }],
       verification: { type: String, required: true },
     },
   ],
