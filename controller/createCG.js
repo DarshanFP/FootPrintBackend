@@ -1,14 +1,14 @@
 const CG = require("../modals/CommonGroup");
-const commonGroupValidate = require("../controller/commonGroupValidate");
+// const commonGroupValidate = require("../controller/commonGroupValidate");
 
 const createCG = async (req, res) => {
   try {
-    try {
-      await commonGroupValidate.validateAsync(req.body);
-    } catch (error) {
-      console.log(error);
-      return res.status(400).json({ success: false, msg: error.message });
-    }
+    // try {
+    //   await commonGroupValidate.validateAsync(req.body);
+    // } catch (error) {
+    //   console.log(error);
+    //   return res.status(400).json({ success: false, msg: error.message });
+    // }
     let projectCode = 0;
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
