@@ -9,12 +9,12 @@ const editCG = async (req, res) => {
     if (!projectID) {
       res.json({ success: false, msg: "send project ID" });
     }
-    try {
-      await commonGroupValidate.validateAsync(modifiedReqBody);
-    } catch (error) {
-      console.log(error);
-      return res.status(400).json({ success: false, msg: error.message });
-    }
+    // try {
+    //   await commonGroupValidate.validateAsync(modifiedReqBody);
+    // } catch (error) {
+    //   console.log(error);
+    //   return res.status(400).json({ success: false, msg: error.message });
+    // }
     const editedCG =await CG.findOneAndUpdate(
       { project_code: projectID },
       {
@@ -22,7 +22,7 @@ const editCG = async (req, res) => {
         objectives: req.body.objectives,
         selectedMonths: req.body.selectedMonths,//
         isSubmitted: req.body.isSubmitted,//
-        budget_cost_table: req.body.budget_cost_table,
+        // budget_cost_table: req.body.budget_cost_table,
         nameOfSociety: req.body.nameOfSociety,
         currentPhase:req.body.currentPhase,
         currentPhaseProjectBudget:req.body.currentPhaseProjectBudget,
