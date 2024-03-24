@@ -45,7 +45,14 @@ const editCG = async (req, res) => {
         evaluationMethodology: req.body.evaluationMethodology,
         beneficiaryAgreement: req.body.beneficiaryAgreement,
         beneficiaryAgreementDate: new Date(),
-        project_in_charge_agree:req.body.project_in_charge_agree
+        project_in_charge_agree: req.body.project_in_charge_agree,
+        provincial_superior_agree: req.body.provincial_superior_agree,
+        comment_box_provincial_superior: req.body.comment_box_provincial_superior,
+        project_coordinator_agree: req.body.project_coordinator_agree,
+        project_coordinator_agree_swz:req.body.project_coordinator_agree_swz,
+        comment_box_project_coordinator: req.body.comment_box_project_coordinator,
+        comment_box_project_coordinator_swz:req.body.comment_box_project_coordinator_swz,
+        amount_approved:req.body.amount_approved
       },
       { new: true }
     );
