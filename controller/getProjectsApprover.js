@@ -45,9 +45,9 @@ try {
     .populate("mailing_list.project_coordinators.ref");
     arr.push({ name: "HIV", data: allHIVProject });
     const allEGSApprover = await EducationalGroupSupportModel.find({})
-    .populate("general_information.project_incharge.ref")
-    .populate("general_information.provincial_superior.ref")
-    .populate("general_information.project_coordinators.ref");
+    .populate("applicant")
+    .populate("reviewer")
+    // .populate("general_information.project_coordinators.ref");
     arr.push({ name: "EGS", data: allEGSApprover });
 
     return res.json({ success: true, data: arr });
