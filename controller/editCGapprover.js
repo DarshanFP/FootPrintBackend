@@ -11,11 +11,7 @@ const editCGapprover = async (req, res) => {
       amount_approved, 
     } = req.body;
     if (
-      !projectID ||
-      !comment_box_project_coordinator ||
-      !comment_box_project_coordinator_swz||
-      project_coordinator_agree_swz===undefined||
-      project_coordinator_agree === undefined 
+      !projectID
     ) {
       return res.json({ success: false, msg: "send all fields" });
     }
