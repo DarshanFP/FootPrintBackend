@@ -1,14 +1,14 @@
 const DPLG = require("../modals/DevProjLivliGroup");
-const DevProjLivliGroupValidate = require("../controller/DevProjLivliGroupValidate");
+// const DevProjLivliGroupValidate = require("../controller/DevProjLivliGroupValidate");
 
 const createDPLG = async (req, res) => {
   try {
-    try {
-      await DevProjLivliGroupValidate.validateAsync(req.body);
-    } catch (error) {
-      console.log(error);
-      return res.status(400).json({ success: false, msg: error.message });
-    }
+    // try {
+    //   await DevProjLivliGroupValidate.validateAsync(req.body);
+    // } catch (error) {
+    //   console.log(error);
+    //   return res.status(400).json({ success: false, msg: error.message });
+    // }
     let projectCode = 0;
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
@@ -37,13 +37,17 @@ const createDPLG = async (req, res) => {
       OverallProjectBudget:req.body.OverallProjectBudget,
       ProjectOfInitialProject:req.body.ProjectOfInitialProject,
       problemAnalysis:req.body.problemAnalysis,
-      solutionAnalysis:req.body.solutionAnalysis,
+      // solutionAnalysis:req.body.solutionAnalysis,
       goal:req.body.goal,
+      timeFrame:req.body.timeFrame,
       objectives:req.body.objectives,
-      sustainability:req.body.sustainability,
+      methodology_Reporting:req.body.methodology_Reporting,
+      methodology_Evolution:req.body.methodology_Evolution,
+      president:req.body.president,
+      current_phase:req.body.current_phase,
       monitoringProcess:req.body.monitoringProcess,
       budget_cost_table: req.body.budget_cost_table,
-      studies_table_data:req.body.studies_table_data,
+      studies_table_data:req.body.studies_table_data,  
       project_in_charge_agree: {agree: true},
     });
     res.json({ success: true });

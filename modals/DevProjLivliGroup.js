@@ -1,3 +1,4 @@
+const { string, required } = require("joi");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -26,6 +27,10 @@ const Studies = new Schema({
   requested_amount: { type: Number, required: true },
 });
 
+const timeframeSchema=new Schema({
+  activities:{type:String, required:true},
+  months:[Boolean]
+})
 const DevProjLivliGroup = new Schema({
   project_code: { type: String, required: true, unique: true },
   applicant: {
@@ -41,6 +46,10 @@ const DevProjLivliGroup = new Schema({
   NameOfSociety: { type: String, required: true },
   DateOfSubmission: { type: String, required: true },
   TitleOfProject: { type: String, required: true },
+  methodology_Reporting:{type:String,required:true},
+  methodology_Evolution:{type:String, required:true},
+  president:{type:String,required:true},
+  current_phase:{type:Number,required:true},
   address: {
     type: String,
     required: true,
@@ -49,13 +58,14 @@ const DevProjLivliGroup = new Schema({
   OverallProjectBudget: { type: Number, required: true },
   ProjectOfInitialProject: { type: String, required: true },
   problemAnalysis: { type: String, required: true },
-  solutionAnalysis: { type: String, required: true },
+  // solutionAnalysis: { type: String, required: true },
   goal: { type: String, required: true },
   objectives: [objectiveSchema],
   sustainability: { type: String, required: true },
   monitoringProcess: { type: String, required: true },
   budget_cost_table: [Budget_cost],
   studies_table_data: [Studies],
+  timeFrame:[timeframeSchema],
   project_in_charge_agree: {
     agree: { type: Boolean, default: false },
     date: {
