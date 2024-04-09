@@ -39,6 +39,7 @@ const createDPLG = async (req, res) => {
       problemAnalysis:req.body.problemAnalysis,
       // solutionAnalysis:req.body.solutionAnalysis,
       goal:req.body.goal,
+      sustainability:req.body.sustainability,
       timeFrame:req.body.timeFrame,
       objectives:req.body.objectives,
       methodology_Reporting:req.body.methodology_Reporting,
