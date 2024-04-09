@@ -44,7 +44,7 @@ const DevProjLivliGroup = new Schema({
     required: true,
   },
   NameOfSociety: { type: String, required: true },
-  DateOfSubmission: { type: String, required: true },
+  // DateOfSubmission: { type: String, required: true },
   TitleOfProject: { type: String, required: true },
   methodology_Reporting:{type:String,required:true},
   methodology_Evolution:{type:String, required:true},

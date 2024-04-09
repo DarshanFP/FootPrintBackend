@@ -18,7 +18,7 @@ const editDPLG = async (req, res) => {
         { project_code: projectID },
         {
             NameOfSociety:req.body.NameOfSociety,
-            DateOfSubmission:req.body.DateOfSubmission,
+            // DateOfSubmission:req.body.DateOfSubmission,
             TitleOfProject:req.body.TitleOfProject,
             address:req.body.address,
             OverallProjectPeriod:req.body.OverallProjectPeriod,

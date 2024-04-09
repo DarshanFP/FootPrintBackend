@@ -30,7 +30,7 @@ const createDPLG = async (req, res) => {
       applicant: req.user,
       reviewer: req.user.reviewer,
       NameOfSociety:req.body.NameOfSociety,
-      DateOfSubmission:req.body.DateOfSubmission,
+      // DateOfSubmission:req.body.DateOfSubmission,
       TitleOfProject:TitleOfProject,
       address:req.body.address,
       OverallProjectPeriod:req.body.OverallProjectPeriod,
